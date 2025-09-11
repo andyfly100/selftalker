@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开始改变 - 自语力</title>
+    <link rel="alternate" hreflang="en" href="/start/en/">
+    <link rel="alternate" hreflang="zh" href="/start/zh/">
+    <link rel="alternate" hreflang="x-default" href="/start/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10B981;
+            --secondary: #FEF3C7;
+            --accent: #FB923C;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --background: #FAFAFA;
+            --success: #059669;
+            --warning: #D97706;
+            --error: #DC2626;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 语言切换器 */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-radius: 25px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out 0.3s both;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn:not(.active) {
+            color: var(--gray);
+        }
+
+        .lang-btn:not(.active):hover {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        /* 导航栏 */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '💬';
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #0EA570;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--gray);
+            color: var(--white);
+        }
+
+        /* 主要内容区 */
+        main {
+            margin-top: 70px;
+        }
+
+        /* 页面标题 */
+        .page-header {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(251, 146, 60, 0.05) 100%);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 步骤选择区域 */
+        .habit-selection {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .habit-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .habit-category {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .habit-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .habit-category.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(251, 146, 60, 0.05) 100%);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .category-description {
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .habit-options {
+            display: none;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 1.5rem;
+        }
+
+        .habit-category.selected .habit-options {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .habit-option {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: var(--background);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .habit-option:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .habit-option input {
+            margin-right: 0.8rem;
+        }
+
+        /* 个性化设置 */
+        .personalization {
+            padding: 4rem 2rem;
+            background: var(--white);
+            display: none;
+        }
+
+        .personalization.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .personalization-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .reminder-times {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .time-slot {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: var(--background);
+            border-radius: 10px;
+        }
+
+        /* 进度指示器 */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: var(--white);
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .step-circle.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .step-circle.completed {
+            background: var(--success);
+            color: white;
+        }
+
+        .step-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .step-label.active {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .step-connector {
+            width: 50px;
+            height: 2px;
+            background: var(--light-gray);
+            margin: 0 1rem;
+        }
+
+        .step-connector.completed {
+            background: var(--success);
+        }
+
+        /* 行动按钮区域 */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: var(--background);
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* 隐藏非当前语言内容 */
+        .content[data-lang]:not(.active) {
+            display: none;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 0.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .habit-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-buttons .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
+        <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">English</button>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">自语力</a>
+            <div class="nav-links">
+                <a href="/" data-text-zh="首页" data-text-en="Home">首页</a>
+                <a href="/how-it-works" data-text-zh="如何运作" data-text-en="How It Works">如何运作</a>
+                <a href="/success-stories" data-text-zh="成功故事" data-text-en="Success Stories">成功故事</a>
+                <a href="/about" data-text-zh="关于我们" data-text-en="About Us">关于我们</a>
+                <a href="/start" class="cta-button active" data-text-zh="开始改变" data-text-en="Start Now">开始改变</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 中文内容 -->
+        <div class="content active" data-lang="zh">
+            <!-- 页面标题 -->
+            <section class="page-header">
+                <h1>开始你的21天改变之旅</h1>
+                <p class="subtitle">选择一个你最想改变的习惯，让我们为你量身定制专属的自我对话方案</p>
+            </section>
+
+            <!-- 进度指示器 -->
+            <section class="progress-indicator">
+                <div class="progress-step">
+                    <div class="step-circle active">1</div>
+                    <div class="step-label active">选择习惯</div>
+                    <div class="step-connector"></div>
+                    <div class="step-circle">2</div>
+                    <div class="step-label">个性化设置</div>
+                    <div class="step-connector"></div>
+                    <div class="step-circle">3</div>
+                    <div class="step-label">开始践行</div>
+                </div>
+            </section>
+
+            <!-- 习惯选择 -->
+            <section class="habit-selection">
+                <h2 class="section-title">选择你想要改变的习惯类型</h2>
+                <div class="habit-categories">
+                    <div class="habit-category" onclick="selectCategory(this, 'quit-bad')">
+                        <div class="category-icon">🚫</div>
+                        <h3 class="category-title">戒除不良习惯</h3>
+                        <p class="category-description">戒烟、戒酒、减少刷手机、改掉拖延症等</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="quit-smoking" id="quit-smoking">
+                                <label for="quit-smoking">戒烟</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="quit-drinking" id="quit-drinking">
+                                <label for="quit-drinking">戒酒/减少饮酒</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="reduce-phone" id="reduce-phone">
+                                <label for="reduce-phone">减少玩手机</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="stop-procrastination" id="stop-procrastination">
+                                <label for="stop-procrastination">改掉拖延症</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="habit-category" onclick="selectCategory(this, 'build-good')">
+                        <div class="category-icon">✨</div>
+                        <h3 class="category-title">培养好习惯</h3>
+                        <p class="category-description">早起、运动、读书、冥想等积极习惯</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="early-rising" id="early-rising">
+                                <label for="early-rising">早起</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="exercise" id="exercise">
+                                <label for="exercise">坚持运动</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="reading" id="reading">
+                                <label for="reading">每天读书</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="meditation" id="meditation">
+                                <label for="meditation">冥想练习</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="habit-category" onclick="selectCategory(this, 'health-diet')">
+                        <div class="category-icon">🥗</div>
+                        <h3 class="category-title">健康饮食</h3>
+                        <p class="category-description">控制体重、健康饮食、规律作息等</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="weight-loss" id="weight-loss">
+                                <label for="weight-loss">控制体重</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="healthy-eating" id="healthy-eating">
+                                <label for="healthy-eating">健康饮食</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="drink-water" id="drink-water">
+                                <label for="drink-water">多喝水</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit" value="sleep-schedule" id="sleep-schedule">
+                                <label for="sleep-schedule">规律作息</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 个性化设置 -->
+            <section class="personalization" id="personalization-zh">
+                <div class="personalization-container">
+                    <h2 class="section-title">个性化你的改变计划</h2>
+                    
+                    <div class="form-group">
+                        <label for="name-zh">你的名字（我们会在对话中使用）</label>
+                        <input type="text" id="name-zh" placeholder="请输入你的名字">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation-zh">你最想改变这个习惯的原因是什么？</label>
+                        <textarea id="motivation-zh" placeholder="例如：为了健康、为了家人、为了更好的自己..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="current-level-zh">你目前的情况如何？</label>
+                        <select id="current-level-zh">
+                            <option value="">请选择</option>
+                            <option value="beginner">刚开始尝试</option>
+                            <option value="struggling">一直在努力但总是失败</option>
+                            <option value="intermediate">有过短期成功经验</option>
+                            <option value="relapse">曾经成功过但又重新开始了</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>你希望什么时候进行自我对话提醒？</label>
+                        <div class="reminder-times">
+                            <div class="time-slot">
+                                <input type="checkbox" id="morning-zh" checked>
+                                <label for="morning-zh">早晨 (8:00)</label>
+                            </div>
+                            <div class="time-slot">
+                                <input type="checkbox" id="afternoon-zh" checked>
+                                <label for="afternoon-zh">下午 (14:00)</label>
+                            </div>
+                            <div class="time-slot">
+                                <input type="checkbox" id="evening-zh" checked>
+                                <label for="evening-zh">晚上 (20:00)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 行动按钮 -->
+            <section class="action-buttons">
+                <button class="cta-button secondary" onclick="goBack()" style="display: none;" id="back-btn-zh">返回上一步</button>
+                <button class="cta-button" onclick="nextStep()" id="next-btn-zh">下一步</button>
+            </section>
+        </div>
+
+        <!-- 英文内容 -->
+        <div class="content" data-lang="en">
+            <!-- Page Header -->
+            <section class="page-header">
+                <h1>Start Your 21-Day Transformation Journey</h1>
+                <p class="subtitle">Choose the habit you want to change most, and we'll create a personalized self-talk program just for you</p>
+            </section>
+
+            <!-- Progress Indicator -->
+            <section class="progress-indicator">
+                <div class="progress-step">
+                    <div class="step-circle active">1</div>
+                    <div class="step-label active">Choose Habit</div>
+                    <div class="step-connector"></div>
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Personalize</div>
+                    <div class="step-connector"></div>
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Start Practice</div>
+                </div>
+            </section>
+
+            <!-- Habit Selection -->
+            <section class="habit-selection">
+                <h2 class="section-title">Choose Your Habit Category</h2>
+                <div class="habit-categories">
+                    <div class="habit-category" onclick="selectCategory(this, 'quit-bad')">
+                        <div class="category-icon">🚫</div>
+                        <h3 class="category-title">Break Bad Habits</h3>
+                        <p class="category-description">Quit smoking, drinking, reduce phone usage, overcome procrastination</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="quit-smoking" id="quit-smoking-en">
+                                <label for="quit-smoking-en">Quit Smoking</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="quit-drinking" id="quit-drinking-en">
+                                <label for="quit-drinking-en">Quit/Reduce Drinking</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="reduce-phone" id="reduce-phone-en">
+                                <label for="reduce-phone-en">Reduce Phone Usage</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="stop-procrastination" id="stop-procrastination-en">
+                                <label for="stop-procrastination-en">Stop Procrastination</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="habit-category" onclick="selectCategory(this, 'build-good')">
+                        <div class="category-icon">✨</div>
+                        <h3 class="category-title">Build Good Habits</h3>
+                        <p class="category-description">Early rising, exercise, reading, meditation and other positive habits</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="early-rising" id="early-rising-en">
+                                <label for="early-rising-en">Early Rising</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="exercise" id="exercise-en">
+                                <label for="exercise-en">Regular Exercise</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="reading" id="reading-en">
+                                <label for="reading-en">Daily Reading</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="meditation" id="meditation-en">
+                                <label for="meditation-en">Meditation Practice</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="habit-category" onclick="selectCategory(this, 'health-diet')">
+                        <div class="category-icon">🥗</div>
+                        <h3 class="category-title">Health & Diet</h3>
+                        <p class="category-description">Weight control, healthy eating, regular sleep schedule</p>
+                        <div class="habit-options">
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="weight-loss" id="weight-loss-en">
+                                <label for="weight-loss-en">Weight Control</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="healthy-eating" id="healthy-eating-en">
+                                <label for="healthy-eating-en">Healthy Eating</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="drink-water" id="drink-water-en">
+                                <label for="drink-water-en">Drink More Water</label>
+                            </div>
+                            <div class="habit-option">
+                                <input type="radio" name="habit-en" value="sleep-schedule" id="sleep-schedule-en">
+                                <label for="sleep-schedule-en">Regular Sleep</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personalization -->
+            <section class="personalization" id="personalization-en">
+                <div class="personalization-container">
+                    <h2 class="section-title">Personalize Your Change Plan</h2>
+                    
+                    <div class="form-group">
+                        <label for="name-en">Your Name (We'll use this in our dialogues)</label>
+                        <input type="text" id="name-en" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation-en">What's your main motivation for changing this habit?</label>
+                        <textarea id="motivation-en" placeholder="e.g., For my health, for my family, to become a better person..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="current-level-en">What's your current situation?</label>
+                        <select id="current-level-en">
+                            <option value="">Please select</option>
+                            <option value="beginner">Just starting to try</option>
+                            <option value="
