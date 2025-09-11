@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-title-zh="关于我们 - 自语力" data-title-en="About Us - SelfTalk">关于我们 - 自语力</title>
+    <link rel="alternate" hreflang="en" href="/about/en/">
+    <link rel="alternate" hreflang="zh" href="/about/zh/">
+    <link rel="alternate" hreflang="x-default" href="/about/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10B981;
+            --secondary: #FEF3C7;
+            --accent: #FB923C;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --background: #FAFAFA;
+            --success: #059669;
+            --warning: #D97706;
+            --error: #DC2626;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 语言切换器 */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-radius: 25px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out 0.3s both;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn:not(.active) {
+            color: var(--gray);
+        }
+
+        .lang-btn:not(.active):hover {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        /* 导航栏 */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '💬';
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: #0EA570;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* 主要内容区 */
+        main {
+            margin-top: 70px;
+        }
+
+        /* 页面特定样式 */
+        .hero-about {
+            background: linear-gradient(135deg, 
+                rgba(16, 185, 129, 0.1) 0%, 
+                rgba(251, 146, 60, 0.1) 50%,
+                rgba(16, 185, 129, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.03;
+            top: -150px;
+            left: -150px;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .hero-about::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.05;
+            bottom: -100px;
+            right: -100px;
+            animation: float 20s infinite ease-in-out reverse;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-about h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-about .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* 故事时间线 */
+        .story-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+
+        .timeline-content {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 45%;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .timeline-item.left .timeline-content {
+            margin-left: 0;
+        }
+
+        .timeline-item.right .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* 团队介绍 */
+        .team-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(251, 146, 60, 0.1) 100%);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .team-member:nth-child(1) { animation-delay: 0.2s; }
+        .team-member:nth-child(2) { animation-delay: 0.4s; }
+        .team-member:nth-child(3) { animation-delay: 0.6s; }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* 价值观 */
+        .values-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: var(--background);
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0.2s; }
+        .value-card:nth-child(2) { animation-delay: 0.4s; }
+        .value-card:nth-child(3) { animation-delay: 0.6s; }
+        .value-card:nth-child(4) { animation-delay: 0.8s; }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* 联系方式 */
+        .contact-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary), #0EA570);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item-icon {
+            font-size: 1.5rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item.left .timeline-content,
+            .timeline-item.right .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-about h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* 动画 */
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* 隐藏非当前语言内容 */
+        .content[data-lang]:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 语言切换器 -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
+        <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">English</button>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">自语力</a>
+            <div class="nav-links">
+                <a href="/" data-text-zh="首页" data-text-en="Home">首页</a>
+                <a href="/how-it-works" data-text-zh="如何运作" data-text-en="How It Works">如何运作</a>
+                <a href="/success-stories" data-text-zh="成功故事" data-text-en="Success Stories">成功故事</a>
+                <a href="/about" class="active" data-text-zh="关于我们" data-text-en="About Us">关于我们</a>
+                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">开始改变</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 中文内容 -->
+        <div class="content active" data-lang="zh">
+            <!-- 英雄区域 -->
+            <section class="hero-about">
+                <div class="hero-content">
+                    <h1>关于自语力</h1>
+                    <p class="subtitle">我们相信每个人都拥有改变自己的内在力量，通过科学的自我对话训练，帮助您重塑习惯、实现蜕变</p>
+                </div>
+            </section>
+
+            <!-- 我们的故事 -->
+            <section class="story-section">
+                <div class="story-container">
+                    <h2 class="section-title">我们的故事</h2>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2020年</div>
+                                <h3 class="timeline-title">发现的起点</h3>
+                                <p class="timeline-description">创始团队在心理学研究中发现，自我对话是改变行为最有效的方法之一。我们开始思考：如何让更多人掌握这个技能？</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2021年</div>
+                                <h3 class="timeline-title">理论验证</h3>
+                                <p class="timeline-description">深入研究认知行为疗法、正念冥想等科学方法，结合中国文化背景，开发出适合国人的自我对话训练体系。</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2022年</div>
+                                <h3 class="timeline-title">产品诞生</h3>
+                                <p class="timeline-description">"自语力"平台正式上线，首批用户开始21天改变之旅。我们惊喜地发现，超过70%的用户成功建立了新习惯。</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2023年至今</div>
+                                <h3 class="timeline-title">持续成长</h3>
+                                <p class="timeline-description">帮助数万用户成功改变习惯，不断优化产品体验，致力于成为您最贴心的习惯改变伙伴。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 团队介绍 -->
+            <section class="team-section">
+                <div class="team-container">
+                    <h2 class="section-title">核心团队</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-avatar">李</div>
+                            <h3 class="team-name">李明</h3>
+                            <p class="team-role">创始人 & CEO</p>
+                            <p class="team-description">心理学博士，10年习惯研究经验。曾帮助上千人成功戒烟、减肥、建立运动习惯。坚信"改变始于内心的对话"。</p>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-avatar">王</div>
+                            <h3 class="team-name">王芳</h3>
+                            <p class="team-role">产品总监</p>
+                            <p class="team-description">前腾讯产品经理，专注用户体验设计。擅长将复杂的心理学理论转化为简单易用的产品功能。</p>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-avatar">张</div>
+                            <h3 class="team-name">张伟</h3>
+                            <p class="team-role">技术总监</p>
+                            <p class="team-description">资深全栈工程师，AI技术专家。致力于用技术让每个人都能获得个性化的习惯改变指导。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 价值观 -->
+            <section class="values-section">
+                <div class="values-container">
+                    <h2 class="section-title">我们的价值观</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h3 class="value-title">科学有效</h3>
+                            <p class="value-description">基于心理学和神经科学研究，提供经过验证的习惯改变方法，让每一份努力都有回报。</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">❤️</div>
+                            <h3 class="value-title">温暖陪伴</h3>
+                            <p class="value-description">改变路上不孤单，我们用技术创造温度，让每个用户都能感受到理解和支持。</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🌟</div>
+                            <h3 class="value-title">持续成长</h3>
+                            <p class="value-description">相信每个人都有无限潜能，我们致力于帮助用户发现更好的自己，实现持续成长。</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🔒</div>
+                            <h3 class="value-title">隐私保护</h3>
+                            <p class="value-description">严格保护用户隐私，所有个人信息都经过加密处理，让您安心专注于自我改变。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联系我们 -->
+            <section class="contact-section">
+                <div class="contact-container">
+                    <h2>联系我们</h2>
+                    <p>有任何问题或建议，欢迎随时与我们联系</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-item-icon">📧</span>
+                            <span>contact@selftalk.cn</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item-icon">💬</span>
+                            <span>微信：selftalk2023</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 英文内容 -->
+        <div class="content" data-lang="en">
+            <!-- Hero Section -->
+            <section class="hero-about">
+                <div class="hero-content">
+                    <h1>About SelfTalk</h1>
+                    <p class="subtitle">We believe everyone has the inner power to change. Through scientific self-dialogue training, we help you reshape habits and achieve transformation.</p>
+                </div>
+            </section>
+
+            <!-- Our Story -->
+            <section class="story-section">
+                <div class="story-container">
+                    <h2 class="section-title">Our Story</h2>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2020</div>
+                                <h3 class="timeline-title">The Beginning</h3>
+                                <p class="timeline-description">Our founding team discovered in psychological research that self-dialogue is one of the most effective methods for behavior change. We started thinking: how can we help more people master this skill?</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2021</div>
+                                <h3 class="timeline-title">Theory Validation</h3>
+                                <p class="timeline-description">We deeply studied cognitive behavioral therapy, mindfulness meditation and other scientific methods, combining them with Chinese cultural background to develop a self-dialogue training system suitable for Chinese people.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2022</div>
+                                <h3 class="timeline-title">Product Launch</h3>
+                                <p class="timeline-description">SelfTalk platform officially launched, with the first batch of users starting their 21-day transformation journey. We were delighted to find that over 70% of users successfully established new habits.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-year">2023 - Present</div>
+                                <h3 class="timeline-title">Continuous Growth</h3>
+                                <p class="timeline-description">Helping tens of thousands of users successfully change their habits, continuously optimizing product experience, committed to being your most caring habit change partner.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Introduction -->
+            <section class="team-section">
+                <div class="team-container">
+                    <h2 class="section-title">Core Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-avatar">L</div>
+                            <h3 class="team-name">Li Ming</h3>
+                            <p class="team-role">Founder & CEO</p>
+                            <p class="team-description">PhD in Psychology with 10 years of habit research experience. Has helped thousands of people successfully quit smoking, lose weight, and establish exercise habits. Believes that "change begins with inner dialogue."</p>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-avatar">W</div>
+                            <h3 class="team-name">Wang Fang</h3>
+                            <p class="team-role">Product Director</p>
+                            <p class="team-description">Former Tencent Product Manager, focusing on user experience design. Skilled at transforming complex psychological theories into simple and easy-to-use product features.</p>
+                        </div>
+
+                        <div class="team-member">
+                            <div class="team-avatar">Z</div>
+                            <h3 class="team-name">Zhang Wei</h3>
+                            <p class="team-role">Technical Director</p>
+                            <p class="team-description">Senior full-stack engineer and AI technology expert. Committed to using technology to provide personalized habit change guidance for everyone.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values -->
+            <section class="values-section">
+                <div class="values-container">
+                    <h2 class="section-title">Our Values</h2>
