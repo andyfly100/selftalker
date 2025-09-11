@@ -39,7 +39,7 @@
         /* 语言切换器 */
         .language-switcher {
             position: fixed;
-            top: 100px;
+            top: 20px;
             right: 20px;
             z-index: 1001;
             display: flex;
@@ -696,7 +696,7 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <span class="contact-item-icon">📧</span>
-                            <span>selftalkernow@outlook.com</span>
+                            <span>contact@selftalk.cn</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-item-icon">💬</span>
@@ -794,3 +794,149 @@
             <section class="values-section">
                 <div class="values-container">
                     <h2 class="section-title">Our Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h3 class="value-title">Scientific & Effective</h3>
+                            <p class="value-description">Based on psychology and neuroscience research, providing proven habit change methods to ensure every effort pays off.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">❤️</div>
+                            <h3 class="value-title">Warm Companionship</h3>
+                            <p class="value-description">You're not alone on the journey of change. We use technology to create warmth, making every user feel understood and supported.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🌟</div>
+                            <h3 class="value-title">Continuous Growth</h3>
+                            <p class="value-description">Believing everyone has unlimited potential, we're committed to helping users discover a better version of themselves and achieve continuous growth.</p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon">🔒</div>
+                            <h3 class="value-title">Privacy Protection</h3>
+                            <p class="value-description">Strictly protecting user privacy with all personal information encrypted, allowing you to focus on self-improvement with peace of mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us -->
+            <section class="contact-section">
+                <div class="contact-container">
+                    <h2>Contact Us</h2>
+                    <p>Have any questions or suggestions? Feel free to reach out to us anytime</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-item-icon">📧</span>
+                            <span>contact@selftalk.cn</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item-icon">💬</span>
+                            <span>WeChat: selftalk2023</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // 语言切换功能
+        function switchLanguage(lang) {
+            // 更新语言按钮状态
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 显示对应语言内容
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+                if (content.getAttribute('data-lang') === lang) {
+                    content.classList.add('active');
+                }
+            });
+
+            // 更新页面标题
+            const titleElement = document.querySelector('title');
+            if (lang === 'zh') {
+                titleElement.textContent = titleElement.getAttribute('data-title-zh');
+            } else {
+                titleElement.textContent = titleElement.getAttribute('data-title-en');
+            }
+
+            // 更新导航链接文本
+            document.querySelectorAll('[data-text-zh]').forEach(element => {
+                if (lang === 'zh') {
+                    element.textContent = element.getAttribute('data-text-zh');
+                } else {
+                    element.textContent = element.getAttribute('data-text-en');
+                }
+            });
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检测浏览器语言
+            const browserLang = navigator.language || navigator.userLanguage;
+            const defaultLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+            
+            // 从URL参数或localStorage获取语言设置
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const savedLang = localStorage.getItem('preferred-language');
+            
+            const selectedLang = urlLang || savedLang || defaultLang;
+            switchLanguage(selectedLang);
+            
+            // 保存语言选择
+            localStorage.setItem('preferred-language', selectedLang);
+
+            // 添加滚动效果
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                } else {
+                    nav.style.background = 'var(--white)';
+                    nav.style.backdropFilter = 'none';
+                }
+            });
+
+            // 交互动画观察器
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // 观察所有需要动画的元素
+            document.querySelectorAll('.timeline-item, .team-member, .value-card').forEach(item => {
+                observer.observe(item);
+            });
+        });
+
+        // 语言按钮点击事件
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                switchLanguage(lang);
+                localStorage.setItem('preferred-language', lang);
+            });
+        });
+    </script>
+</body>
+</html>
