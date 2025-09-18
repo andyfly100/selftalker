@@ -9,6 +9,7 @@
     gtag('js', new Date())
     gtag('config', 'G-T9ZN9KSK27');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6928529142816465" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SelfTalk - Transform Yourself Through Self-Talk</title>
@@ -384,6 +385,138 @@
         .step-description {
             color: var(--gray);
             line-height: 1.8;
+        }
+
+        .how-section {
+            padding: 4.5rem 2rem;
+            background: var(--white);
+        }
+
+        .how-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: stretch;
+        }
+
+        .how-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .how-eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .how-copy h2 {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+
+        .how-copy p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .how-points {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .how-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.08);
+        }
+
+        .how-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .how-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .about-preview {
+            padding: 4.5rem 2rem;
+            background: var(--white);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+        }
+
+        .about-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .about-eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .about-copy h2 {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+
+        .about-copy p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .about-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .about-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.08);
+        }
+
+        .about-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.7;
         }
 
         .landing-pathways {
@@ -780,6 +913,35 @@
                 align-items: flex-start;
             }
 
+            .how-section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .how-container {
+                grid-template-columns: 1fr;
+            }
+
+            .how-copy h2 {
+                font-size: 1.9rem;
+            }
+
+            .about-preview {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-copy h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .plan-highlight-grid,
             .evidence-grid {
                 grid-template-columns: 1fr;
@@ -839,9 +1001,9 @@
         <div class="nav-container">
             <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">SelfTalk</a>
             <div class="nav-links">
-                <a href="#how" data-text-zh="如何运作" data-text-en="How It Works">How It Works</a>
-                <a href="#stories" data-text-zh="成功故事" data-text-en="Success Stories">Success Stories</a>
-                <a href="#about" data-text-zh="关于我们" data-text-en="About Us">About Us</a>
+                <a href="#how" data-text-zh="如何运作" data-text-en="How It Works" data-href-zh="#how" data-href-en="#how-en">How It Works</a>
+                <a href="#stories" data-text-zh="成功故事" data-text-en="Success Stories" data-href-zh="#stories" data-href-en="#stories-en">Success Stories</a>
+                <a href="#about" data-text-zh="关于我" data-text-en="About Me" data-href-zh="#about" data-href-en="#about-en">About Me</a>
                 <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">Start Now</a>
             </div>
         </div>
@@ -868,6 +1030,31 @@
                 </div>
             </section>
 
+            <section class="how-section" id="how">
+                <div class="how-container">
+                    <div class="how-copy">
+                        <p class="how-eyebrow">如何运作</p>
+                        <h2>最新脑科学告诉我们：刻意的自我对话可以重写习惯回路</h2>
+                        <p>神经科学研究表明，大脑会根据内部声音来预测奖励与危险；当我们有意识地改写这些声音时，就能在不触发强烈戒断反应的情况下，重新训练神经通路。李笑来老师也在他的自我对话课程里提醒过：“用自己的声音对自己讲话，是最具说服力的输入”。</p>
+                        <p>自语力把这一套方法拆成 21 天脚本：每天三段自我对话、一次神经系统放松练习、以及一个行为替代。你需要做的，就是跟我一样照着念、照着写。</p>
+                    </div>
+                    <div class="how-points">
+                        <article class="how-card">
+                            <h3>声音先于感觉</h3>
+                            <p>当你反复对自己说“我想要清醒的今天”，大脑的预测编码会把“清醒”当作奖励信号，从而降低对烟酒与直播的渴求。</p>
+                        </article>
+                        <article class="how-card">
+                            <h3>21 天形成新线路</h3>
+                            <p>脚本按照“触发 → 自我对话 → 微行动”的顺序设计，让新的神经连接在 3 周内逐渐增强，旧习惯的自动化反应自然被替换。</p>
+                        </article>
+                        <article class="how-card">
+                            <h3>无痛戒烟的经验</h3>
+                            <p>我和阿强都经历过：当大脑相信“我已经在恢复健康”，尼古丁的戒断峰值会被平滑掉，只留下可以管理的身体感觉。</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
             <section class="landing-pathways" id="pathways">
                 <h2>你想先突破哪一类习惯？</h2>
                 <div class="landing-pathway-grid">
@@ -883,6 +1070,34 @@
                         <p>早起、运动、冥想、阅读……敬请期待，我们已为你准备好自定义入口。</p>
                         <a class="link-button" href="/start?path=build-good">配置我的好习惯</a>
                     </article>
+                </div>
+            </section>
+
+            <section class="about-preview" id="about">
+                <div class="about-container">
+                    <div class="about-copy">
+                        <p class="about-eyebrow">关于我</p>
+                        <h2>自语力是我用来自救的 21 天对话练习</h2>
+                        <p>几年前的我几乎每天刷直播到凌晨，情绪被主播牵着走。直到把脑海里的声音写成自语力脚本，一句句对自己复述，我在几周内戒掉了直播和短视频。</p>
+                        <p>后来我邀请朋友一起练习，有人完成 21 天戒烟，有人告别习惯性饮酒。我们记录诱因、换掉旧习惯，用同样的脚本彼此见证改变。</p>
+                        <div class="about-actions">
+                            <a class="link-button" href="/about">阅读完整故事</a>
+                        </div>
+                    </div>
+                    <div class="about-highlights">
+                        <article class="about-card">
+                            <h3>几周重获专注</h3>
+                            <p>每天复盘触发点，把"想刷"换成"我选择停下"，我把自己的注意力重新拿回来了。</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>真实的反馈</h3>
+                            <p>阿强在 21 天里告别香烟，佳佳在聚会前默念"我想要清醒的自己"，这套脚本同样帮到了他们。</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>分享的初心</h3>
+                            <p>我知道从头开始有多难，所以把完整流程整理在自语力里，让你随时调出脚本练习。</p>
+                        </article>
+                    </div>
                 </div>
             </section>
 
@@ -938,13 +1153,16 @@
                 <h2>真实案例与专业背书</h2>
                 <div class="evidence-grid">
                     <article class="story-card">
-                        <h3>「21 天戒烟」纪实</h3>
-                        <p>陈先生在第 4 天写下戒烟理由，第 9 天完成首次录音回放。21 天后，他累计 63 次自我对话练习，持续保持无烟生活。</p>
-                        <p class="muted">数据来源：SelfTalk 戒烟内测 2024Q4</p>
+                        <h3>我：无痛戒掉直播与短视频</h3>
+                        <p>把“再刷一会儿”改写成“我选择清醒”，21 天脚本帮我平滑地告别深夜直播，重新掌控注意力。</p>
                     </article>
                     <article class="story-card">
-                        <blockquote>“把自我对话写下来并重复，是最经济也最容易持续的认知行为练习之一。”</blockquote>
-                        <div class="expert-meta">—— 张怡宁，行为心理学研究员 / 《习惯的自我重写》作者</div>
+                        <h3>李笑来老师：自我对话是最省成本的改变方式</h3>
+                        <p>他在课程里强调：最有说服力的声音是自己的声音。坚持写、念、听，是重写大脑预测的最小可行练习。</p>
+                    </article>
+                    <article class="story-card">
+                        <h3>阿强：21 天戒烟</h3>
+                        <p>照着脚本记录触发点，把“我想抽”换成“我在恢复肺活量”，断掉十年烟瘾，没有经历剧烈戒断。</p>
                     </article>
                 </div>
             </section>
@@ -952,11 +1170,11 @@
             <section class="subscription" id="subscribe">
                 <h2>订阅「自语力·习惯实验室」</h2>
                 <p>第一时间收到新的习惯模板、进阶练习与科普文章。我们只在有实用内容时发送邮件。</p>
-                <form class="subscription-form" action="mailto:hello@selftalk.cn" method="post" enctype="text/plain">
+                <form class="subscription-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
                     <input type="email" name="email" placeholder="留下你的邮箱" required>
                     <button type="submit" class="cta-button">提醒我更新</button>
                 </form>
-                <p class="muted">或添加微信 selftalk-lab，获取 21 天行动打卡提醒。</p>
+                <p class="muted">也可以直接写信到 selftalkernow@outlook.com，一起琢磨你的 21 天练习。</p>
             </section>
 
             <section class="final-cta">
@@ -973,12 +1191,37 @@
                     <p class="subtitle">Spend three minutes choosing and personalising—then unlock daily dialogues, reasons, and action prompts right away.</p>
                     <div class="hero-actions">
                         <a href="/start" class="cta-button pulse">Start my plan now</a>
-                        <a href="#journey" class="secondary-link">See how it works</a>
+                        <a href="#journey-en" class="secondary-link">See how it works</a>
                     </div>
                     <div class="hero-proof">
                         <span>✅ 87% of beta testers stayed consistent for 14 days</span>
                         <span>🧠 Grounded in cognitive behavioural science & habit design</span>
                         <span>📈 Local progress tracking and reminder preferences</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="how-section" id="how-en">
+                <div class="how-container">
+                    <div class="how-copy">
+                        <p class="how-eyebrow">How It Works</p>
+                        <h2>Neuroscience shows deliberate self-talk rewires habit circuitry</h2>
+                        <p>Modern brain science says our cortex predicts reward or threat based on the voices it hears most. When we consciously rewrite that inner voice, we can retrain neural pathways without triggering harsh withdrawal. Entrepreneur Li Xiaolai has echoed this idea in his talks: the voice you trust most is your own.</p>
+                        <p>SelfTalk turns that insight into a 21-day routine—three dialogues a day, a nervous-system reset, and one replacement action. All you need to do is read, write, and rehearse along with me.</p>
+                    </div>
+                    <div class="how-points">
+                        <article class="how-card">
+                            <h3>Words before cravings</h3>
+                            <p>Tell yourself "I want a clear mind today," and predictive coding in your brain starts tagging clarity as the reward, shrinking the urge for nicotine or endless streams.</p>
+                        </article>
+                        <article class="how-card">
+                            <h3>21 days, new wiring</h3>
+                            <p>Each script follows Trigger -> Self-talk -> Micro action, letting fresh neural connections strengthen over three weeks while the old loop loses its grip.</p>
+                        </article>
+                        <article class="how-card">
+                            <h3>Painless quit stories</h3>
+                            <p>Both Qiang and I felt it: once the brain believes "I'm already healing," the nicotine curve flattens out and the sensations become manageable.</p>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -1001,7 +1244,35 @@
                 </div>
             </section>
 
-            <section class="steps" id="journey">
+            <section class="about-preview" id="about-en">
+                <div class="about-container">
+                    <div class="about-copy">
+                        <p class="about-eyebrow">About Me</p>
+                        <h2>SelfTalk started as my 21-day rescue plan</h2>
+                        <p>I used to fall asleep with a live stream still running. When I scripted the voices in my head and rehearsed them each morning, I quit live streams and short videos within weeks.</p>
+                        <p>Then I shared the prompts with friends—Qiang finished 21 smoke-free days, and Jia stopped social drinking. We tracked triggers the same way and watched each other change.</p>
+                        <div class="about-actions">
+                            <a class="link-button" href="/about">Read the full story</a>
+                        </div>
+                    </div>
+                    <div class="about-highlights">
+                        <article class="about-card">
+                            <h3>Focused again in weeks</h3>
+                            <p>I rewired "just one more clip" into "I choose to pause" and took ownership of my attention.</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>Proof from real friends</h3>
+                            <p>Those same scripts helped Qiang stay smoke-free and gave Jia a calm, alcohol-free routine before every gathering.</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>Why share it here</h3>
+                            <p>I packaged the exact routine inside SelfTalk so you can open the script, practice today, and feel genuinely supported.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="steps" id="journey-en">
                 <div class="steps-container">
                     <h2>Three steps to your execution playbook</h2>
                     <div class="steps-grid">
@@ -1049,17 +1320,20 @@
                 </div>
             </section>
 
-            <section class="evidence" id="stories">
-                <h2>Real stories and expert evidence</h2>
+            <section class="evidence" id="stories-en">
+                <h2>Proof that self-talk works</h2>
                 <div class="evidence-grid">
                     <article class="story-card">
-                        <h3>21-day quit smoking journey</h3>
-                        <p>Leo recorded his reasons on day 4, replayed his mantra on day 9, and clocked 63 self-talk sessions in 21 days. He remains smoke-free today.</p>
-                        <p class="muted">Source: SelfTalk quit smoking beta, Q4 2024</p>
+                        <h3>Me: No more late-night streaming</h3>
+                        <p>I flipped “just one more clip” into “I choose clarity.” The 21-day script eased me out of endless scrolling without withdrawal spikes.</p>
                     </article>
                     <article class="story-card">
-                        <blockquote>“Writing and repeating self-talk scripts is one of the most accessible CBT-style practices for habit change.”</blockquote>
-                        <div class="expert-meta">— Dr. Renee Chang, Behavioural psychologist & author of “Rewrite Your Habits”</div>
+                        <h3>Li Xiaolai: Your own voice persuades best</h3>
+                        <p>In his talks he repeats this mantra: write it, say it, and listen to it—deliberate self-talk is the simplest, cheapest change protocol.</p>
+                    </article>
+                    <article class="story-card">
+                        <h3>Qiang: 21 days smoke-free</h3>
+                        <p>He logged triggers, swapped “I need a cigarette” for “I’m rebuilding my lungs,” and stepped away from a decade-long habit without drama.</p>
                     </article>
                 </div>
             </section>
@@ -1067,11 +1341,11 @@
             <section class="subscription" id="subscribe">
                 <h2>Subscribe to the SelfTalk Habit Lab</h2>
                 <p>Be the first to receive new templates, advanced drills, and habit science explainers. We only email when something useful is ready.</p>
-                <form class="subscription-form" action="mailto:hello@selftalk.cn" method="post" enctype="text/plain">
+                <form class="subscription-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
                     <input type="email" name="email" placeholder="Enter your email" required>
                     <button type="submit" class="cta-button">Keep me posted</button>
                 </form>
-                <p class="muted">Prefer chat? Add WeChat ID selftalk-lab and receive 21-day reminder nudges.</p>
+                <p class="muted">Or email me at selftalkernow@outlook.com to plan your 21-day experiment together.</p>
             </section>
 
             <section class="final-cta">
@@ -1116,13 +1390,53 @@
                 const enText = element.getAttribute('data-text-en');
                 element.textContent = lang === 'zh' ? zhText : enText;
             });
-            
+
+            // 更新锚点链接
+            document.querySelectorAll('[data-href-zh]').forEach(element => {
+                const zhHref = element.getAttribute('data-href-zh');
+                const enHref = element.getAttribute('data-href-en');
+                if (lang === 'zh' && zhHref) {
+                    element.setAttribute('href', zhHref);
+                } else if (enHref) {
+                    element.setAttribute('href', enHref);
+                }
+            });
+
             // 更新页面标题
             const title = lang === 'zh' ? 
                 '自语力 - 用对话改变自己，从今天开始' : 
                 'SelfTalk - Transform Yourself Through Self-Talk';
             document.title = title;
-            
+
+            // 根据当前语言调整锚点位置
+            const hash = window.location.hash;
+            const hashMap = lang === 'zh'
+                ? {
+                    '#how-en': '#how',
+                    '#stories-en': '#stories',
+                    '#about-en': '#about',
+                    '#journey-en': '#journey'
+                }
+                : {
+                    '#how': '#how-en',
+                    '#stories': '#stories-en',
+                    '#about': '#about-en',
+                    '#journey': '#journey-en'
+                };
+
+            if (hashMap[hash]) {
+                const newHash = hashMap[hash];
+                if (history.replaceState) {
+                    history.replaceState(null, '', newHash);
+                } else {
+                    window.location.hash = newHash;
+                }
+                const targetEl = document.querySelector(newHash);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+                }
+            }
+
             // 保存语言设置到本地
             try {
                 localStorage.setItem('preferred-language', lang);
