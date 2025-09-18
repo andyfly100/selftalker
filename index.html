@@ -272,6 +272,65 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
+        .quick-section {
+            padding: 3.5rem 2rem 2.5rem;
+            background: var(--white);
+        }
+
+        .quick-section h2 {
+            text-align: center;
+            font-size: 2.1rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .quick-section p.section-intro {
+            text-align: center;
+            color: var(--gray);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+        }
+
+        .quick-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .quick-icon {
+            font-size: 1.8rem;
+        }
+
+        .quick-card h3 {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .quick-card p {
+            color: var(--gray);
+        }
+
+        .quick-card a {
+            margin-top: auto;
+            align-self: flex-start;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
         .stats {
             display: inline-flex;
             align-items: center;
@@ -466,9 +525,30 @@
         .sample-card {
             background: var(--white);
             border-radius: 18px;
-            padding: 2rem;
             box-shadow: 0 18px 40px rgba(15, 118, 110, 0.08);
             border: 1px solid rgba(16, 185, 129, 0.08);
+            overflow: hidden;
+        }
+
+        .sample-card summary {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            padding: 1.6rem 1.8rem;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .sample-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .sample-card[open] summary {
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .sample-body {
+            padding: 0 1.8rem 1.8rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -593,20 +673,38 @@
         .faq-item {
             background: var(--background);
             border-radius: 16px;
-            padding: 1.5rem 1.75rem;
             border: 1px solid rgba(16, 185, 129, 0.08);
             box-shadow: 0 12px 28px rgba(15, 118, 110, 0.08);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 1.4rem 1.6rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item[open] summary {
+            background: rgba(16, 185, 129, 0.08);
         }
 
         .faq-question {
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.6rem;
+            margin: 0;
         }
 
         .faq-answer {
             color: var(--gray);
             line-height: 1.8;
+            padding: 0 1.6rem 1.6rem;
         }
 
         .faq-answer ul {
@@ -1120,6 +1218,10 @@
                 justify-content: flex-start;
             }
 
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
             .landing-pathways {
                 padding: 3rem 1.5rem;
             }
@@ -1259,6 +1361,37 @@
                 </div>
             </section>
 
+            <section class="quick-section">
+                <h2>先做哪一步？</h2>
+                <p class="section-intro">用 3 分钟决定你的路线：马上生成脚本、复习方法、浏览真实案例或快速查 FAQ。</p>
+                <div class="quick-grid">
+                    <div class="quick-card">
+                        <div class="quick-icon">🚀</div>
+                        <h3>立即生成 21 天脚本</h3>
+                        <p>选择想戒掉或建立的习惯，填写动机与提醒，马上获取 Day 1。</p>
+                        <a href="/start">前往开始</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">🧠</div>
+                        <h3>了解自我对话原理</h3>
+                        <p>先看自语力的方法拆解，确认它如何无痛重写习惯回路。</p>
+                        <a href="#how">查看步骤</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">📚</div>
+                        <h3>阅读真实案例与文章</h3>
+                        <p>想深入练习？去文章页看完整故事与工具包。</p>
+                        <a href="/insights">文章列表</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">❓</div>
+                        <h3>遇到问题？</h3>
+                        <p>零碎时间、复发、工具准备等常见疑问在这里。</p>
+                        <a href="#faq">跳到 FAQ</a>
+                    </div>
+                </div>
+            </section>
+
             <section class="how-section" id="how">
                 <div class="how-container">
                     <div class="how-copy">
@@ -1286,37 +1419,49 @@
 
             <section class="sample-section" id="sample">
                 <div class="sample-container">
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 1 · 呼吸空间</div>
-                        <h3>早晨自我对话</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>我对自己说：</strong>今天我要练习暂停，给渴望多 3 秒钟，让我看见真实的需要。</p>
-                            <p><strong>我提醒自己：</strong>我不是要压抑欲望，而是学会把焦虑化成呼吸。</p>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 1 · 呼吸空间</div>
+                            <h3>早晨自我对话</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>我对自己说：</strong>今天我要练习暂停，给渴望多 3 秒钟，让我看见真实的需要。</p>
+                                <p><strong>我提醒自己：</strong>我不是要压抑欲望，而是学会把焦虑化成呼吸。</p>
+                            </div>
+                            <p class="sample-meta">行动：醒来后站在窗边做三轮 4-4-6 呼吸，再打开脚本回顾当天的替代动作。</p>
                         </div>
-                        <p class="sample-meta">行动：醒来后站在窗边做三轮 4-4-6 呼吸，再打开脚本回顾当天的替代动作。</p>
-                    </article>
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 7 · 替代行动</div>
-                        <h3>下午情境脚本</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>触发：</strong>同事又约我看直播抽奖。</p>
-                            <p><strong>我回应：</strong>“谢谢你提醒我，我正在训练不靠随机刺激放松。等我完成专注练习，再一起聊天。”</p>
+                    </details>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 7 · 替代行动</div>
+                            <h3>下午情境脚本</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>触发：</strong>同事又约我看直播抽奖。</p>
+                                <p><strong>我回应：</strong>“谢谢你提醒我，我正在训练不靠随机刺激放松。等我完成专注练习，再一起聊天。”</p>
+                            </div>
+                            <p class="sample-meta">行动：拒绝邀请之后，立即完成 5 分钟走动或拉伸，记录感受。</p>
                         </div>
-                        <p class="sample-meta">行动：拒绝邀请之后，立即完成 5 分钟走动或拉伸，记录感受。</p>
-                    </article>
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 21 · 巩固对话</div>
-                        <h3>晚间复盘</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>我复盘：</strong>今天错过了两个刷视频的机会，因为我提前写好了“我为什么要保持清醒”。</p>
-                            <p><strong>我写下：</strong>我的大脑已经习惯主动选择，渴望变得模糊了。</p>
+                    </details>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 21 · 巩固对话</div>
+                            <h3>晚间复盘</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>我复盘：</strong>今天错过了两个刷视频的机会，因为我提前写好了“我为什么要保持清醒”。</p>
+                                <p><strong>我写下：</strong>我的大脑已经习惯主动选择，渴望变得模糊了。</p>
+                            </div>
+                            <p class="sample-meta">行动：把最有效的语句录成语音，保存到自语力 App/提醒中，作为下一轮强化素材。</p>
+                            <div class="sample-actions">
+                                <a class="secondary-button" href="/start">领取完整 21 天脚本</a>
+                                <a class="secondary-button" href="mailto:selftalkernow@outlook.com">告诉我你的 Day 1</a>
+                            </div>
                         </div>
-                        <p class="sample-meta">行动：把最有效的语句录成语音，保存到自语力 App/提醒中，作为下一轮强化素材。</p>
-                        <div class="sample-actions">
-                            <a class="secondary-button" href="/start">领取完整 21 天脚本</a>
-                            <a class="secondary-button" href="mailto:selftalkernow@outlook.com">告诉我你的 Day 1</a>
-                        </div>
-                    </article>
+                    </details>
                 </div>
             </section>
 
@@ -1492,8 +1637,8 @@
 
             <section class="faq-section" id="faq">
                 <div class="faq-container">
-                    <div class="faq-item">
-                        <h3 class="faq-question">📅 日常安排</h3>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">📅 日常安排</span></summary>
                         <div class="faq-answer">
                             可以。每个脚本平均用时 5～8 分钟：读一段对话、写一句回应、执行一个微动作。很多用户把练习嵌入既有习惯里：
                             <ul>
@@ -1502,9 +1647,9 @@
                                 <li>晚上复盘时完成替代动作或拉伸。</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🔁 面对复发</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🔁 面对复发</span></summary>
                         <div class="faq-answer">
                             脚本里安排了“复盘日”与“补救日”，帮助你识别诱因并写下下一次的替代方案。
                             <ul>
@@ -1513,15 +1658,15 @@
                                 <li>写信到 <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a>，我会与你一起拆解。</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🛠 开始前准备</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🛠 开始前准备</span></summary>
                         <div class="faq-answer">
                             很简单，准备一支笔和一个你常用的记录空间（纸本或电子皆可）。如果要戒烟/戒酒，建议提前告知身边会影响你的朋友，争取他们的理解。
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🧰 配合其他工具</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🧰 配合其他工具</span></summary>
                         <div class="faq-answer">
                             不强求。自语力专注在“预测与反应”的对话训练：
                             <ul>
@@ -1529,7 +1674,7 @@
                                 <li>在医疗方案进行中，也能把每日对话带给医生/治疗师，作为追踪依据。</li>
                             </ul>
                         </div>
-                    </div>
+                    </details>
                 </div>
             </section>
 
@@ -1566,6 +1711,37 @@
                 </div>
             </section>
 
+            <section class="quick-section">
+                <h2>Choose your next move</h2>
+                <p class="section-intro">Three minutes is all it takes: generate your script, revisit the science, browse stories, or check FAQ.</p>
+                <div class="quick-grid">
+                    <div class="quick-card">
+                        <div class="quick-icon">🚀</div>
+                        <h3>Generate the 21-day script</h3>
+                        <p>Pick the habit, add your motivations and reminders, and Day 1 is ready instantly.</p>
+                        <a href="/start">Go to builder</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">🧠</div>
+                        <h3>Review how it works</h3>
+                        <p>See why deliberate self-talk rewires predictions without harsh withdrawal.</p>
+                        <a href="#how-en">View the steps</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">📚</div>
+                        <h3>Read stories & tools</h3>
+                        <p>Dive into upcoming long-form notes, case diaries, and downloadable templates.</p>
+                        <a href="/insights">Browse articles</a>
+                    </div>
+                    <div class="quick-card">
+                        <div class="quick-icon">❓</div>
+                        <h3>Need quick answers?</h3>
+                        <p>Daily cadence, relapse resets, preparation tips—the FAQ covers the essentials.</p>
+                        <a href="#faq-en">Jump to FAQ</a>
+                    </div>
+                </div>
+            </section>
+
             <section class="how-section" id="how-en">
                 <div class="how-container">
                     <div class="how-copy">
@@ -1593,37 +1769,49 @@
 
             <section class="sample-section" id="sample-en">
                 <div class="sample-container">
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 1 · BREATHING SPACE</div>
-                        <h3>Morning dialogue</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>Tell yourself:</strong> “Today I’m rehearsing pauses. Each craving gets three seconds so I can listen to what I truly need.”</p>
-                            <p><strong>Remind yourself:</strong> “I’m not suppressing desire; I’m training my nervous system to turn anxiety into breath.”</p>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 1 · BREATHING SPACE</div>
+                            <h3>Morning dialogue</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>Tell yourself:</strong> “Today I’m rehearsing pauses. Each craving gets three seconds so I can listen to what I truly need.”</p>
+                                <p><strong>Remind yourself:</strong> “I’m not suppressing desire; I’m training my nervous system to turn anxiety into breath.”</p>
+                            </div>
+                            <p class="sample-meta">Action: Stand by the window for three rounds of 4-4-6 breathing before checking the script for today’s replacement routine.</p>
                         </div>
-                        <p class="sample-meta">Action: Stand by the window for three rounds of 4-4-6 breathing before checking the script for today’s replacement routine.</p>
-                    </article>
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 7 · REPLACEMENT ACTION</div>
-                        <h3>Afternoon scenario</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>Trigger:</strong> A friend sends another live-stream link.</p>
-                            <p><strong>Reply:</strong> “Thanks for thinking of me! I’m training to relax without random dopamine. Let me finish today’s focus drill and we’ll catch up.”</p>
+                    </details>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 7 · REPLACEMENT ACTION</div>
+                            <h3>Afternoon scenario</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>Trigger:</strong> A friend sends another live-stream link.</p>
+                                <p><strong>Reply:</strong> “Thanks for thinking of me! I’m training to relax without random dopamine. Let me finish today’s focus drill and we’ll catch up.”</p>
+                            </div>
+                            <p class="sample-meta">Action: After declining, walk or stretch for five minutes and note how your body feels.</p>
                         </div>
-                        <p class="sample-meta">Action: After declining, walk or stretch for five minutes and note how your body feels.</p>
-                    </article>
-                    <article class="sample-card">
-                        <div class="sample-day">DAY 21 · CONSOLIDATION</div>
-                        <h3>Evening reflection</h3>
-                        <div class="sample-dialogue">
-                            <p><strong>Reflect:</strong> “I skipped two doom-scroll moments because I had ‘why clarity matters’ written down.”</p>
-                            <p><strong>Write down:</strong> “My brain now expects deliberate choices. The craving wave is barely noticeable.”</p>
+                    </details>
+                    <details class="sample-card">
+                        <summary>
+                            <div class="sample-day">DAY 21 · CONSOLIDATION</div>
+                            <h3>Evening reflection</h3>
+                        </summary>
+                        <div class="sample-body">
+                            <div class="sample-dialogue">
+                                <p><strong>Reflect:</strong> “I skipped two doom-scroll moments because I had ‘why clarity matters’ written down.”</p>
+                                <p><strong>Write down:</strong> “My brain now expects deliberate choices. The craving wave is barely noticeable.”</p>
+                            </div>
+                            <p class="sample-meta">Action: Record your strongest line as audio and save it as the cue for your next habit shift.</p>
+                            <div class="sample-actions">
+                                <a class="secondary-button" href="/start">Get the full 21-day script</a>
+                                <a class="secondary-button" href="mailto:selftalkernow@outlook.com">Share your Day 1</a>
+                            </div>
                         </div>
-                        <p class="sample-meta">Action: Record your strongest line as audio and save it as the cue for your next habit shift.</p>
-                        <div class="sample-actions">
-                            <a class="secondary-button" href="/start">Get the full 21-day script</a>
-                            <a class="secondary-button" href="mailto:selftalkernow@outlook.com">Share your Day 1</a>
-                        </div>
-                    </article>
+                    </details>
                 </div>
             </section>
 
@@ -1799,8 +1987,8 @@
 
             <section class="faq-section" id="faq-en">
                 <div class="faq-container">
-                    <div class="faq-item">
-                        <h3 class="faq-question">📅 Daily rhythm</h3>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">📅 Daily rhythm</span></summary>
                         <div class="faq-answer">
                             That’s enough. Each script takes roughly 5–8 minutes. Most people layer the practice onto existing routines:
                             <ul>
@@ -1809,9 +1997,9 @@
                                 <li>Do the replacement action while winding down at night.</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🔁 Handling relapses</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🔁 Handling relapses</span></summary>
                         <div class="faq-answer">
                             Relapses are part of the process. The script includes reset days to help you regroup:
                             <ul>
@@ -1820,15 +2008,15 @@
                                 <li>Email <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a> and we’ll troubleshoot together.</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🛠 Before you begin</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🛠 Before you begin</span></summary>
                         <div class="faq-answer">
                             Keep a notebook or notes app handy for daily writing, and let close friends know you’re running a 21-day experiment—social cues help you stay accountable.
                         </div>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="faq-question">🧰 Tools & medication</h3>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="faq-question">🧰 Tools & medication</span></summary>
                         <div class="faq-answer">
                             Not required. SelfTalk focuses on rewiring predictions through deliberate dialogue.
                             <ul>
@@ -1836,7 +2024,7 @@
                                 <li>If you’re in a medical program, share the dialogue with your doctor/therapist as part of the progress check-in.</li>
                             </ul>
                         </div>
-                    </div>
+                    </details>
                 </div>
             </section>
 
