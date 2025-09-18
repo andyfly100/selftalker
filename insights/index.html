@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-title-zh="自语力文章 - 自语力" data-title-en="SelfTalk Insights - SelfTalk">SelfTalk Insights - SelfTalk</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9ZN9KSK27"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T9ZN9KSK27');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6928529142816465" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10B981;
+            --secondary: #FEF3C7;
+            --accent: #FB923C;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --background: #FAFAFA;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-radius: 25px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: transparent;
+            color: var(--gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '💬';
+            font-size: 1.7rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding-right: 120px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(251,146,60,0.1) 100%);
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-inner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-inner p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-section {
+            padding: 4rem 2rem;
+        }
+
+        .article-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid rgba(16, 185, 129, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .article-badge {
+            background: rgba(16,185,129,0.12);
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .article-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .article-card p {
+            color: var(--gray);
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .article-actions a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .primary-link {
+            color: var(--primary);
+        }
+
+        .muted-link {
+            color: var(--gray);
+        }
+
+        .newsletter {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(16,185,129,0.05), rgba(251,146,60,0.05));
+        }
+
+        .newsletter-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-inner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--light-gray);
+            min-width: 260px;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.6rem;
+            border-radius: 999px;
+            border: none;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--light-gray);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: auto;
+                bottom: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-inner h1 {
+                font-size: 2.1rem;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+        }
+
+        .content[data-lang]:not(.active) {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">SelfTalk</a>
+            <div class="nav-links">
+                <a href="/" data-text-zh="首页" data-text-en="Home">Home</a>
+                <a href="/#how" data-text-zh="如何运作" data-text-en="How It Works">How It Works</a>
+                <a href="/#stories" data-text-zh="成功故事" data-text-en="Success Stories">Success Stories</a>
+                <a href="/#faq" data-text-zh="常见问题" data-text-en="FAQ">FAQ</a>
+                <a href="/about" data-text-zh="关于我" data-text-en="About Me">About Me</a>
+                <a href="/insights" class="active" data-text-zh="文章" data-text-en="Articles">Articles</a>
+                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">Start Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content active" data-lang="zh">
+            <section class="hero">
+                <div class="hero-inner">
+                    <h1>自语力·习惯实验室文章</h1>
+                    <p>记录我如何用自我对话完成戒直播、帮助朋友戒烟，以及背后的脑科学原理、练习拆解与真实案例。每一篇文章都力求可复制、可执行。</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <div class="article-grid">
+                    <article class="article-card">
+                        <div class="article-badge">🌱 原理解析</div>
+                        <h3>写-念-听：自我对话为什么能欺骗你的大脑</h3>
+                        <p>结合预测编码理论，拆解“写下来 → 念出来 → 听回去”如何重置奖励预期，这是我戒掉直播的关键步骤。</p>
+                        <p class="article-meta">预计发布时间：2025-01-05</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">即将发布</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=想提前阅读写念听文章">提前索取草稿</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-badge">🧠 实战案例</div>
+                        <h3>阿强的 21 天戒烟日记：从诱因记录到替代行动</h3>
+                        <p>完整呈现阿强的每日对话、补救日流程，以及我们如何在复发时调整脚本，让戒断反应保持在可管理范围内。</p>
+                        <p class="article-meta">预计发布时间：2025-01-12</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">即将发布</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=想加入戒烟日记预览">加入内测名单</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-badge">📝 工具模板</div>
+                        <h3>下载：21 天自我对话脚本 · 打印与 Notion 模板</h3>
+                        <p>提供中英文的可打印卡片与 Notion 模板，帮助你在纸本、电脑、手机之间无缝切换练习。</p>
+                        <p class="article-meta">预计发布时间：2025-01-20</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">即将发布</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=想获取模板">加入等待名单</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="newsletter">
+                <div class="newsletter-inner">
+                    <h2>第一时间收到新文章</h2>
+                    <p>填写邮箱，我会在每篇文章发布时给你发送摘要与可操作清单。</p>
+                    <form class="newsletter-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
+                        <input type="email" name="email" placeholder="留下你的邮箱" required>
+                        <button type="submit">提醒我更新</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <div class="content" data-lang="en">
+            <section class="hero">
+                <div class="hero-inner">
+                    <h1>SelfTalk Habit Lab · Articles</h1>
+                    <p>Notes on self-talk: neuroscience, routines, and honest stories about quitting live streams, helping friends go smoke-free, and turning scripts into habits.</p>
+                </div>
+            </section>
+
+            <section class="article-section">
+                <div class="article-grid">
+                    <article class="article-card">
+                        <div class="article-badge">🌱 Theory</div>
+                        <h3>Write · Speak · Listen: Why self-talk can fool your brain</h3>
+                        <p>An accessible look at predictive coding and why the “write → speak → listen” loop reshapes reward expectations. This is how I unplugged from endless streams.</p>
+                        <p class="article-meta">Scheduled for: 2025-01-05</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">Coming soon</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=Requesting write-speak-listen draft">Request draft</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-badge">🧠 Field Notes</div>
+                        <h3>Qiang’s smoke-free diary: 21 days of self-talk adjustments</h3>
+                        <p>Daily highlights from Qiang’s journey—trigger logging, reset days, and the substitutions we used to keep withdrawal manageable.</p>
+                        <p class="article-meta">Scheduled for: 2025-01-12</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">Coming soon</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=Join smoke-free preview list">Join preview list</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-badge">📝 Toolkit</div>
+                        <h3>Download: 21-day script templates (printable & Notion)</h3>
+                        <p>Dual-language templates you can print or duplicate into Notion—ideal for keeping your scripts consistent across devices.</p>
+                        <p class="article-meta">Scheduled for: 2025-01-20</p>
+                        <div class="article-actions">
+                            <a class="primary-link" href="#" onclick="return false;">Coming soon</a>
+                            <a class="muted-link" href="mailto:selftalkernow@outlook.com?subject=Template waiting list">Join waiting list</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="newsletter">
+                <div class="newsletter-inner">
+                    <h2>Get new articles in your inbox</h2>
+                    <p>Leave your email and I’ll send you a summary plus a checklist each time a new piece goes live.</p>
+                    <form class="newsletter-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit">Notify me</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SelfTalk. All rights reserved.</p>
+        <p>selftalkernow@outlook.com</p>
+    </footer>
+
+    <script>
+        const languageButtons = document.querySelectorAll('.lang-btn');
+        const contents = document.querySelectorAll('.content[data-lang]');
+        const titleElement = document.querySelector('title');
+
+        function switchLang(lang) {
+            languageButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            contents.forEach(section => {
+                section.classList.toggle('active', section.getAttribute('data-lang') === lang);
+            });
+
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            titleElement.textContent = titleElement.getAttribute(lang === 'zh' ? 'data-title-zh' : 'data-title-en');
+
+            localStorage.setItem('insights-lang', lang);
+        }
+
+        languageButtons.forEach(btn => {
+            btn.addEventListener('click', () => switchLang(btn.getAttribute('data-lang')));
+        });
+
+        const savedLang = localStorage.getItem('insights-lang') || 'zh';
+        switchLang(savedLang);
+    </script>
+</body>
+</html>
