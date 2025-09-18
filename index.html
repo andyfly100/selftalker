@@ -331,6 +331,49 @@
             font-weight: 600;
         }
 
+        .practice-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(251,146,60,0.06));
+        }
+
+        .practice-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .practice-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 16px 36px rgba(15, 118, 110, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .practice-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        .practice-card ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: var(--gray);
+        }
+
+        .practice-card li {
+            margin-bottom: 0.45rem;
+        }
+
+        .practice-card li:last-child {
+            margin-bottom: 0;
+        }
+
         .stats {
             display: inline-flex;
             align-items: center;
@@ -1378,6 +1421,12 @@
                         <a href="#how">查看步骤</a>
                     </div>
                     <div class="quick-card">
+                        <div class="quick-icon">🎙</div>
+                        <h3>练习自己的声音</h3>
+                        <p>按照写-念-听三步骤，每天录音 90 秒，训练预测回路。</p>
+                        <a href="#practice">练习指南</a>
+                    </div>
+                    <div class="quick-card">
                         <div class="quick-icon">📚</div>
                         <h3>阅读真实案例与文章</h3>
                         <p>想深入练习？去文章页看完整故事与工具包。</p>
@@ -1462,6 +1511,34 @@
                             </div>
                         </div>
                     </details>
+                </div>
+            </section>
+
+            <section class="practice-section" id="practice">
+                <h2>写 · 念 · 听：3 分钟练习自己的声音</h2>
+                <p class="section-intro">自语力的关键在于“把自己的声音变成最可信的输入”。以下是我每天做的练习，你也可以照做。</p>
+                <div class="practice-container">
+                    <div class="practice-card">
+                        <h3>1. 写下来</h3>
+                        <ul>
+                            <li>早上花 60 秒写下当天要重复的两句话（理由 + 行动）。</li>
+                            <li>把容易复发的场景记在旁边，晚上复盘时补充。</li>
+                        </ul>
+                    </div>
+                    <div class="practice-card">
+                        <h3>2. 念出来</h3>
+                        <ul>
+                            <li>使用手机录音或任何语音工具，念出刚写好的内容。</li>
+                            <li>声音不要太快，像对朋友交代事情一样自然。</li>
+                        </ul>
+                    </div>
+                    <div class="practice-card">
+                        <h3>3. 听回去</h3>
+                        <ul>
+                            <li>用耳机回放录音，注意自己听到时的情绪变化。</li>
+                            <li>如果内容不够有力量，第二天重新写更能打动自己的句子。</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
@@ -1737,6 +1814,12 @@
                         <a href="#how-en">View the steps</a>
                     </div>
                     <div class="quick-card">
+                        <div class="quick-icon">🎙</div>
+                        <h3>Practice your voice</h3>
+                        <p>Follow the write-speak-listen loop and spend 90 seconds recording daily.</p>
+                        <a href="#practice-en">Practice guide</a>
+                    </div>
+                    <div class="quick-card">
                         <div class="quick-icon">📚</div>
                         <h3>Read stories & tools</h3>
                         <p>Dive into upcoming long-form notes, case diaries, and downloadable templates.</p>
@@ -1821,6 +1904,34 @@
                             </div>
                         </div>
                     </details>
+                </div>
+            </section>
+
+            <section class="practice-section" id="practice-en">
+                <h2>Write · Speak · Listen in 3 minutes</h2>
+                <p class="section-intro">Consistent self-talk works best when your own voice becomes the most trusted input. Here’s the loop I follow daily.</p>
+                <div class="practice-container">
+                    <div class="practice-card">
+                        <h3>1. Write</h3>
+                        <ul>
+                            <li>Spend 60 seconds each morning writing two lines: your reason and the action.</li>
+                            <li>Add potential relapse scenarios so you can review them in the evening.</li>
+                        </ul>
+                    </div>
+                    <div class="practice-card">
+                        <h3>2. Speak</h3>
+                        <ul>
+                            <li>Use your phone’s voice memo or any recorder; read the script out loud.</li>
+                            <li>Keep the tone natural—as if you’re coaching a close friend.</li>
+                        </ul>
+                    </div>
+                    <div class="practice-card">
+                        <h3>3. Listen</h3>
+                        <ul>
+                            <li>Replay the recording with earphones and notice how it makes you feel.</li>
+                            <li>If it doesn’t resonate, rewrite stronger lines and try again tomorrow.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
