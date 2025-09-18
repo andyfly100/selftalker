@@ -450,6 +450,111 @@
             line-height: 1.7;
         }
 
+        .sample-section {
+            padding: 4.5rem 2rem;
+            background: var(--background);
+        }
+
+        .sample-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .sample-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 18px 40px rgba(15, 118, 110, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sample-day {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .sample-dialogue {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            line-height: 1.7;
+        }
+
+        .sample-dialogue p {
+            margin-bottom: 0.6rem;
+        }
+
+        .sample-dialogue p:last-child {
+            margin-bottom: 0;
+        }
+
+        .sample-meta {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .sample-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-button:hover {
+            background: rgba(16, 185, 129, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .faq-section {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--background);
+            border-radius: 16px;
+            padding: 1.5rem 1.75rem;
+            border: 1px solid rgba(16, 185, 129, 0.08);
+            box-shadow: 0 12px 28px rgba(15, 118, 110, 0.08);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-answer {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
         .about-preview {
             padding: 4.5rem 2rem;
             background: var(--white);
@@ -637,6 +742,40 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .story-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .story-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .story-detail {
+            font-size: 0.9rem;
+            color: var(--gray);
         }
 
         .story-card blockquote {
@@ -942,6 +1081,18 @@
                 align-items: flex-start;
             }
 
+            .sample-section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .sample-container {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 3.5rem 1.5rem;
+            }
+
             .plan-highlight-grid,
             .evidence-grid {
                 grid-template-columns: 1fr;
@@ -1055,6 +1206,42 @@
                 </div>
             </section>
 
+            <section class="sample-section" id="sample">
+                <div class="sample-container">
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 1 · 呼吸空间</div>
+                        <h3>早晨自我对话</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>我对自己说：</strong>今天我要练习暂停，给渴望多 3 秒钟，让我看见真实的需要。</p>
+                            <p><strong>我提醒自己：</strong>我不是要压抑欲望，而是学会把焦虑化成呼吸。</p>
+                        </div>
+                        <p class="sample-meta">行动：醒来后站在窗边做三轮 4-4-6 呼吸，再打开脚本回顾当天的替代动作。</p>
+                    </article>
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 7 · 替代行动</div>
+                        <h3>下午情境脚本</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>触发：</strong>同事又约我看直播抽奖。</p>
+                            <p><strong>我回应：</strong>“谢谢你提醒我，我正在训练不靠随机刺激放松。等我完成专注练习，再一起聊天。”</p>
+                        </div>
+                        <p class="sample-meta">行动：拒绝邀请之后，立即完成 5 分钟走动或拉伸，记录感受。</p>
+                    </article>
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 21 · 巩固对话</div>
+                        <h3>晚间复盘</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>我复盘：</strong>今天错过了两个刷视频的机会，因为我提前写好了“我为什么要保持清醒”。</p>
+                            <p><strong>我写下：</strong>我的大脑已经习惯主动选择，渴望变得模糊了。</p>
+                        </div>
+                        <p class="sample-meta">行动：把最有效的语句录成语音，保存到自语力 App/提醒中，作为下一轮强化素材。</p>
+                        <div class="sample-actions">
+                            <a class="secondary-button" href="/start">领取完整 21 天脚本</a>
+                            <a class="secondary-button" href="mailto:selftalkernow@outlook.com">告诉我你的 Day 1</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
             <section class="landing-pathways" id="pathways">
                 <h2>你想先突破哪一类习惯？</h2>
                 <div class="landing-pathway-grid">
@@ -1153,17 +1340,52 @@
                 <h2>真实案例与专业背书</h2>
                 <div class="evidence-grid">
                     <article class="story-card">
-                        <h3>我：无痛戒掉直播与短视频</h3>
-                        <p>把“再刷一会儿”改写成“我选择清醒”，21 天脚本帮我平滑地告别深夜直播，重新掌控注意力。</p>
+                        <div class="story-header">
+                            <div class="story-avatar">我</div>
+                            <div class="story-meta">
+                                <span class="story-name">我自己</span>
+                                <span class="story-detail">21 天告别直播与短视频</span>
+                            </div>
+                        </div>
+                        <p>把“再刷一会儿”改写成“我选择清醒”，脚本让大脑在几周内习惯主动停下。我不再靠外部刺激入睡，注意力重新回到自己手里。</p>
                     </article>
                     <article class="story-card">
-                        <h3>李笑来老师：自我对话是最省成本的改变方式</h3>
-                        <p>他在课程里强调：最有说服力的声音是自己的声音。坚持写、念、听，是重写大脑预测的最小可行练习。</p>
+                        <div class="story-header">
+                            <div class="story-avatar">笑</div>
+                            <div class="story-meta">
+                                <span class="story-name">李笑来老师</span>
+                                <span class="story-detail">作者 & 投资人</span>
+                            </div>
+                        </div>
+                        <p>他在课程里提醒我们：最有说服力的声音是自己的声音。把想法写下来、念出来、听进去，是最省成本、却能持续的自我重写方式。</p>
                     </article>
                     <article class="story-card">
-                        <h3>阿强：21 天戒烟</h3>
-                        <p>照着脚本记录触发点，把“我想抽”换成“我在恢复肺活量”，断掉十年烟瘾，没有经历剧烈戒断。</p>
+                        <div class="story-header">
+                            <div class="story-avatar">强</div>
+                            <div class="story-meta">
+                                <span class="story-name">阿强</span>
+                                <span class="story-detail">34 岁 · 21 天戒烟</span>
+                            </div>
+                        </div>
+                        <p>照着脚本记录触发点，把“我想抽”换成“我在恢复肺活量”，十年的烟瘾被拆解成每天的小决定，没有经历撕裂式的戒断焦虑。</p>
                     </article>
+                </div>
+            </section>
+
+            <section class="faq-section" id="faq">
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3 class="faq-question">如果我只有零散的时间，还能坚持 21 天吗？</h3>
+                        <p class="faq-answer">可以。每个脚本平均用时 5～8 分钟：读一段对话、写一句回应、执行一个微动作。很多用户把早晚各一次的对话安排在刷牙或通勤前后，零碎时间照样能完成。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">如果中途出现反复怎么办？</h3>
+                        <p class="faq-answer">脚本里有“复盘日”与“补救日”，帮助你识别诱因并写下下一次的替代方案。实在卡住时，直接发邮件到 selftalkernow@outlook.com，我会和你一起拆解下一步。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">我需要配合其他工具或药物吗？</h3>
+                        <p class="faq-answer">不强求。自语力专注在“预测与反应”的对话训练，若你在戒烟或戒酒阶段需要专业协助，可以把脚本与医生、治疗师的建议结合，这样成功率更高。</p>
+                    </div>
                 </div>
             </section>
 
@@ -1223,6 +1445,42 @@
                             <p>Both Qiang and I felt it: once the brain believes "I'm already healing," the nicotine curve flattens out and the sensations become manageable.</p>
                         </article>
                     </div>
+                </div>
+            </section>
+
+            <section class="sample-section" id="sample-en">
+                <div class="sample-container">
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 1 · BREATHING SPACE</div>
+                        <h3>Morning dialogue</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>Tell yourself:</strong> “Today I’m rehearsing pauses. Each craving gets three seconds so I can listen to what I truly need.”</p>
+                            <p><strong>Remind yourself:</strong> “I’m not suppressing desire; I’m training my nervous system to turn anxiety into breath.”</p>
+                        </div>
+                        <p class="sample-meta">Action: Stand by the window for three rounds of 4-4-6 breathing before checking the script for today’s replacement routine.</p>
+                    </article>
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 7 · REPLACEMENT ACTION</div>
+                        <h3>Afternoon scenario</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>Trigger:</strong> A friend sends another live-stream link.</p>
+                            <p><strong>Reply:</strong> “Thanks for thinking of me! I’m training to relax without random dopamine. Let me finish today’s focus drill and we’ll catch up.”</p>
+                        </div>
+                        <p class="sample-meta">Action: After declining, walk or stretch for five minutes and note how your body feels.</p>
+                    </article>
+                    <article class="sample-card">
+                        <div class="sample-day">DAY 21 · CONSOLIDATION</div>
+                        <h3>Evening reflection</h3>
+                        <div class="sample-dialogue">
+                            <p><strong>Reflect:</strong> “I skipped two doom-scroll moments because I had ‘why clarity matters’ written down.”</p>
+                            <p><strong>Write down:</strong> “My brain now expects deliberate choices. The craving wave is barely noticeable.”</p>
+                        </div>
+                        <p class="sample-meta">Action: Record your strongest line as audio and save it as the cue for your next habit shift.</p>
+                        <div class="sample-actions">
+                            <a class="secondary-button" href="/start">Get the full 21-day script</a>
+                            <a class="secondary-button" href="mailto:selftalkernow@outlook.com">Share your Day 1</a>
+                        </div>
+                    </article>
                 </div>
             </section>
 
@@ -1324,17 +1582,52 @@
                 <h2>Proof that self-talk works</h2>
                 <div class="evidence-grid">
                     <article class="story-card">
-                        <h3>Me: No more late-night streaming</h3>
-                        <p>I flipped “just one more clip” into “I choose clarity.” The 21-day script eased me out of endless scrolling without withdrawal spikes.</p>
+                        <div class="story-header">
+                            <div class="story-avatar">ME</div>
+                            <div class="story-meta">
+                                <span class="story-name">Founder</span>
+                                <span class="story-detail">21 days free from late-night streaming</span>
+                            </div>
+                        </div>
+                        <p>I rewrote “just one more clip” into “I choose clarity.” The daily dialogue let cravings fade without the usual emotional crash.</p>
                     </article>
                     <article class="story-card">
-                        <h3>Li Xiaolai: Your own voice persuades best</h3>
-                        <p>In his talks he repeats this mantra: write it, say it, and listen to it—deliberate self-talk is the simplest, cheapest change protocol.</p>
+                        <div class="story-header">
+                            <div class="story-avatar">LX</div>
+                            <div class="story-meta">
+                                <span class="story-name">Li Xiaolai</span>
+                                <span class="story-detail">Entrepreneur & author</span>
+                            </div>
+                        </div>
+                        <p>He keeps repeating this in his workshops: the voice you trust most is your own. Write it, say it, hear it—self-talk is the cheapest, stickiest CBT-style practice.</p>
                     </article>
                     <article class="story-card">
-                        <h3>Qiang: 21 days smoke-free</h3>
-                        <p>He logged triggers, swapped “I need a cigarette” for “I’m rebuilding my lungs,” and stepped away from a decade-long habit without drama.</p>
+                        <div class="story-header">
+                            <div class="story-avatar">Q</div>
+                            <div class="story-meta">
+                                <span class="story-name">Qiang</span>
+                                <span class="story-detail">34 · 21 days smoke-free</span>
+                            </div>
+                        </div>
+                        <p>He logged every trigger, replaced “I need a cigarette” with “I’m rebuilding my lungs,” and walked away from a decade-long habit without intense withdrawal.</p>
                     </article>
+                </div>
+            </section>
+
+            <section class="faq-section" id="faq-en">
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3 class="faq-question">What if I only have a few minutes each day?</h3>
+                        <p class="faq-answer">That’s enough. Each script takes roughly 5–8 minutes: read the dialogue, jot one sentence, perform a tiny action. Most people stack it onto existing routines—before coffee, after brushing teeth, or during a commute pause.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">What happens when I slip?</h3>
+                        <p class="faq-answer">Relapses are part of the plan. The script includes “reset days” that help you analyse triggers and decide your backup dialogue. If you’re stuck, email selftalkernow@outlook.com—we’ll map your next move together.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need extra tools or medication?</h3>
+                        <p class="faq-answer">Not required. SelfTalk focuses on rewiring predictions through deliberate dialogue. If you’re working with a doctor or therapist (for quitting smoking or drinking), bring the script along—it complements professional guidance well.</p>
+                    </div>
                 </div>
             </section>
 

@@ -198,6 +198,19 @@
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(251, 146, 60, 0.05) 100%);
         }
 
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -211,6 +224,28 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .header-highlights {
+            margin: 2rem auto 0;
+            max-width: 720px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            color: var(--dark);
+        }
+
+        .header-highlight {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 8px 24px rgba(15, 118, 110, 0.12);
+        }
+
+        .header-highlight strong {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
         }
 
         /* 步骤选择区域 */
@@ -868,6 +903,10 @@
                 font-size: 2rem;
             }
 
+            .header-highlights {
+                grid-template-columns: 1fr;
+            }
+
             .habit-categories {
                 grid-template-columns: 1fr;
             }
@@ -936,8 +975,23 @@
         <!-- 中文内容 -->
         <div class="content" data-lang="zh">
             <section class="page-header">
+                <span class="header-badge">⏱ 3 分钟完成设置 · 当天拿到 Day 1</span>
                 <h1>开启你的 21 天自我对话计划</h1>
-                <p class="subtitle">选择一个习惯 → 填写你的动机 → 收下按天拆解的练习脚本</p>
+                <p class="subtitle">选定习惯、写明动机、自定义提醒 —— 立刻生成你的每日对话、替代动作与复盘提示。</p>
+                <div class="header-highlights">
+                    <div class="header-highlight">
+                        <strong>即时 Day 1</strong>
+                        提交后马上获得第一天的对话与行动指南，可下载或复制到自己的笔记工具。
+                    </div>
+                    <div class="header-highlight">
+                        <strong>中文 / 英文双语</strong>
+                        脚本同步提供双语版本，方便在任意设备或分享给身边人时使用。
+                    </div>
+                    <div class="header-highlight">
+                        <strong>遇到阻碍可写信</strong>
+                        有疑问或卡住，直接邮件 selftalkernow@outlook.com，我会与你一起调整下一步。
+                    </div>
+                </div>
             </section>
 
             <section class="progress-indicator" data-role="stepper">
@@ -1141,13 +1195,29 @@
                 <button class="cta-button secondary" onclick="goBack()" style="display: none;" id="back-btn-zh">上一步</button>
                 <button class="cta-button" onclick="nextStep()" id="next-btn-zh">下一步</button>
             </section>
+            <p class="muted" style="text-align:center;margin:1.5rem 0 3rem;">需要帮助时，写信到 <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a>，我会与你一起调整计划。</p>
         </div>
 
         <!-- 英文内容 -->
         <div class="content active" data-lang="en">
             <section class="page-header">
+                <span class="header-badge">⏱ 3 minutes to set up · Day 1 ready instantly</span>
                 <h1>Start Your 21-Day Self-Talk Plan</h1>
-                <p class="subtitle">Choose a habit → Personalize your motivations → Follow the day-by-day script</p>
+                <p class="subtitle">Pick your habit, note your “why,” choose reminders — the system generates daily dialogues, replacement actions, and reflection prompts for you.</p>
+                <div class="header-highlights">
+                    <div class="header-highlight">
+                        <strong>Day 1 in your inbox</strong>
+                        Submit the form and you’ll get the first script immediately, ready to copy into your notes or planner.
+                    </div>
+                    <div class="header-highlight">
+                        <strong>Bilingual guidance</strong>
+                        Every prompt is available in both Chinese and English so you can rehearse or share wherever you are.
+                    </div>
+                    <div class="header-highlight">
+                        <strong>Direct support</strong>
+                        Stuck mid-journey? Email selftalkernow@outlook.com and we’ll adjust the next steps together.
+                    </div>
+                </div>
             </section>
 
             <section class="progress-indicator" data-role="stepper">
@@ -1347,6 +1417,7 @@
                 <button class="cta-button secondary" onclick="goBack()" style="display: none;" id="back-btn-en">Back</button>
                 <button class="cta-button" onclick="nextStep()" id="next-btn-en">Next Step</button>
             </section>
+            <p class="muted" style="text-align:center;margin:1.5rem 0 3rem;">Need a hand? Email <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a> and we’ll fine-tune your plan together.</p>
         </div>
         </div>
 
