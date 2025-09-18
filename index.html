@@ -523,6 +523,60 @@
             transform: translateY(-2px);
         }
 
+        .articles-preview {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .articles-preview h2 {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .articles-preview p.section-intro {
+            text-align: center;
+            color: var(--gray);
+            margin: 0 auto 2.5rem;
+            max-width: 720px;
+        }
+
+        .articles-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .articles-card {
+            background: var(--light-gray);
+            border-radius: 16px;
+            padding: 1.6rem;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .articles-card h3 {
+            color: var(--dark);
+            font-size: 1.25rem;
+        }
+
+        .articles-card p {
+            color: var(--gray);
+        }
+
+        .articles-card a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+        }
+
         .faq-section {
             padding: 4rem 2rem;
             background: var(--white);
@@ -1122,6 +1176,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
             .faq-section {
                 padding: 3.5rem 1.5rem;
             }
@@ -1188,6 +1246,7 @@
                 <a href="#how" data-text-zh="如何运作" data-text-en="How It Works" data-href-zh="#how" data-href-en="#how-en">How It Works</a>
                 <a href="#stories" data-text-zh="成功故事" data-text-en="Success Stories" data-href-zh="#stories" data-href-en="#stories-en">Success Stories</a>
                 <a href="#faq" data-text-zh="常见问题" data-text-en="FAQ" data-href-zh="#faq" data-href-en="#faq-en">FAQ</a>
+                <a href="/insights" data-text-zh="文章" data-text-en="Articles">Articles</a>
                 <a href="#about" data-text-zh="关于我" data-text-en="About Me" data-href-zh="#about" data-href-en="#about-en">About Me</a>
                 <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">Start Now</a>
             </div>
@@ -1421,6 +1480,28 @@
                             </ul>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <section class="articles-preview" id="articles-preview">
+                <h2>最新文章预告</h2>
+                <p class="section-intro">想持续练习自我对话？这里整理我正在撰写的长文与工具，待发布后会同步更新到邮件列表。</p>
+                <div class="articles-grid">
+                    <div class="articles-card">
+                        <h3>写-念-听：重写大脑预测的三部曲</h3>
+                        <p>更完整地拆解“写→念→听”背后的神经科学机制，以我戒掉深夜直播为案例。</p>
+                        <a href="/insights">查看进度</a>
+                    </div>
+                    <div class="articles-card">
+                        <h3>阿强戒烟实录：21 天日志</h3>
+                        <p>包含每日对话示例、复盘模板与复发时的替代脚本，适合准备戒烟的你。</p>
+                        <a href="/insights">查看进度</a>
+                    </div>
+                    <div class="articles-card">
+                        <h3>自语力模板包：打印版 & Notion</h3>
+                        <p>整理所有 21 天脚本的可打印卡片与 Notion 模板，方便你随时携带和记录。</p>
+                        <a href="/insights">查看进度</a>
+                    </div>
                 </div>
             </section>
 
@@ -1707,6 +1788,28 @@
                             </ul>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <section class="articles-preview" id="articles-preview-en">
+                <h2>Latest articles in progress</h2>
+                <p class="section-intro">I’m turning real self-talk experiments into long-form notes. They’ll roll out over the coming weeks—join the list to read them first.</p>
+                <div class="articles-grid">
+                    <div class="articles-card">
+                        <h3>Write · Speak · Listen</h3>
+                        <p>A deeper look at predictive coding and why the write-speak-listen loop broke my streaming habit.</p>
+                        <a href="/insights">See status</a>
+                    </div>
+                    <div class="articles-card">
+                        <h3>Qiang’s Smoke-Free Diary</h3>
+                        <p>Daily highlights, reset-day reflections, and the substitution checklist we used to defuse cravings.</p>
+                        <a href="/insights">See status</a>
+                    </div>
+                    <div class="articles-card">
+                        <h3>Template Pack</h3>
+                        <p>Printable cards plus a Notion template so you can carry the 21-day scripts across every device.</p>
+                        <a href="/insights">See status</a>
+                    </div>
                 </div>
             </section>
 
