@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-title-zh="关于我们 - 自语力" data-title-en="About Us - SelfTalk">关于我们 - 自语力</title>
+    <title data-title-zh="关于我们 - 自语力" data-title-en="About Us - SelfTalk">About Us - SelfTalk</title>
     <link rel="alternate" hreflang="en" href="/about/en/">
     <link rel="alternate" hreflang="zh" href="/about/zh/">
     <link rel="alternate" hreflang="x-default" href="/about/">
@@ -39,8 +39,9 @@
         /* 语言切换器 */
         .language-switcher {
             position: fixed;
-            top: 20px;
+            top: 120px;
             right: 20px;
+            left: auto;
             z-index: 1001;
             display: flex;
             gap: 0.5rem;
@@ -49,6 +50,17 @@
             padding: 0.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             animation: slideDown 0.5s ease-out 0.3s both;
+            transform: none;
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: auto;
+                right: 20px;
+                left: auto;
+                bottom: 20px;
+                transform: none;
+            }
         }
 
         .lang-btn {
@@ -115,6 +127,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            padding-right: 120px;
         }
 
         .nav-links a {
@@ -127,6 +140,12 @@
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--primary);
+        }
+
+        .nav-links .cta-button,
+        .nav-links .cta-button:hover,
+        .nav-links .cta-button.active {
+            color: var(--white) !important;
         }
 
         .cta-button {
@@ -553,20 +572,20 @@
 <body>
     <!-- 语言切换器 -->
     <div class="language-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
-        <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">English</button>
+        <button class="lang-btn" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
+        <button class="lang-btn active" onclick="switchLanguage('en')" data-lang="en">English</button>
     </div>
 
     <!-- 导航栏 -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">自语力</a>
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">SelfTalk</a>
             <div class="nav-links">
-                <a href="/" data-text-zh="首页" data-text-en="Home">首页</a>
-                <a href="/how-it-works" data-text-zh="如何运作" data-text-en="How It Works">如何运作</a>
-                <a href="/success-stories" data-text-zh="成功故事" data-text-en="Success Stories">成功故事</a>
-                <a href="/about" class="active" data-text-zh="关于我们" data-text-en="About Us">关于我们</a>
-                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">开始改变</a>
+                <a href="/" data-text-zh="首页" data-text-en="Home">Home</a>
+                <a href="/how-it-works" data-text-zh="如何运作" data-text-en="How It Works">How It Works</a>
+                <a href="/success-stories" data-text-zh="成功故事" data-text-en="Success Stories">Success Stories</a>
+                <a href="/about" class="active" data-text-zh="关于我们" data-text-en="About Us">About Us</a>
+                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">Start Now</a>
             </div>
         </div>
     </nav>
@@ -574,7 +593,7 @@
     <!-- 主要内容 -->
     <main>
         <!-- 中文内容 -->
-        <div class="content active" data-lang="zh">
+        <div class="content" data-lang="zh">
             <!-- 英雄区域 -->
             <section class="hero-about">
                 <div class="hero-content">
@@ -708,7 +727,7 @@
         </div>
 
         <!-- 英文内容 -->
-        <div class="content" data-lang="en">
+        <div class="content active" data-lang="en">
             <!-- Hero Section -->
             <section class="hero-about">
                 <div class="hero-content">
@@ -846,6 +865,7 @@
     <script>
         // 语言切换功能
         function switchLanguage(lang) {
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
             // 更新语言按钮状态
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -883,8 +903,7 @@
         // 页面加载完成后的初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 检测浏览器语言
-            const browserLang = navigator.language || navigator.userLanguage;
-            const defaultLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+            const defaultLang = 'en';
             
             // 从URL参数或localStorage获取语言设置
             const urlParams = new URLSearchParams(window.location.search);

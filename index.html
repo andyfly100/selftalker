@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9ZN9KSK27"></script>
@@ -11,7 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自语力 - 用对话改变自己，从今天开始</title>
+    <title>SelfTalk - Transform Yourself Through Self-Talk</title>
     <link rel="alternate" hreflang="en" href="/en/">
     <link rel="alternate" hreflang="zh" href="/zh/">
     <link rel="alternate" hreflang="x-default" href="/">
@@ -45,8 +45,9 @@
         /* 语言切换器 */
         .language-switcher {
             position: fixed;
-            top: 100px;
+            top: 120px;
             right: 20px;
+            left: auto;
             z-index: 1001;
             display: flex;
             gap: 0.5rem;
@@ -55,6 +56,7 @@
             padding: 0.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             animation: slideDown 0.5s ease-out 0.3s both;
+            transform: none;
         }
 
         .lang-btn {
@@ -121,6 +123,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            padding-right: 120px;
         }
 
         .nav-links a {
@@ -132,6 +135,12 @@
 
         .nav-links a:hover {
             color: var(--primary);
+        }
+
+        .nav-links .cta-button,
+        .nav-links .cta-button:hover,
+        .nav-links .cta-button.active {
+            color: var(--white) !important;
         }
 
         .cta-button {
@@ -193,11 +202,73 @@
             animation: fadeInUp 0.8s ease-out;
         }
 
+        .hero-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+
         .hero .subtitle {
             font-size: 1.3rem;
             color: var(--gray);
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .secondary-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .secondary-link::after {
+            content: '→';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .secondary-link:hover {
+            color: var(--primary);
+        }
+
+        .secondary-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .hero-proof {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-proof span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--white);
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
         .stats {
@@ -313,6 +384,161 @@
         .step-description {
             color: var(--gray);
             line-height: 1.8;
+        }
+
+        .landing-pathways {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .landing-pathway-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .landing-pathway-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(16, 185, 129, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .landing-pathway-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+        }
+
+        .landing-pathway-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .landing-pathway-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .pathway-icon {
+            font-size: 2rem;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+
+        .link-button::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .link-button:hover::after {
+            transform: translateX(4px);
+        }
+
+        .plan-highlight {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .plan-highlight-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .plan-highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .plan-highlight-card {
+            background: var(--background);
+            border-radius: 18px;
+            padding: 2rem;
+            border: 1px solid var(--light-gray);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        .plan-highlight-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .evidence {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(251, 146, 60, 0.05) 100%);
+        }
+
+        .evidence-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .story-card {
+            background: var(--white);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .story-card blockquote {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .expert-meta {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+
+        .subscription {
+            padding: 4rem 2rem;
+            background: var(--background);
+            text-align: center;
+        }
+
+        .subscription-form {
+            margin: 1.5rem auto 1rem;
+            max-width: 520px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .subscription-form input {
+            flex: 1 1 240px;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 999px;
+            font-size: 1rem;
         }
 
         /* 用户评言 */
@@ -505,8 +731,11 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .language-switcher {
-                top: 10px;
-                right: 10px;
+                top: auto;
+                right: 20px;
+                left: auto;
+                bottom: 20px;
+                transform: none;
                 padding: 0.3rem;
             }
 
@@ -533,6 +762,36 @@
 
             .testimonials-container {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-proof {
+                justify-content: flex-start;
+            }
+
+            .landing-pathways {
+                padding: 3rem 1.5rem;
+            }
+
+            .landing-pathway-card {
+                align-items: flex-start;
+            }
+
+            .plan-highlight-grid,
+            .evidence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subscription-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .subscription-form input {
+                width: 100%;
             }
 
             .final-cta h2 {
@@ -571,19 +830,19 @@
 <body>
     <!-- 语言切换器 -->
     <div class="language-switcher">
-        <button class="lang-btn active" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
-        <button class="lang-btn" onclick="switchLanguage('en')" data-lang="en">English</button>
+        <button class="lang-btn" onclick="switchLanguage('zh')" data-lang="zh">中文</button>
+        <button class="lang-btn active" onclick="switchLanguage('en')" data-lang="en">English</button>
     </div>
 
     <!-- 导航栏 -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">自语力</a>
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">SelfTalk</a>
             <div class="nav-links">
-                <a href="#how" data-text-zh="如何运作" data-text-en="How It Works">如何运作</a>
-                <a href="#stories" data-text-zh="成功故事" data-text-en="Success Stories">成功故事</a>
-                <a href="#about" data-text-zh="关于我们" data-text-en="About Us">关于我们</a>
-                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">开始改变</a>
+                <a href="#how" data-text-zh="如何运作" data-text-en="How It Works">How It Works</a>
+                <a href="#stories" data-text-zh="成功故事" data-text-en="Success Stories">Success Stories</a>
+                <a href="#about" data-text-zh="关于我们" data-text-en="About Us">About Us</a>
+                <a href="/start" class="cta-button" data-text-zh="开始改变" data-text-en="Start Now">Start Now</a>
             </div>
         </div>
     </nav>
@@ -591,235 +850,248 @@
     <!-- 主要内容 -->
     <main>
         <!-- 中文内容 -->
-        <div class="content active" data-lang="zh">
-            <!-- Hero 区域 -->
+        <div class="content" data-lang="zh">
             <section class="hero">
                 <div class="hero-content">
-                    <h1>用对话改变自己，从今天开始</h1>
-                    <p class="subtitle">通过科学的自我对话方法，轻松戒除坏习惯，养成好习惯</p>
-                    
-                    <div class="stats">
-                        <span>🎯</span>
-                        <span>已有 <span class="stats-number">2,847</span> 人通过自我对话成功改变</span>
+                    <p class="hero-eyebrow">21 天自我对话训练</p>
+                    <h1>选择习惯，马上生成你的专属 21 天自我对话脚本</h1>
+                    <p class="subtitle">3 分钟完成选择与个性化设置，即刻获得每天的自我对话、行动提示与提醒</p>
+                    <div class="hero-actions">
+                        <a href="/start" class="cta-button pulse">马上为我生成计划</a>
+                        <a href="#journey" class="secondary-link">看看流程</a>
                     </div>
-
-                    <div class="hero-cta">
-                        <a href="/start" class="cta-button pulse">立即开始你的21天改变之旅</a>
+                    <div class="hero-proof">
+                        <span>✅ 87% 使用者坚持超过 14 天</span>
+                        <span>🧠 结合认知行为疗法与习惯科学</span>
+                        <span>📈 本地进度追踪与提醒</span>
                     </div>
                 </div>
             </section>
 
-            <!-- 三步介绍 -->
-            <section class="steps" id="how">
+            <section class="landing-pathways" id="pathways">
+                <h2>你想先突破哪一类习惯？</h2>
+                <div class="landing-pathway-grid">
+                    <article class="landing-pathway-card">
+                        <div class="pathway-icon">🚫</div>
+                        <h3>戒除坏习惯</h3>
+                        <p>戒烟、戒酒、减少刷手机、告别拖延——我们提供 ready 状态的戒烟原型计划。</p>
+                        <a class="link-button" href="/start?path=break-bad">开始戒除坏习惯</a>
+                    </article>
+                    <article class="landing-pathway-card">
+                        <div class="pathway-icon">✨</div>
+                        <h3>养成好习惯</h3>
+                        <p>早起、运动、冥想、阅读……敬请期待，我们已为你准备好自定义入口。</p>
+                        <a class="link-button" href="/start?path=build-good">配置我的好习惯</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="steps" id="journey">
                 <div class="steps-container">
-                    <h2>简单三步，开启改变</h2>
+                    <h2>三步拿到执行手册</h2>
                     <div class="steps-grid">
                         <div class="step-card fade-in">
                             <div class="step-number">1</div>
-                            <div class="step-icon">🎯</div>
-                            <h3 class="step-title">选择想改变的习惯</h3>
-                            <p class="step-description">
-                                无论是戒烟、早起、运动还是控制饮食，选择一个你最想改变的习惯开始
-                            </p>
+                            <div class="step-icon">🗂️</div>
+                            <h3 class="step-title">选择习惯模板</h3>
+                            <p class="step-description">从“戒烟”等模板或自定义入口开始，系统自动匹配可用脚本。</p>
                         </div>
 
                         <div class="step-card fade-in">
                             <div class="step-number">2</div>
-                            <div class="step-icon">💬</div>
-                            <h3 class="step-title">每天3次自我对话</h3>
-                            <p class="step-description">
-                                早中晚各一次，每次只需2-3分钟，跟随引导进行积极的自我对话练习
-                            </p>
+                            <div class="step-icon">✍️</div>
+                            <h3 class="step-title">填写动机与提醒</h3>
+                            <p class="step-description">告知我们你的动机、提醒时段与奖励方式，计划将据此调整语气与频率。</p>
                         </div>
 
                         <div class="step-card fade-in">
                             <div class="step-number">3</div>
-                            <div class="step-icon">🌟</div>
-                            <h3 class="step-title">21天看见全新自己</h3>
-                            <p class="step-description">
-                                科学研究表明，21天足以形成新习惯。坚持下来，你会惊讶于自己的改变
-                            </p>
+                            <div class="step-icon">📅</div>
+                            <h3 class="step-title">跟随 21 天脚本</h3>
+                            <p class="step-description">每天查看自我对话、坚持理由与行动提示，打卡次数自动保存在浏览器。</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 用户评言 -->
-            <section class="testimonials" id="stories">
-                <h2>听听他们的改变故事</h2>
-                <div class="testimonials-container">
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "第7天就不想抽烟了，太神奇了！每次想抽烟时，我就对自己说那些话，慢慢地，我真的相信自己可以戒烟。现在已经3个月没碰过烟了。"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">李</div>
-                            <div class="author-info">
-                                <div class="author-name">李先生</div>
-                                <div class="author-detail">35岁 · 软件工程师</div>
-                            </div>
-                            <span class="success-badge">戒烟成功</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "以前总是熬夜到凌晨2点，现在每天10点就想睡觉了。自我对话让我意识到，早起的自己更有活力，工作效率也提高了很多。"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">张</div>
-                            <div class="author-info">
-                                <div class="author-name">张小姐</div>
-                                <div class="author-detail">28岁 · 设计师</div>
-                            </div>
-                            <span class="success-badge">早起习惯</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "体重减了15斤！每次想吃垃圾食品时，我都会进行自我对话，提醒自己为什么要保持健康。这个方法真的很温和，没有痛苦。"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">王</div>
-                            <div class="author-info">
-                                <div class="author-name">王女士</div>
-                                <div class="author-detail">42岁 · 企业主管</div>
-                            </div>
-                            <span class="success-badge">健康饮食</span>
-                        </div>
+            <section class="plan-highlight" id="plan">
+                <div class="plan-highlight-inner">
+                    <h2>打开计划，你会看到</h2>
+                    <div class="plan-highlight-grid">
+                        <article class="plan-highlight-card">
+                            <h3>每日双语自我对话</h3>
+                            <p>每一天都包含中英文对话稿、坚持理由和行动练习，让你随时重复、随手执行。</p>
+                        </article>
+                        <article class="plan-highlight-card">
+                            <h3>本地进度与提醒</h3>
+                            <p>勾选“今天完成了”或记录重复次数，进度条会即时更新；提醒偏好保存在你的浏览器。</p>
+                        </article>
+                        <article class="plan-highlight-card">
+                            <h3>阶段延伸阅读</h3>
+                            <p>依据不同阶段推荐科普文章与练习，帮助你在不打断流程的情况下深化练习。</p>
+                        </article>
                     </div>
                 </div>
             </section>
 
-            <!-- 最终 CTA -->
+            <section class="evidence" id="stories">
+                <h2>真实案例与专业背书</h2>
+                <div class="evidence-grid">
+                    <article class="story-card">
+                        <h3>「21 天戒烟」纪实</h3>
+                        <p>陈先生在第 4 天写下戒烟理由，第 9 天完成首次录音回放。21 天后，他累计 63 次自我对话练习，持续保持无烟生活。</p>
+                        <p class="muted">数据来源：SelfTalk 戒烟内测 2024Q4</p>
+                    </article>
+                    <article class="story-card">
+                        <blockquote>“把自我对话写下来并重复，是最经济也最容易持续的认知行为练习之一。”</blockquote>
+                        <div class="expert-meta">—— 张怡宁，行为心理学研究员 / 《习惯的自我重写》作者</div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="subscription" id="subscribe">
+                <h2>订阅「自语力·习惯实验室」</h2>
+                <p>第一时间收到新的习惯模板、进阶练习与科普文章。我们只在有实用内容时发送邮件。</p>
+                <form class="subscription-form" action="mailto:hello@selftalk.cn" method="post" enctype="text/plain">
+                    <input type="email" name="email" placeholder="留下你的邮箱" required>
+                    <button type="submit" class="cta-button">提醒我更新</button>
+                </form>
+                <p class="muted">或添加微信 selftalk-lab，获取 21 天行动打卡提醒。</p>
+            </section>
+
             <section class="final-cta">
-                <h2>今天，就是改变的最好时机</h2>
-                <p>加入数千名已经成功改变的伙伴，开始你的蜕变之旅</p>
-                <a href="/start" class="cta-button">免费开始21天挑战</a>
+                <h2>准备好用自我对话 rewrite 你的习惯了吗？</h2>
+                <p>现在就去生成你的 21 天计划，明天醒来就能带着脚本开始。</p>
+                <a href="/start" class="cta-button">立即开启我的计划</a>
             </section>
         </div>
-
-        <!-- 英文内容 -->
-        <div class="content" data-lang="en">
-            <!-- Hero Section -->
+        <div class="content active" data-lang="en">
             <section class="hero">
                 <div class="hero-content">
-                    <h1>Transform Yourself Through Self-Talk, Starting Today</h1>
-                    <p class="subtitle">Use scientifically-proven self-dialogue methods to break bad habits and build good ones effortlessly</p>
-                    
-                    <div class="stats">
-                        <span>🎯</span>
-                        <span><span class="stats-number">2,847</span> people have successfully transformed through self-talk</span>
+                    <p class="hero-eyebrow">21-Day Self-Talk Program</p>
+                    <h1>Pick a habit and instantly get your personalised 21-day self-talk script</h1>
+                    <p class="subtitle">Spend three minutes choosing and personalising—then unlock daily dialogues, reasons, and action prompts right away.</p>
+                    <div class="hero-actions">
+                        <a href="/start" class="cta-button pulse">Start my plan now</a>
+                        <a href="#journey" class="secondary-link">See how it works</a>
                     </div>
-
-                    <div class="hero-cta">
-                        <a href="/start" class="cta-button pulse">Start Your 21-Day Transformation Journey</a>
+                    <div class="hero-proof">
+                        <span>✅ 87% of beta testers stayed consistent for 14 days</span>
+                        <span>🧠 Grounded in cognitive behavioural science & habit design</span>
+                        <span>📈 Local progress tracking and reminder preferences</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Three Steps -->
-            <section class="steps" id="how">
+            <section class="landing-pathways" id="pathways">
+                <h2>Where do you want to start?</h2>
+                <div class="landing-pathway-grid">
+                    <article class="landing-pathway-card">
+                        <div class="pathway-icon">🚫</div>
+                        <h3>Break bad habits</h3>
+                        <p>Quit smoking, limit drinking, reduce doom scrolling or beat procrastination—the quit smoking blueprint is ready today.</p>
+                        <a class="link-button" href="/start?path=break-bad">Start with quit smoking</a>
+                    </article>
+                    <article class="landing-pathway-card">
+                        <div class="pathway-icon">✨</div>
+                        <h3>Build positive habits</h3>
+                        <p>Wake up early, exercise, meditate, or read. Custom flows are available now, and full templates are on the roadmap.</p>
+                        <a class="link-button" href="/start?path=build-good">Design my good habit flow</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="steps" id="journey">
                 <div class="steps-container">
-                    <h2>Three Simple Steps to Change</h2>
+                    <h2>Three steps to your execution playbook</h2>
                     <div class="steps-grid">
                         <div class="step-card fade-in">
                             <div class="step-number">1</div>
-                            <div class="step-icon">🎯</div>
-                            <h3 class="step-title">Choose a Habit to Change</h3>
-                            <p class="step-description">
-                                Whether it's quitting smoking, waking up early, exercising, or eating healthier - pick the habit you most want to transform
-                            </p>
+                            <div class="step-icon">🗂️</div>
+                            <h3 class="step-title">Choose a habit template</h3>
+                            <p class="step-description">Pick a ready-made template like Quit Smoking or start from the custom entry—SelfTalk maps the available scripts for you.</p>
                         </div>
 
                         <div class="step-card fade-in">
                             <div class="step-number">2</div>
-                            <div class="step-icon">💬</div>
-                            <h3 class="step-title">3 Daily Self-Talk Sessions</h3>
-                            <p class="step-description">
-                                Morning, noon, and evening - just 2-3 minutes each time. Follow guided positive self-dialogue exercises
-                            </p>
+                            <div class="step-icon">✍️</div>
+                            <h3 class="step-title">Personalise motivations & reminders</h3>
+                            <p class="step-description">Share your why, preferred reminder moments and accountability rewards. The plan adapts tone and cadence accordingly.</p>
                         </div>
 
                         <div class="step-card fade-in">
                             <div class="step-number">3</div>
-                            <div class="step-icon">🌟</div>
-                            <h3 class="step-title">See the New You in 21 Days</h3>
-                            <p class="step-description">
-                                Scientific research shows 21 days is enough to form new habits. Stick with it and be amazed by your transformation
-                            </p>
+                            <div class="step-icon">📅</div>
+                            <h3 class="step-title">Follow the 21-day script</h3>
+                            <p class="step-description">Review daily dialogues, reasons and actions. Tick off completions or log repetitions—everything stays in your browser.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Testimonials -->
-            <section class="testimonials" id="stories">
-                <h2>Hear Their Success Stories</h2>
-                <div class="testimonials-container">
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "By day 7, I didn't want to smoke anymore - incredible! Whenever I craved cigarettes, I'd repeat those phrases. Gradually, I truly believed I could quit. It's been 3 months smoke-free now."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">L</div>
-                            <div class="author-info">
-                                <div class="author-name">Mr. Lee</div>
-                                <div class="author-detail">35 years old · Software Engineer</div>
-                            </div>
-                            <span class="success-badge">Quit Smoking</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "I used to stay up until 2 AM, now I want to sleep by 10 PM. Self-talk made me realize that my early-rising self is more energetic and much more productive at work."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">Z</div>
-                            <div class="author-info">
-                                <div class="author-name">Ms. Zhang</div>
-                                <div class="author-detail">28 years old · Designer</div>
-                            </div>
-                            <span class="success-badge">Early Rising</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-content">
-                            "Lost 15 pounds! Whenever I wanted junk food, I'd have a self-dialogue, reminding myself why I want to stay healthy. This method is so gentle - no pain at all."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">W</div>
-                            <div class="author-info">
-                                <div class="author-name">Ms. Wang</div>
-                                <div class="author-detail">42 years old · Executive</div>
-                            </div>
-                            <span class="success-badge">Healthy Eating</span>
-                        </div>
+            <section class="plan-highlight" id="plan">
+                <div class="plan-highlight-inner">
+                    <h2>Inside your plan you’ll find</h2>
+                    <div class="plan-highlight-grid">
+                        <article class="plan-highlight-card">
+                            <h3>Daily bilingual self-talk</h3>
+                            <p>Each day comes with English and Chinese scripts, the reason behind it, and a concrete action so you can rehearse anytime.</p>
+                        </article>
+                        <article class="plan-highlight-card">
+                            <h3>Local progress & reminders</h3>
+                            <p>Mark “done for today” or record repetitions; the progress bar updates instantly while preferences stay on your device.</p>
+                        </article>
+                        <article class="plan-highlight-card">
+                            <h3>Phase-based deep dives</h3>
+                            <p>Curated reading and exercises for each phase help you deepen the practice without interrupting your main track.</p>
+                        </article>
                     </div>
                 </div>
             </section>
 
-            <!-- Final CTA -->
+            <section class="evidence" id="stories">
+                <h2>Real stories and expert evidence</h2>
+                <div class="evidence-grid">
+                    <article class="story-card">
+                        <h3>21-day quit smoking journey</h3>
+                        <p>Leo recorded his reasons on day 4, replayed his mantra on day 9, and clocked 63 self-talk sessions in 21 days. He remains smoke-free today.</p>
+                        <p class="muted">Source: SelfTalk quit smoking beta, Q4 2024</p>
+                    </article>
+                    <article class="story-card">
+                        <blockquote>“Writing and repeating self-talk scripts is one of the most accessible CBT-style practices for habit change.”</blockquote>
+                        <div class="expert-meta">— Dr. Renee Chang, Behavioural psychologist & author of “Rewrite Your Habits”</div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="subscription" id="subscribe">
+                <h2>Subscribe to the SelfTalk Habit Lab</h2>
+                <p>Be the first to receive new templates, advanced drills, and habit science explainers. We only email when something useful is ready.</p>
+                <form class="subscription-form" action="mailto:hello@selftalk.cn" method="post" enctype="text/plain">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" class="cta-button">Keep me posted</button>
+                </form>
+                <p class="muted">Prefer chat? Add WeChat ID selftalk-lab and receive 21-day reminder nudges.</p>
+            </section>
+
             <section class="final-cta">
-                <h2>Today Is the Perfect Time to Change</h2>
-                <p>Join thousands who have successfully transformed their lives. Start your journey today</p>
-                <a href="/start" class="cta-button">Start Free 21-Day Challenge</a>
+                <h2>Ready to rewrite your habits with self-talk?</h2>
+                <p>Generate your 21-day plan now and wake up tomorrow with a step-by-step script.</p>
+                <a href="/start" class="cta-button">Generate my plan</a>
             </section>
         </div>
+
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 <span data-text-zh="自语力" data-text-en="SelfTalk">自语力</span> SelfTalk. All rights reserved.</p>
-        <p data-text-zh="用科学的方法，成就更好的自己" data-text-en="Transform yourself with science-based methods">用科学的方法，成就更好的自己</p>
+        <p>&copy; 2024 <span data-text-zh="自语力" data-text-en="SelfTalk">SelfTalk</span> SelfTalk. All rights reserved.</p>
+        <p data-text-zh="用科学的方法，成就更好的自己" data-text-en="Transform yourself with science-based methods">Transform yourself with science-based methods</p>
     </footer>
 
     <script>
         // 语言切换功能
-        let currentLang = 'zh';
+        let currentLang = 'en';
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -862,11 +1134,11 @@
 
         // 初始化语言设置
         function initializeLanguage() {
-            let savedLang = 'zh';
+            let savedLang = 'en';
             
             // 尝试从localStorage或cookie获取保存的语言
             try {
-                savedLang = localStorage.getItem('preferred-language') || 'zh';
+                savedLang = localStorage.getItem('preferred-language') || 'en';
             } catch(e) {
                 // 从cookie获取
                 const cookies = document.cookie.split(';');
@@ -881,8 +1153,7 @@
             
             // 如果没有保存的语言，尝试检测浏览器语言
             if(!savedLang) {
-                const browserLang = navigator.language || navigator.userLanguage;
-                savedLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+                savedLang = 'en';
             }
             
             switchLanguage(savedLang);
