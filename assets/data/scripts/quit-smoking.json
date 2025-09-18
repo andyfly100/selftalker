@@ -1,0 +1,507 @@
+{
+  "id": "quit-smoking",
+  "name": {
+    "zh": "戒烟",
+    "en": "Quit Smoking"
+  },
+  "category": "break-bad-habit",
+  "durationDays": 21,
+  "description": {
+    "zh": "通过 21 天分阶段的自我对话与录音练习，巩固“我是一个不吸烟的人”的身份，逐步减少渴望并建立新的生活节奏。",
+    "en": "A 21-day phased self-talk and recording practice to cement your identity as a non-smoker, reduce cravings, and build a new routine."
+  },
+  "phases": [
+    {
+      "id": "phase-identity",
+      "fromDay": 1,
+      "toDay": 7,
+      "title": {
+        "zh": "身份重塑期",
+        "en": "Identity Reset"
+      },
+      "focus": {
+        "zh": "每天多次重复“我是一个不吸烟的人”，让大脑接受新的身份设定。",
+        "en": "Repeat 'I am a non-smoker' multiple times every day to let your brain accept the new identity."
+      }
+    },
+    {
+      "id": "phase-reasons",
+      "fromDay": 8,
+      "toDay": 14,
+      "title": {
+        "zh": "理由强化期",
+        "en": "Reason Reinforcement"
+      },
+      "focus": {
+        "zh": "把戒烟原因说出口并写下来，遇到诱惑时有话可说。",
+        "en": "Speak and write out your reasons for quitting so you have words ready when cravings hit."
+      }
+    },
+    {
+      "id": "phase-consolidation",
+      "fromDay": 15,
+      "toDay": 21,
+      "title": {
+        "zh": "巩固期",
+        "en": "Consolidation"
+      },
+      "focus": {
+        "zh": "反复回放录音、庆祝进展，把“无烟生活”当成自然状态。",
+        "en": "Replay recordings, celebrate progress, and make a smoke-free life feel natural."
+      }
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我是一个不吸烟的人。",
+        "en": "I am a non-smoker."
+      },
+      "why": {
+        "zh": "身份决定行为，今天开始给自己贴上新的标签。",
+        "en": "Identity drives behavior—start wearing the new label today."
+      },
+      "action": {
+        "zh": "至少 3 次（早/午/晚）出声或心里重复 10 秒，写在便签贴在显眼的位置。",
+        "en": "Repeat it aloud or silently for 10 seconds at least three times (morning, noon, night) and place it on a visible sticky note."
+      },
+      "recordingHint": {
+        "zh": "录一段 15 秒宣言，只需要这句核心话。",
+        "en": "Record a 15-second mantra featuring this single line."
+      },
+      "prompts": {
+        "morning": {
+          "zh": "醒来第一件事，对自己说“我是一个不吸烟的人”。",
+          "en": "Upon waking, declare 'I am a non-smoker'."
+        },
+        "evening": {
+          "zh": "睡前回顾今天什么时候坚持住了。",
+          "en": "Before bed, recall a moment you stayed smoke-free today."
+        }
+      },
+      "tags": ["identity", "foundation"]
+    },
+    {
+      "day": 2,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我已经在远离香烟的路上。",
+        "en": "I am already on the path away from cigarettes."
+      },
+      "why": {
+        "zh": "承认进步能带来继续坚持的动力。",
+        "en": "Acknowledging progress fuels motivation to continue."
+      },
+      "action": {
+        "zh": "把昨天的宣言录音再听一遍，跟读 2 遍。",
+        "en": "Replay yesterday's recording and repeat along twice."
+      },
+      "recordingHint": {
+        "zh": "补充一句“我为自己迈出的第一步感到骄傲”。",
+        "en": "Add 'I am proud of my first step' to your recording."
+      },
+      "tags": ["identity", "confidence"]
+    },
+    {
+      "day": 3,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我选择让身体呼吸新鲜空气。",
+        "en": "I choose to let my body breathe fresh air."
+      },
+      "why": {
+        "zh": "强调“选择权”能增强控制感。",
+        "en": "Highlighting choice reinforces your sense of control."
+      },
+      "action": {
+        "zh": "外出散步 10 分钟，感受没有烟味的呼吸。",
+        "en": "Take a 10-minute walk and notice breathing without smoke."
+      },
+      "recordingHint": {
+        "zh": "描述你呼吸顺畅时的感觉。",
+        "en": "Describe how clean breathing feels in your recording."
+      },
+      "tags": ["identity", "awareness"]
+    },
+    {
+      "day": 4,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我正在把吸烟这个习惯从生活里删除。",
+        "en": "I am deleting the smoking habit from my life."
+      },
+      "why": {
+        "zh": "把戒烟视为整理生活，有助于减少恐惧感。",
+        "en": "Viewing quitting as decluttering life lowers fear."
+      },
+      "action": {
+        "zh": "清理家中所有烟具、烟味物品。",
+        "en": "Remove all smoking items and smoky reminders from home."
+      },
+      "recordingHint": {
+        "zh": "写下一句“我选择干净的环境”并录进去。",
+        "en": "Add 'I choose a clean environment' into your recording."
+      },
+      "tags": ["environment", "identity"]
+    },
+    {
+      "day": 5,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我值得拥有无烟的身体和头脑。",
+        "en": "I deserve a smoke-free body and mind."
+      },
+      "why": {
+        "zh": "肯定自我价值，让戒烟成为奖赏而非惩罚。",
+        "en": "Affirming self-worth turns quitting into a reward, not deprivation."
+      },
+      "action": {
+        "zh": "写下无烟状态带来的三个好处，贴在手机背面。",
+        "en": "List three benefits of being smoke-free and stick them to your phone."
+      },
+      "recordingHint": {
+        "zh": "把那三个好处逐条读出来。",
+        "en": "Read those three benefits into your recording."
+      },
+      "tags": ["identity", "benefits"]
+    },
+    {
+      "day": 6,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我能感受到身体渐渐轻盈。",
+        "en": "I can feel my body growing lighter."
+      },
+      "why": {
+        "zh": "让大脑注意到积极变化，有助于巩固决心。",
+        "en": "Direct the brain toward positive changes to cement determination."
+      },
+      "action": {
+        "zh": "记录今天精神状态或呼吸变化的一点小发现。",
+        "en": "Note one small change in energy or breathing today."
+      },
+      "recordingHint": {
+        "zh": "把“轻盈”或其他感受描述进去。",
+        "en": "Describe the feeling of 'lightness' or other observations."
+      },
+      "tags": ["identity", "mindfulness"]
+    },
+    {
+      "day": 7,
+      "phase": "phase-identity",
+      "affirmation": {
+        "zh": "我已经坚持了一周，我做得到。",
+        "en": "I have stayed committed for a week—I can do this."
+      },
+      "why": {
+        "zh": "庆祝第一阶段成功，让自信延续到下一阶段。",
+        "en": "Celebrate phase one to carry confidence into the next stage."
+      },
+      "action": {
+        "zh": "奖励自己一个健康的小礼物（运动、果汁、按摩等）。",
+        "en": "Reward yourself with a healthy treat (exercise, juice, massage)."
+      },
+      "recordingHint": {
+        "zh": "录一段给未来自己的感谢词。",
+        "en": "Record a thank-you message to your future self."
+      },
+      "tags": ["celebration", "identity"]
+    },
+    {
+      "day": 8,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我是一个不吸烟的人，因为吸烟让我的口气很臭。",
+        "en": "I am a non-smoker because smoking makes my breath smell."
+      },
+      "why": {
+        "zh": "具体的理由能激活厌恶感，抵御诱惑。",
+        "en": "Specific reasons trigger aversion and help resist cravings."
+      },
+      "action": {
+        "zh": "把理由写在卡片上，遇到想抽烟时读出来。",
+        "en": "Write the reason on a card; read it whenever a craving hits."
+      },
+      "recordingHint": {
+        "zh": "更新录音：宣言 + 理由一并说出，语气坚定。",
+        "en": "Update your recording with the mantra and reason in a firm tone."
+      },
+      "tags": ["reasons", "cravings"]
+    },
+    {
+      "day": 9,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我值得清新的气味和自信的社交。",
+        "en": "I deserve fresh breath and confident social moments."
+      },
+      "why": {
+        "zh": "联想社交和自信，强化积极动力。",
+        "en": "Link quitting to social confidence and positive motivation."
+      },
+      "action": {
+        "zh": "把口香糖或水随身携带，成为新的手部动作。",
+        "en": "Carry gum or water to replace habitual hand-to-mouth motions."
+      },
+      "recordingHint": {
+        "zh": "描述你无烟社交时的画面。",
+        "en": "Describe a vivid smoke-free social scene in your recording."
+      },
+      "tags": ["reasons", "replacement"]
+    },
+    {
+      "day": 10,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我用深呼吸而不是香烟来缓解压力。",
+        "en": "I soothe stress with deep breaths, not cigarettes."
+      },
+      "why": {
+        "zh": "把“缓解压力”的功能迁移到健康方式上。",
+        "en": "Shift the stress-relief function to a healthy alternative."
+      },
+      "action": {
+        "zh": "练习 4-7-8 呼吸法 3 轮。",
+        "en": "Practice the 4-7-8 breathing technique for three rounds."
+      },
+      "recordingHint": {
+        "zh": "录音里带着一次深呼吸，提醒自己随时可用。",
+        "en": "Include one deep breath in your recording as a cue."
+      },
+      "tags": ["reasons", "breathing"]
+    },
+    {
+      "day": 11,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我珍惜家人，他们喜欢现在的我。",
+        "en": "I cherish my family—they prefer the smoke-free me."
+      },
+      "why": {
+        "zh": "情感驱动是强力动机，让戒烟与爱的人绑定。",
+        "en": "Emotional drivers are powerful—attach quitting to loved ones."
+      },
+      "action": {
+        "zh": "告诉一位家人你的坚持，请他们提醒你的理由。",
+        "en": "Share your commitment with a family member and ask for reminders."
+      },
+      "recordingHint": {
+        "zh": "把家人的名字读进去，提醒你为谁而坚持。",
+        "en": "Mention loved ones by name in your recording."
+      },
+      "tags": ["reasons", "support"]
+    },
+    {
+      "day": 12,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我的味觉和嗅觉正在恢复。",
+        "en": "My taste and smell are coming back."
+      },
+      "why": {
+        "zh": "让身体感受变得可见，强化正向反馈。",
+        "en": "Make bodily improvements visible to reinforce positive feedback."
+      },
+      "action": {
+        "zh": "品尝一份味道丰富的食物，描述它的层次。",
+        "en": "Enjoy a flavorful meal and describe its layers."
+      },
+      "recordingHint": {
+        "zh": "把你对味觉恢复的期待或体验说出来。",
+        "en": "Speak about your expectations or experience of returning taste."
+      },
+      "tags": ["reasons", "senses"]
+    },
+    {
+      "day": 13,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我把渴望当成提醒自己有选择的信号。",
+        "en": "I treat cravings as reminders that I have a choice."
+      },
+      "why": {
+        "zh": "重新定义渴望，降低其威胁感。",
+        "en": "Reframe cravings to reduce their threat."
+      },
+      "action": {
+        "zh": "出现渴望时，先喝水或散步 2 分钟再决定。",
+        "en": "When cravings appear, drink water or walk for two minutes before acting."
+      },
+      "recordingHint": {
+        "zh": "录制一句“渴望出现=我又练习一次选择权”。",
+        "en": "Record 'A craving means another chance to choose.'"
+      },
+      "tags": ["cravings", "reframing"]
+    },
+    {
+      "day": 14,
+      "phase": "phase-reasons",
+      "affirmation": {
+        "zh": "我对自己两周的坚持表示敬意。",
+        "en": "I respect myself for two weeks of commitment."
+      },
+      "why": {
+        "zh": "第二阶段末尾再一次庆祝，保持动力。",
+        "en": "Celebrate the end of phase two to maintain momentum."
+      },
+      "action": {
+        "zh": "写一封简短的信给两周前的自己，分享现在的收获。",
+        "en": "Write a short letter to your two-weeks-ago self sharing gains."
+      },
+      "recordingHint": {
+        "zh": "把信的重点念出来，存成新的音频。",
+        "en": "Read highlights of the letter in your new recording."
+      },
+      "tags": ["reasons", "celebration"]
+    },
+    {
+      "day": 15,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我每天都在证明自己可以不吸烟。",
+        "en": "Every day I prove I can live smoke-free."
+      },
+      "why": {
+        "zh": "进入巩固期，提醒自己已经坚持了 14 天。",
+        "en": "Starting consolidation—acknowledge the 14 days already won."
+      },
+      "action": {
+        "zh": "安排早/午/晚三次播放录音，边听边跟读。",
+        "en": "Schedule morning, noon, and evening playback while repeating along."
+      },
+      "recordingHint": {
+        "zh": "加入一句“我已经做到很多”。",
+        "en": "Add 'I have already achieved so much.'"
+      },
+      "tags": ["consolidation", "recording"]
+    },
+    {
+      "day": 16,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我把原来抽烟的时间用来滋养自己。",
+        "en": "I use former smoking time to nourish myself."
+      },
+      "why": {
+        "zh": "用新习惯填补时间空档，防止旧行为回归。",
+        "en": "Fill freed-up time with nurturing habits to prevent relapse."
+      },
+      "action": {
+        "zh": "挑选一个 10 分钟的替代习惯（伸展、阅读等）。",
+        "en": "Choose a 10-minute replacement habit such as stretching or reading."
+      },
+      "recordingHint": {
+        "zh": "描述你选择的替代习惯以及带来的感受。",
+        "en": "Describe the replacement habit and how it feels."
+      },
+      "tags": ["consolidation", "replacement"]
+    },
+    {
+      "day": 17,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我的意志力像肌肉一样越来越强。",
+        "en": "My willpower is growing stronger like a muscle."
+      },
+      "why": {
+        "zh": "鼓励自我效能感，持续坚持。",
+        "en": "Boost self-efficacy to keep going."
+      },
+      "action": {
+        "zh": "回顾最近一次成功抵挡渴望的情景，并写下可复制的做法。",
+        "en": "Review your latest successful craving resistance and note repeatable tactics."
+      },
+      "recordingHint": {
+        "zh": "把那次成功经历讲给未来的自己听。",
+        "en": "Tell your future self about that successful experience."
+      },
+      "tags": ["consolidation", "self-efficacy"]
+    },
+    {
+      "day": 18,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我能识别风险情境并提前准备。",
+        "en": "I can spot risky situations and prepare in advance."
+      },
+      "why": {
+        "zh": "预演关键情境，降低突发诱惑的危险。",
+        "en": "Rehearse key scenarios to neutralize sudden temptations."
+      },
+      "action": {
+        "zh": "列出三种最可能诱惑你的场景，为每种写一个解法。",
+        "en": "List three tempting scenarios and a coping plan for each."
+      },
+      "recordingHint": {
+        "zh": "把最重要的解法口述一遍。",
+        "en": "Speak your most crucial coping plan into the recording."
+      },
+      "tags": ["consolidation", "planning"]
+    },
+    {
+      "day": 19,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "没有香烟的我更专注、更有能量。",
+        "en": "The smoke-free me is more focused and energized."
+      },
+      "why": {
+        "zh": "持续强调正向收益，让大脑想要维持现状。",
+        "en": "Keep highlighting gains so your brain wants to maintain them."
+      },
+      "action": {
+        "zh": "记录今天注意力或精神状态的一个亮点。",
+        "en": "Record one highlight in focus or energy today."
+      },
+      "recordingHint": {
+        "zh": "把这个亮点加入每日播放的录音里。",
+        "en": "Add the highlight to your daily playback recording."
+      },
+      "tags": ["consolidation", "benefits"]
+    },
+    {
+      "day": 20,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我信任自己能长期保持无烟生活。",
+        "en": "I trust myself to stay smoke-free for the long term."
+      },
+      "why": {
+        "zh": "为未來打下心理暗示，防止“阶段结束就放松”。",
+        "en": "Prime yourself mentally for the post-program future."
+      },
+      "action": {
+        "zh": "制定“21 天后”的维持计划（提醒、支持人、奖励）。",
+        "en": "Draft a post-21-day maintenance plan (reminders, support partners, rewards)."
+      },
+      "recordingHint": {
+        "zh": "在录音里描述你 30 天后的样子。",
+        "en": "Describe how you will feel 30 days from now in your recording."
+      },
+      "tags": ["consolidation", "future"]
+    },
+    {
+      "day": 21,
+      "phase": "phase-consolidation",
+      "affirmation": {
+        "zh": "我已经是一个稳稳的无烟者。",
+        "en": "I am firmly a smoke-free person."
+      },
+      "why": {
+        "zh": "最后一天，把身份与成就感牢固绑定。",
+        "en": "On the final day, cement identity with a sense of achievement."
+      },
+      "action": {
+        "zh": "回听第一天的录音，与今天的录音对比，写下最大的变化。",
+        "en": "Replay day one's recording, compare with today, and write the biggest changes."
+      },
+      "recordingHint": {
+        "zh": "录一段庆祝与鼓励，送给 60 天后的自己。",
+        "en": "Record a celebratory message for your 60-day-later self."
+      },
+      "tags": ["consolidation", "celebration", "future"]
+    }
+  ]
+}

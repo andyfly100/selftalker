@@ -1,0 +1,151 @@
+{
+  "categories": [
+    {
+      "id": "break-bad-habit",
+      "name": {
+        "zh": "戒除不良习惯",
+        "en": "Break Bad Habits"
+      },
+      "description": {
+        "zh": "帮你戒掉香烟、酒精、过度刷手机等坏习惯。",
+        "en": "Quit smoking, limit drinking, cut back on doom scrolling."
+      },
+      "templates": [
+        {
+          "habitId": "quit-smoking",
+          "displayName": {
+            "zh": "戒烟",
+            "en": "Quit Smoking"
+          },
+          "script": "quit-smoking",
+          "status": "ready"
+        },
+        {
+          "habitId": "quit-drinking",
+          "displayName": {
+            "zh": "戒酒/减少饮酒",
+            "en": "Quit / Reduce Drinking"
+          },
+          "script": null,
+          "status": "coming-soon"
+        },
+        {
+          "habitId": "reduce-phone",
+          "displayName": {
+            "zh": "减少刷手机",
+            "en": "Reduce Phone Usage"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "stop-procrastination",
+          "displayName": {
+            "zh": "改掉拖延症",
+            "en": "Stop Procrastination"
+          },
+          "script": null,
+          "status": "custom"
+        }
+      ]
+    },
+    {
+      "id": "build-good-habit",
+      "name": {
+        "zh": "培养好习惯",
+        "en": "Build Good Habits"
+      },
+      "description": {
+        "zh": "帮助你坚持早起、运动、读书与冥想。",
+        "en": "Support early rising, exercise, reading and meditation routines."
+      },
+      "templates": [
+        {
+          "habitId": "early-rising",
+          "displayName": {
+            "zh": "早起",
+            "en": "Wake Up Early"
+          },
+          "script": null,
+          "status": "coming-soon"
+        },
+        {
+          "habitId": "exercise",
+          "displayName": {
+            "zh": "坚持运动",
+            "en": "Regular Exercise"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "reading",
+          "displayName": {
+            "zh": "每天读书",
+            "en": "Daily Reading"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "meditation",
+          "displayName": {
+            "zh": "冥想练习",
+            "en": "Meditation Practice"
+          },
+          "script": null,
+          "status": "custom"
+        }
+      ]
+    },
+    {
+      "id": "health-diet",
+      "name": {
+        "zh": "健康饮食",
+        "en": "Health & Diet"
+      },
+      "description": {
+        "zh": "改善饮食、体重与生活作息。",
+        "en": "Improve weight, eating habits, and sleep schedule."
+      },
+      "templates": [
+        {
+          "habitId": "weight-loss",
+          "displayName": {
+            "zh": "控制体重",
+            "en": "Weight Management"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "healthy-eating",
+          "displayName": {
+            "zh": "健康饮食",
+            "en": "Healthy Eating"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "drink-water",
+          "displayName": {
+            "zh": "多喝水",
+            "en": "Drink More Water"
+          },
+          "script": null,
+          "status": "custom"
+        },
+        {
+          "habitId": "sleep-schedule",
+          "displayName": {
+            "zh": "规律作息",
+            "en": "Regular Sleep"
+          },
+          "script": null,
+          "status": "custom"
+        }
+      ]
+    }
+  ]
+}
