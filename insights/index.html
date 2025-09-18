@@ -239,29 +239,10 @@
             margin-bottom: 1rem;
         }
 
-        .newsletter-form {
-            margin-top: 2rem;
+        .newsletter-cta {
+            margin-top: 2.5rem;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            padding: 0.8rem 1rem;
-            border-radius: 999px;
-            border: 1px solid var(--light-gray);
-            min-width: 260px;
-        }
-
-        .newsletter-form button {
-            padding: 0.8rem 1.6rem;
-            border-radius: 999px;
-            border: none;
-            background: var(--primary);
-            color: var(--white);
-            font-weight: 600;
-            cursor: pointer;
         }
 
         footer {
@@ -289,12 +270,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .newsletter-form {
+            .newsletter-cta {
                 flex-direction: column;
-            }
-
-            .newsletter-form input {
-                width: 100%;
+                align-items: center;
             }
         }
 
@@ -371,11 +349,10 @@
             <section class="newsletter">
                 <div class="newsletter-inner">
                     <h2>第一时间收到新文章</h2>
-                    <p>填写邮箱，我会在每篇文章发布时给你发送摘要与可操作清单。</p>
-                    <form class="newsletter-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
-                        <input type="email" name="email" placeholder="留下你的邮箱" required>
-                        <button type="submit">提醒我更新</button>
-                    </form>
+                    <p>写信告诉我“我要订阅”，每篇文章上线时我都会发送摘要与可执行清单。</p>
+                    <div class="newsletter-cta">
+                        <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=订阅习惯实验室文章&body=你好，我想订阅自语力文章更新。">写信提醒我</a>
+                    </div>
                 </div>
             </section>
         </div>
@@ -426,11 +403,10 @@
             <section class="newsletter">
                 <div class="newsletter-inner">
                     <h2>Get new articles in your inbox</h2>
-                    <p>Leave your email and I’ll send you a summary plus a checklist each time a new piece goes live.</p>
-                    <form class="newsletter-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
-                        <input type="email" name="email" placeholder="Enter your email" required>
-                        <button type="submit">Notify me</button>
-                    </form>
+                    <p>Drop me a note saying “subscribe” and I’ll email you a summary plus a checklist whenever a new piece goes live.</p>
+                    <div class="newsletter-cta">
+                        <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=Subscribe to SelfTalk Habit Lab&body=Hi, please send me your latest articles and scripts.">Email me the updates</a>
+                    </div>
                 </div>
             </section>
         </div>

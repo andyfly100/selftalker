@@ -883,21 +883,10 @@
             text-align: center;
         }
 
-        .subscription-form {
-            margin: 1.5rem auto 1rem;
-            max-width: 520px;
+        .subscription-cta {
+            margin-top: 2.5rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
             justify-content: center;
-        }
-
-        .subscription-form input {
-            flex: 1 1 240px;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--light-gray);
-            border-radius: 999px;
-            font-size: 1rem;
         }
 
         /* 用户评言 */
@@ -1189,13 +1178,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .subscription-form {
+            .subscription-cta {
                 flex-direction: column;
-                align-items: stretch;
-            }
-
-            .subscription-form input {
-                width: 100%;
+                align-items: center;
             }
 
             .final-cta h2 {
@@ -1551,10 +1536,9 @@
             <section class="subscription" id="subscribe">
                 <h2>订阅「自语力·习惯实验室」</h2>
                 <p>第一时间收到新的习惯模板、进阶练习与科普文章。我们只在有实用内容时发送邮件。</p>
-                <form class="subscription-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
-                    <input type="email" name="email" placeholder="留下你的邮箱" required>
-                    <button type="submit" class="cta-button">提醒我更新</button>
-                </form>
+                <div class="subscription-cta">
+                    <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=订阅自语力文章&body=你好，我想订阅文章和脚本更新。">写信提醒我</a>
+                </div>
                 <p class="muted">也可以直接写信到 selftalkernow@outlook.com，一起琢磨你的 21 天练习。</p>
             </section>
 
@@ -1858,11 +1842,10 @@
 
             <section class="subscription" id="subscribe">
                 <h2>Subscribe to the SelfTalk Habit Lab</h2>
-                <p>Be the first to receive new templates, advanced drills, and habit science explainers. We only email when something useful is ready.</p>
-                <form class="subscription-form" action="mailto:selftalkernow@outlook.com" method="post" enctype="text/plain">
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit" class="cta-button">Keep me posted</button>
-                </form>
+                <p>Be the first to receive new templates, advanced drills, and habit science explainers. I only email when there’s something genuinely useful.</p>
+                <div class="subscription-cta">
+                    <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=Subscribe to SelfTalk insights&body=Hi, please add me to your article and script updates.">Email me the updates</a>
+                </div>
                 <p class="muted">Or email me at selftalkernow@outlook.com to plan your 21-day experiment together.</p>
             </section>
 
