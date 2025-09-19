@@ -272,31 +272,49 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
-        .quick-section {
-            padding: 3.5rem 2rem 2.5rem;
-            background: var(--white);
+        .core-section {
+            padding: 4rem 2rem;
         }
 
-        .quick-section h2 {
-            text-align: center;
-            font-size: 2.1rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .quick-section p.section-intro {
-            text-align: center;
-            color: var(--gray);
-            max-width: 680px;
-            margin: 0 auto 2rem;
-        }
-
-        .quick-grid {
-            max-width: 1080px;
+        .core-container {
+            max-width: 960px;
             margin: 0 auto;
+            text-align: center;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
+        }
+
+        .core-eyebrow {
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .core-section h2 {
+            font-size: clamp(2rem, 4vw, 2.6rem);
+        }
+
+        .core-section p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .core-actions {
+            display: inline-flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .core-section .secondary-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .core-section .secondary-link:hover {
+            text-decoration: underline;
         }
 
         .quick-card {
@@ -1509,14 +1527,14 @@
     <main>
         <!-- 中文内容 -->
         <div class="content" data-lang="zh">
-            <section class="hero">
+            <section class="hero" id="hero">
                 <div class="hero-content">
-                    <p class="hero-eyebrow">21 天自我对话训练</p>
+                    <p class="hero-eyebrow">无痛戒烟的秘密</p>
                     <h1>选择习惯，马上生成你的专属 21 天自我对话脚本</h1>
-                    <p class="subtitle">3 分钟完成选择与个性化设置，即刻获得每天的自我对话、行动提示与提醒</p>
+                    <p class="subtitle">3 分钟完成选择与个性化设置，即刻获得每天的自我对话、行动提示与提醒。</p>
                     <div class="hero-actions">
                         <a href="/start" class="cta-button pulse">马上为我生成计划</a>
-                        <a href="#journey" class="secondary-link">看看流程</a>
+                        <a href="#how" class="secondary-link">看看原理</a>
                     </div>
                     <div class="hero-proof">
                         <span>✅ 87% 使用者坚持超过 14 天</span>
@@ -1526,411 +1544,60 @@
                 </div>
             </section>
 
-            <section class="quick-section">
-                <h2>先做哪一步？</h2>
-                <p class="section-intro">用 3 分钟决定你的路线：马上生成脚本、复习方法、浏览真实案例或快速查 FAQ。</p>
-                <div class="quick-grid">
-                    <div class="quick-card">
-                        <div class="quick-icon">🚀</div>
-                        <h3>立即生成 21 天脚本</h3>
-                        <p>选择想戒掉或建立的习惯，填写动机与提醒，马上获取 Day 1。</p>
-                        <a href="/start">前往开始</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">🧠</div>
-                        <h3>了解自我对话原理</h3>
-                        <p>先看自我对话的方法拆解，确认它如何无痛重写习惯回路。</p>
-                        <a href="#how">查看步骤</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">🎙</div>
-                        <h3>练习自己的声音</h3>
-                        <p>按照写-念-听三步骤，每天录音 90 秒，必须出声朗读来训练预测回路。</p>
-                        <a href="#practice">练习指南</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">📚</div>
-                        <h3>阅读真实案例与文章</h3>
-                        <p>想深入练习？去文章页看完整故事与工具包。</p>
-                        <a href="/insights">文章列表</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">❓</div>
-                        <h3>遇到问题？</h3>
-                        <p>零碎时间、复发、工具准备等常见疑问在这里。</p>
-                        <a href="#faq">跳到 FAQ</a>
+            <section class="core-section" id="how">
+                <div class="core-container">
+                    <p class="core-eyebrow">最新脑科学</p>
+                    <h2>刻意的自我对话可以重写习惯回路</h2>
+                    <p>大脑会根据内部语言预测奖励与危险。我们把触发 → 自我对话 → 微行动拆成 21 天脚本，让你照着练。</p>
+                    <div class="core-actions">
+                        <a href="/insights/quit-smoking-triggers.html" class="cta-button">阅读戒烟拆解</a>
                     </div>
                 </div>
             </section>
 
-            <section class="how-section" id="how">
-                <div class="how-container">
-                    <div class="how-copy">
-                        <p class="how-eyebrow">如何运作</p>
-                        <h2>最新脑科学告诉我们：刻意的自我对话可以重写习惯回路</h2>
-                        <p>神经科学研究表明，大脑会根据内部声音来预测奖励与危险；当我们有意识地改写这些声音时，就能在不触发强烈戒断反应的情况下，重新训练神经通路。李笑来老师也在他的自我对话课程里提醒过：“用自己的声音对自己讲话，是最具说服力的输入”。</p>
-                        <p>自我对话把这一套方法拆成 21 天脚本：每天三段自我对话、一次神经系统放松练习、以及一个行为替代。你需要做的，就是跟我一样照着念、照着写。</p>
-                    </div>
-                    <div class="how-points">
-                        <article class="how-card">
-                            <h3>声音先于感觉</h3>
-                            <p>当你反复对自己说“我想要清醒的今天”，大脑的预测编码会把“清醒”当作奖励信号，从而降低对烟酒与直播的渴求。</p>
-                        </article>
-                        <article class="how-card">
-                            <h3>21 天形成新线路</h3>
-                            <p>脚本按照“触发 → 自我对话 → 微行动”的顺序设计，让新的神经连接在 3 周内逐渐增强，旧习惯的自动化反应自然被替换。</p>
-                        </article>
-                        <article class="how-card">
-                            <h3>无痛戒烟的经验</h3>
-                            <p>我和阿强都经历过：当大脑相信“我已经在恢复健康”，尼古丁的戒断峰值会被平滑掉，只留下可以管理的身体感觉。</p>
-                        </article>
+            <section class="core-section" id="start">
+                <div class="core-container">
+                    <p class="core-eyebrow">马上开始</p>
+                    <h2>生成你的 21 天计划</h2>
+                    <p>选择戒烟或其他习惯，填写动机与提醒，Day 1 立即生成。</p>
+                    <div class="core-actions">
+                        <a href="/start" class="cta-button">立即生成计划</a>
                     </div>
                 </div>
             </section>
 
-            <section class="sample-section" id="sample">
-                <div class="sample-container">
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 1 · 呼吸空间</div>
-                            <h3>早晨自我对话</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>我对自己说：</strong>今天我要练习暂停，给渴望多 3 秒钟，让我看见真实的需要。</p>
-                                <p><strong>我提醒自己：</strong>我不是要压抑欲望，而是学会把焦虑化成呼吸。</p>
-                            </div>
-                            <p class="sample-meta">行动：醒来后站在窗边做三轮 4-4-6 呼吸，再打开脚本回顾当天的替代动作。</p>
-                        </div>
-                    </details>
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 7 · 替代行动</div>
-                            <h3>下午情境脚本</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>触发：</strong>同事又约我看直播抽奖。</p>
-                                <p><strong>我回应：</strong>“谢谢你提醒我，我正在训练不靠随机刺激放松。等我完成专注练习，再一起聊天。”</p>
-                            </div>
-                            <p class="sample-meta">行动：拒绝邀请之后，立即完成 5 分钟走动或拉伸，记录感受。</p>
-                        </div>
-                    </details>
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 21 · 巩固对话</div>
-                            <h3>晚间复盘</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>我复盘：</strong>今天错过了两个刷视频的机会，因为我提前写好了“我为什么要保持清醒”。</p>
-                                <p><strong>我写下：</strong>我的大脑已经习惯主动选择，渴望变得模糊了。</p>
-                            </div>
-                            <p class="sample-meta">行动：把最有效的语句录成语音，保存到自我对话 App/提醒中，作为下一轮强化素材。</p>
-                            <div class="sample-actions">
-                                <a class="secondary-button" href="/start">领取完整 21 天脚本</a>
-                                <a class="secondary-button" href="mailto:selftalkernow@outlook.com">告诉我你的 Day 1</a>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section class="practice-section" id="practice">
-                <h2>写 · 念 · 听：3 分钟练习自己的声音</h2>
-                <p class="section-intro">自我对话的关键在于“把自己的声音变成最可信的输入”。以下是我每天做的练习，你也可以照做。</p>
-                <div class="practice-container">
-                    <div class="practice-card">
-                        <h3>1. 写下来</h3>
-                        <ul>
-                            <li>早上花 60 秒写下当天要重复的两句话（理由 + 行动）。</li>
-                            <li>把容易复发的场景记在旁边，晚上复盘时补充。</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <h3>2. 念出来</h3>
-                        <ul>
-                            <li>使用手机录音或任何语音工具，大声念出刚写好的内容。</li>
-                            <li>声音不要太快，像对朋友交代事情一样自然。</li>
-                            <li>一定要出声朗读，朗读会同时调动眼睛、嘴巴和耳朵，默读只有眼睛，效果会差很多。</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <h3>3. 听回去</h3>
-                        <ul>
-                            <li>用耳机回放录音，注意自己听到时的情绪变化。</li>
-                            <li>如果内容不够有力量，第二天重新写更能打动自己的句子。</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="practice-toolkit">
-                    <div class="practice-toolkit-header">
-                        <h3>快速试玩工具</h3>
-                        <p>先花 2 分钟体验写·念·听流程，再决定是否开启完整 21 天脚本。</p>
-                    </div>
-                    <div class="toolkit-grid">
-                        <article class="toolkit-card">
-                            <h4>浏览器语音示例</h4>
-                            <p>点击按钮后，浏览器会朗读 Day 1 的关键语句，体验“念”这一步所带来的情绪变化。</p>
-                            <p class="toolkit-meta">提示：示例使用设备内建语音，请确认音量开启。</p>
-                            <button class="toolkit-button" type="button" data-toolkit-audio="zh">播放语音示例</button>
-                        </article>
-                        <article class="toolkit-card">
-                            <h4>打印随身卡</h4>
-                            <p>打开图卡即可列印或储存为 PDF，把每日要写的两句话与晚间复盘带在身上。</p>
-                            <p class="toolkit-meta">建议：列印后折叠放入手帐，与手机录音互补。</p>
-                            <a class="toolkit-button is-muted" href="/assets/templates/write-speak-listen-card.html" target="_blank" rel="noopener" download="selftalk-write-speak-listen-card.html">打开图卡示例</a>
-                        </article>
+            <section class="core-section" id="stories">
+                <div class="core-container">
+                    <p class="core-eyebrow">真实改变</p>
+                    <h2>朋友们用自我对话重新夺回主动权</h2>
+                    <p>我戒掉直播，阿强 21 天戒烟，佳佳半年未饮酒——我们都在复盘触发器、用自己的声音“说服”自己。</p>
+                    <div class="core-actions">
+                        <a href="/insights" class="secondary-link">更多故事与工具 &rarr;</a>
                     </div>
                 </div>
             </section>
 
-            <section class="landing-pathways" id="pathways">
-                <h2>你想先突破哪一类习惯？</h2>
-                <div class="landing-pathway-grid">
-                    <article class="landing-pathway-card">
-                        <div class="pathway-icon">🚫</div>
-                        <h3>戒除坏习惯</h3>
-                        <p>戒烟、戒酒、减少刷手机、告别拖延——我们提供 ready 状态的戒烟原型计划。</p>
-                        <a class="link-button" href="/start?path=break-bad">开始戒除坏习惯</a>
-                    </article>
-                    <article class="landing-pathway-card">
-                        <div class="pathway-icon">✨</div>
-                        <h3>养成好习惯</h3>
-                        <p>早起、运动、冥想、阅读……敬请期待，我们已为你准备好自定义入口。</p>
-                        <a class="link-button" href="/start?path=build-good">配置我的好习惯</a>
-                    </article>
-                </div>
-            </section>
-
-            <section class="about-preview" id="about">
-                <div class="about-container">
-                    <div class="about-copy">
-                        <p class="about-eyebrow">关于我</p>
-                        <h2>自我对话是我用来自救的 21 天对话练习</h2>
-                        <p>几年前的我几乎每天刷直播到凌晨，情绪被主播牵着走。直到把脑海里的声音写成自我对话脚本，一句句对自己复述，我在几周内戒掉了直播和短视频。</p>
-                        <p>后来我邀请朋友一起练习，有人完成 21 天戒烟，有人告别习惯性饮酒。我们记录诱因、换掉旧习惯，用同样的脚本彼此见证改变。</p>
-                        <div class="about-actions">
-                            <a class="link-button" href="/about">阅读完整故事</a>
-                        </div>
-                    </div>
-                    <div class="about-highlights">
-                        <article class="about-card">
-                            <h3>几周重获专注</h3>
-                            <p>每天复盘触发点，把"想刷"换成"我选择停下"，我把自己的注意力重新拿回来了。</p>
-                        </article>
-                        <article class="about-card">
-                            <h3>真实的反馈</h3>
-                            <p>阿强在 21 天里告别香烟，佳佳在聚会前默念"我想要清醒的自己"，这套脚本同样帮到了他们。</p>
-                        </article>
-                        <article class="about-card">
-                            <h3>分享的初心</h3>
-                            <p>我知道从头开始有多难，所以把完整流程整理在自我对话里，让你随时调出脚本练习。</p>
-                        </article>
+            <section class="core-section" id="cta">
+                <div class="core-container">
+                    <h2>准备好开始自我对话实验了吗？</h2>
+                    <p>3 分钟写下你的动机，今天就让你的声音成为最可信的输入。</p>
+                    <div class="core-actions">
+                        <a href="/start" class="cta-button">现在就开始</a>
                     </div>
                 </div>
-            </section>
-
-            <section class="steps" id="journey">
-                <div class="steps-container">
-                    <h2>三步拿到执行手册</h2>
-                    <div class="steps-grid">
-                        <div class="step-card fade-in">
-                            <div class="step-number">1</div>
-                            <div class="step-icon">🗂️</div>
-                            <h3 class="step-title">选择习惯模板</h3>
-                            <p class="step-description">从“戒烟”等模板或自定义入口开始，系统自动匹配可用脚本。</p>
-                        </div>
-
-                        <div class="step-card fade-in">
-                            <div class="step-number">2</div>
-                            <div class="step-icon">✍️</div>
-                            <h3 class="step-title">填写动机与提醒</h3>
-                            <p class="step-description">告知我们你的动机、提醒时段与奖励方式，计划将据此调整语气与频率。</p>
-                        </div>
-
-                        <div class="step-card fade-in">
-                            <div class="step-number">3</div>
-                            <div class="step-icon">📅</div>
-                            <h3 class="step-title">跟随 21 天脚本</h3>
-                            <p class="step-description">每天查看自我对话、坚持理由与行动提示，打卡次数自动保存在浏览器。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="plan-highlight" id="plan">
-                <div class="plan-highlight-inner">
-                    <h2>打开计划，你会看到</h2>
-                    <div class="plan-highlight-grid">
-                        <article class="plan-highlight-card">
-                            <h3>每日双语自我对话</h3>
-                            <p>每一天都包含中英文对话稿、坚持理由和行动练习，让你随时重复、随手执行。</p>
-                        </article>
-                        <article class="plan-highlight-card">
-                            <h3>本地进度与提醒</h3>
-                            <p>勾选“今天完成了”或记录重复次数，进度条会即时更新；提醒偏好保存在你的浏览器。</p>
-                        </article>
-                        <article class="plan-highlight-card">
-                            <h3>阶段延伸阅读</h3>
-                            <p>依据不同阶段推荐科普文章与练习，帮助你在不打断流程的情况下深化练习。</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="evidence" id="stories">
-                <h2>真实案例与专业背书</h2>
-                <div class="evidence-grid">
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">我</div>
-                            <div class="story-meta">
-                                <span class="story-name">我自己</span>
-                                <span class="story-detail">21 天告别直播与短视频</span>
-                            </div>
-                        </div>
-                        <p>把“再刷一会儿”改写成“我选择清醒”，脚本在几周内让我的大脑习惯主动停下。</p>
-                        <details class="story-insight">
-                            <summary>展开完整故事</summary>
-                            <ul>
-                                <li>第 7 天起记录诱因，午休前先做 3 次深呼吸。</li>
-                                <li>第 14 天开始不再自动拿起手机看直播，夜间入睡更快。</li>
-                                <li>第 21 天录下最有效的对话，作为后续强化素材。</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">去文章页阅读更多</a>
-                        </details>
-                    </article>
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">笑</div>
-                            <div class="story-meta">
-                                <span class="story-name">李笑来老师</span>
-                                <span class="story-detail">作者 & 投资人</span>
-                            </div>
-                        </div>
-                        <p>他提醒我：最有说服力的声音是自己的声音，写念听循环是最省成本的改变方式。</p>
-                        <details class="story-insight">
-                            <summary>展开完整故事</summary>
-                            <ul>
-                                <li>提倡“写-念-听”循环，让认知与身体一起被说服。</li>
-                                <li>把脚本当作每日例行公事，就像刷牙一样不可或缺。</li>
-                                <li>他鼓励我们录音回放，让“自我声音”成为稳定的输入。</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">去文章页阅读更多</a>
-                        </details>
-                    </article>
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">强</div>
-                            <div class="story-meta">
-                                <span class="story-name">阿强</span>
-                                <span class="story-detail">34 岁 · 21 天戒烟</span>
-                            </div>
-                        </div>
-                        <p>把“我想抽”换成“我在恢复肺活量”，十年的烟瘾被拆解成每天的小决定。</p>
-                        <details class="story-insight">
-                            <summary>展开完整故事</summary>
-                            <ul>
-                                <li>21 天内完成 60+ 次自我对话，触发时先写再回应。</li>
-                                <li>把“饭后抽一根”换成 5 分钟走动 + 深呼吸，戒断峰值明显降低。</li>
-                                <li>复发时参考“补救日”脚本，第二天快速拉回节奏。</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">去文章页阅读更多</a>
-                        </details>
-                    </article>
-                </div>
-            </section>
-
-            <section class="articles-preview" id="articles-preview">
-                <h2>最新文章预告</h2>
-                <p class="section-intro">想持续练习自我对话？这里整理我正在撰写的长文与工具，待发布后会同步更新到邮件列表。</p>
-                <div class="articles-grid">
-                    <div class="articles-card">
-                        <h3>写-念-听：重写大脑预测的三部曲</h3>
-                        <p>更完整地拆解“写→念→听”背后的神经科学机制，以我戒掉深夜直播为案例。</p>
-                        <a href="/insights">查看进度</a>
-                    </div>
-                    <div class="articles-card">
-                        <h3>阿强戒烟实录：21 天日志</h3>
-                        <p>包含每日对话示例、复盘模板与复发时的替代脚本，适合准备戒烟的你。</p>
-                        <a href="/insights">查看进度</a>
-                    </div>
-                    <div class="articles-card">
-                        <h3>自我对话模板包：打印版 & Notion</h3>
-                        <p>整理所有 21 天脚本的可打印卡片与 Notion 模板，方便你随时携带和记录。</p>
-                        <a href="/insights">查看进度</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="faq-section" id="faq">
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary><span class="faq-question">📅 日常安排</span></summary>
-                        <div class="faq-answer">
-                            可以。每个脚本平均用时 5～8 分钟：读一段对话、写一句回应、执行一个微动作。很多用户把练习嵌入既有习惯里：
-                            <ul>
-                                <li>早晨刷牙后朗读当日对话。</li>
-                                <li>午休前写下一句“我想要的状态”。</li>
-                                <li>晚上复盘时完成替代动作或拉伸。</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🔁 面对复发</span></summary>
-                        <div class="faq-answer">
-                            脚本里安排了“复盘日”与“补救日”，帮助你识别诱因并写下下一次的替代方案。
-                            <ul>
-                                <li>先记录诱因，写下当时的身体感觉与真实需求。</li>
-                                <li>用新的自我对话覆盖原本的自动反应。</li>
-                                <li>写信到 <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a>，我会与你一起拆解。</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🛠 开始前准备</span></summary>
-                        <div class="faq-answer">
-                            很简单，准备一支笔和一个你常用的记录空间（纸本或电子皆可）。如果要戒烟/戒酒，建议提前告知身边会影响你的朋友，争取他们的理解。
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🧰 配合其他工具</span></summary>
-                        <div class="faq-answer">
-                            不强求。自我对话专注在“预测与反应”的对话训练：
-                            <ul>
-                                <li>若你搭配运动、正念或戒烟贴片，脚本可以与它们协同。</li>
-                                <li>在医疗方案进行中，也能把每日对话带给医生/治疗师，作为追踪依据。</li>
-                            </ul>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section class="subscription" id="subscribe">
-                <h2>订阅「自我对话·习惯实验室」</h2>
-                <p>第一时间收到新的习惯模板、进阶练习与科普文章。我们只在有实用内容时发送邮件。</p>
-                <div class="subscription-cta">
-                    <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=订阅自我对话文章&body=你好，我想订阅文章和脚本更新。">写信提醒我</a>
-                </div>
-                <p class="muted">也可以直接写信到 selftalkernow@outlook.com，一起琢磨你的 21 天练习。</p>
-            </section>
-
-            <section class="final-cta">
-                <h2>准备好用自我对话 rewrite 你的习惯了吗？</h2>
-                <p>现在就去生成你的 21 天计划，明天醒来就能带着脚本开始。</p>
-                <a href="/start" class="cta-button">立即开启我的计划</a>
             </section>
         </div>
-        <div class="content active" data-lang="en">
-            <section class="hero">
+
+        <!-- 英文内容 -->
+        <div class="content" data-lang="en">
+            <section class="hero" id="hero-en">
                 <div class="hero-content">
-                    <p class="hero-eyebrow">21-Day Self-Talk Program</p>
-                    <h1>Pick a habit and instantly get your personalised 21-day self-talk script</h1>
-                    <p class="subtitle">Spend three minutes choosing and personalising—then unlock daily dialogues, reasons, and action prompts right away.</p>
+                    <p class="hero-eyebrow">Quit without pain</p>
+                    <h1>Pick a habit and instantly get your 21-day self-talk script</h1>
+                    <p class="subtitle">Spend three minutes deciding and personalising—then unlock daily dialogues, reasons, and actions right away.</p>
                     <div class="hero-actions">
-                        <a href="/start" class="cta-button pulse">Start my plan now</a>
-                        <a href="#journey-en" class="secondary-link">See how it works</a>
+                        <a href="/start" class="cta-button pulse">Generate my plan</a>
+                        <a href="#how-en" class="secondary-link">See the science</a>
                     </div>
                     <div class="hero-proof">
                         <span>✅ 87% of beta testers stayed consistent for 14 days</span>
@@ -1940,400 +1607,47 @@
                 </div>
             </section>
 
-            <section class="quick-section">
-                <h2>Choose your next move</h2>
-                <p class="section-intro">Three minutes is all it takes: generate your script, revisit the science, browse stories, or check FAQ.</p>
-                <div class="quick-grid">
-                    <div class="quick-card">
-                        <div class="quick-icon">🚀</div>
-                        <h3>Generate the 21-day script</h3>
-                        <p>Pick the habit, add your motivations and reminders, and Day 1 is ready instantly.</p>
-                        <a href="/start">Go to builder</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">🧠</div>
-                        <h3>Review how it works</h3>
-                        <p>See why deliberate self-talk rewires predictions without harsh withdrawal.</p>
-                        <a href="#how-en">View the steps</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">🎙</div>
-                        <h3>Practice your voice</h3>
-                        <p>Follow the write-speak-listen loop and spend 90 seconds recording aloud every day.</p>
-                        <a href="#practice-en">Practice guide</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">📚</div>
-                        <h3>Read stories & tools</h3>
-                        <p>Dive into upcoming long-form notes, case diaries, and downloadable templates.</p>
-                        <a href="/insights">Browse articles</a>
-                    </div>
-                    <div class="quick-card">
-                        <div class="quick-icon">❓</div>
-                        <h3>Need quick answers?</h3>
-                        <p>Daily cadence, relapse resets, preparation tips—the FAQ covers the essentials.</p>
-                        <a href="#faq-en">Jump to FAQ</a>
+            <section class="core-section" id="how-en">
+                <div class="core-container">
+                    <p class="core-eyebrow">Neuroscience-backed</p>
+                    <h2>Deliberate self-talk rewires your habit loop</h2>
+                    <p>Your cortex predicts reward or threat from the voices it hears. Our 21-day scripts turn trigger → talk → action into a daily routine you can follow.</p>
+                    <div class="core-actions">
+                        <a href="/insights/quit-smoking-triggers.html?lang=en" class="cta-button">Read the quit guide</a>
                     </div>
                 </div>
             </section>
 
-            <section class="how-section" id="how-en">
-                <div class="how-container">
-                    <div class="how-copy">
-                        <p class="how-eyebrow">How It Works</p>
-                        <h2>Neuroscience shows deliberate self-talk rewires habit circuitry</h2>
-                        <p>Modern brain science says our cortex predicts reward or threat based on the voices it hears most. When we consciously rewrite that inner voice, we can retrain neural pathways without triggering harsh withdrawal. Entrepreneur Li Xiaolai has echoed this idea in his talks: the voice you trust most is your own.</p>
-                        <p>SelfTalk turns that insight into a 21-day routine—three dialogues a day, a nervous-system reset, and one replacement action. All you need to do is read, write, and rehearse along with me.</p>
-                    </div>
-                    <div class="how-points">
-                        <article class="how-card">
-                            <h3>Words before cravings</h3>
-                            <p>Tell yourself "I want a clear mind today," and predictive coding in your brain starts tagging clarity as the reward, shrinking the urge for nicotine or endless streams.</p>
-                        </article>
-                        <article class="how-card">
-                            <h3>21 days, new wiring</h3>
-                            <p>Each script follows Trigger -> Self-talk -> Micro action, letting fresh neural connections strengthen over three weeks while the old loop loses its grip.</p>
-                        </article>
-                        <article class="how-card">
-                            <h3>Painless quit stories</h3>
-                            <p>Both Qiang and I felt it: once the brain believes "I'm already healing," the nicotine curve flattens out and the sensations become manageable.</p>
-                        </article>
+            <section class="core-section" id="start-en">
+                <div class="core-container">
+                    <p class="core-eyebrow">Start now</p>
+                    <h2>Generate your 21-day plan</h2>
+                    <p>Select quit smoking or another habit, add your motivations and reminders, and Day 1 appears instantly.</p>
+                    <div class="core-actions">
+                        <a href="/start" class="cta-button">Build my plan</a>
                     </div>
                 </div>
             </section>
 
-            <section class="sample-section" id="sample-en">
-                <div class="sample-container">
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 1 · BREATHING SPACE</div>
-                            <h3>Morning dialogue</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>Tell yourself:</strong> “Today I’m rehearsing pauses. Each craving gets three seconds so I can listen to what I truly need.”</p>
-                                <p><strong>Remind yourself:</strong> “I’m not suppressing desire; I’m training my nervous system to turn anxiety into breath.”</p>
-                            </div>
-                            <p class="sample-meta">Action: Stand by the window for three rounds of 4-4-6 breathing before checking the script for today’s replacement routine.</p>
-                        </div>
-                    </details>
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 7 · REPLACEMENT ACTION</div>
-                            <h3>Afternoon scenario</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>Trigger:</strong> A friend sends another live-stream link.</p>
-                                <p><strong>Reply:</strong> “Thanks for thinking of me! I’m training to relax without random dopamine. Let me finish today’s focus drill and we’ll catch up.”</p>
-                            </div>
-                            <p class="sample-meta">Action: After declining, walk or stretch for five minutes and note how your body feels.</p>
-                        </div>
-                    </details>
-                    <details class="sample-card">
-                        <summary>
-                            <div class="sample-day">DAY 21 · CONSOLIDATION</div>
-                            <h3>Evening reflection</h3>
-                        </summary>
-                        <div class="sample-body">
-                            <div class="sample-dialogue">
-                                <p><strong>Reflect:</strong> “I skipped two doom-scroll moments because I had ‘why clarity matters’ written down.”</p>
-                                <p><strong>Write down:</strong> “My brain now expects deliberate choices. The craving wave is barely noticeable.”</p>
-                            </div>
-                            <p class="sample-meta">Action: Record your strongest line as audio and save it as the cue for your next habit shift.</p>
-                            <div class="sample-actions">
-                                <a class="secondary-button" href="/start">Get the full 21-day script</a>
-                                <a class="secondary-button" href="mailto:selftalkernow@outlook.com">Share your Day 1</a>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section class="practice-section" id="practice-en">
-                <h2>Write · Speak · Listen in 3 minutes</h2>
-                <p class="section-intro">Consistent self-talk works best when your own voice becomes the most trusted input. Here’s the loop I follow daily.</p>
-                <div class="practice-container">
-                    <div class="practice-card">
-                        <h3>1. Write</h3>
-                        <ul>
-                            <li>Spend 60 seconds each morning writing two lines: your reason and the action.</li>
-                            <li>Add potential relapse scenarios so you can review them in the evening.</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <h3>2. Speak</h3>
-                        <ul>
-                            <li>Use your phone’s voice memo or any recorder; read the script out loud.</li>
-                            <li>Keep the tone natural—as if you’re coaching a close friend.</li>
-                            <li>Always speak out loud—reading aloud engages your eyes, mouth, and ears, whereas silent reading relies only on your eyes.</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <h3>3. Listen</h3>
-                        <ul>
-                            <li>Replay the recording with earphones and notice how it makes you feel.</li>
-                            <li>If it doesn’t resonate, rewrite stronger lines and try again tomorrow.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="practice-toolkit">
-                    <div class="practice-toolkit-header">
-                        <h3>Try the loop in 2 minutes</h3>
-                        <p>Sample the write–speak–listen flow right now so you know what to expect before committing to 21 days.</p>
-                    </div>
-                    <div class="toolkit-grid">
-                        <article class="toolkit-card">
-                            <h4>Browser voice demo</h4>
-                            <p>Press play and your browser will read the Day 1 highlights. Feel the shift that comes from speaking to yourself with intention.</p>
-                            <p class="toolkit-meta">Heads up: the sample uses your device’s built-in voice. Make sure audio is unmuted.</p>
-                            <button class="toolkit-button" type="button" data-toolkit-audio="en">Play audio sample</button>
-                        </article>
-                        <article class="toolkit-card">
-                            <h4>Printable pocket card</h4>
-                            <p>Open the card to print or save a PDF. Capture your two key lines and the evening reflection wherever you go.</p>
-                            <p class="toolkit-meta">Tip: print, fold, and pair it with your voice memo ritual.</p>
-                            <a class="toolkit-button is-muted" href="/assets/templates/write-speak-listen-card.html" target="_blank" rel="noopener" download="selftalk-write-speak-listen-card.html">Open the card</a>
-                        </article>
+            <section class="core-section" id="stories-en">
+                <div class="core-container">
+                    <p class="core-eyebrow">Real change</p>
+                    <h2>Friends reclaimed their routines with self-talk</h2>
+                    <p>I unplugged from streams, Qiang went smoke-free for 21 days, Jia stopped social drinking—we all rewired triggers with our own voice.</p>
+                    <div class="core-actions">
+                        <a href="/insights?lang=en" class="secondary-link">Stories & tools &rarr;</a>
                     </div>
                 </div>
             </section>
 
-            <section class="landing-pathways" id="pathways">
-                <h2>Where do you want to start?</h2>
-                <div class="landing-pathway-grid">
-                    <article class="landing-pathway-card">
-                        <div class="pathway-icon">🚫</div>
-                        <h3>Break bad habits</h3>
-                        <p>Quit smoking, limit drinking, reduce doom scrolling or beat procrastination—the quit smoking blueprint is ready today.</p>
-                        <a class="link-button" href="/start?path=break-bad">Start with quit smoking</a>
-                    </article>
-                    <article class="landing-pathway-card">
-                        <div class="pathway-icon">✨</div>
-                        <h3>Build positive habits</h3>
-                        <p>Wake up early, exercise, meditate, or read. Custom flows are available now, and full templates are on the roadmap.</p>
-                        <a class="link-button" href="/start?path=build-good">Design my good habit flow</a>
-                    </article>
-                </div>
-            </section>
-
-            <section class="about-preview" id="about-en">
-                <div class="about-container">
-                    <div class="about-copy">
-                        <p class="about-eyebrow">About Me</p>
-                        <h2>SelfTalk started as my 21-day rescue plan</h2>
-                        <p>I used to fall asleep with a live stream still running. When I scripted the voices in my head and rehearsed them each morning, I quit live streams and short videos within weeks.</p>
-                        <p>Then I shared the prompts with friends—Qiang finished 21 smoke-free days, and Jia stopped social drinking. We tracked triggers the same way and watched each other change.</p>
-                        <div class="about-actions">
-                            <a class="link-button" href="/about">Read the full story</a>
-                        </div>
-                    </div>
-                    <div class="about-highlights">
-                        <article class="about-card">
-                            <h3>Focused again in weeks</h3>
-                            <p>I rewired "just one more clip" into "I choose to pause" and took ownership of my attention.</p>
-                        </article>
-                        <article class="about-card">
-                            <h3>Proof from real friends</h3>
-                            <p>Those same scripts helped Qiang stay smoke-free and gave Jia a calm, alcohol-free routine before every gathering.</p>
-                        </article>
-                        <article class="about-card">
-                            <h3>Why share it here</h3>
-                            <p>I packaged the exact routine inside SelfTalk so you can open the script, practice today, and feel genuinely supported.</p>
-                        </article>
+            <section class="core-section" id="cta-en">
+                <div class="core-container">
+                    <h2>Ready to start your self-talk experiment?</h2>
+                    <p>Capture your “why” in three minutes and let your own voice lead the change.</p>
+                    <div class="core-actions">
+                        <a href="/start" class="cta-button">Start today</a>
                     </div>
                 </div>
-            </section>
-
-            <section class="steps" id="journey-en">
-                <div class="steps-container">
-                    <h2>Three steps to your execution playbook</h2>
-                    <div class="steps-grid">
-                        <div class="step-card fade-in">
-                            <div class="step-number">1</div>
-                            <div class="step-icon">🗂️</div>
-                            <h3 class="step-title">Choose a habit template</h3>
-                            <p class="step-description">Pick a ready-made template like Quit Smoking or start from the custom entry—SelfTalk maps the available scripts for you.</p>
-                        </div>
-
-                        <div class="step-card fade-in">
-                            <div class="step-number">2</div>
-                            <div class="step-icon">✍️</div>
-                            <h3 class="step-title">Personalise motivations & reminders</h3>
-                            <p class="step-description">Share your why, preferred reminder moments and accountability rewards. The plan adapts tone and cadence accordingly.</p>
-                        </div>
-
-                        <div class="step-card fade-in">
-                            <div class="step-number">3</div>
-                            <div class="step-icon">📅</div>
-                            <h3 class="step-title">Follow the 21-day script</h3>
-                            <p class="step-description">Review daily dialogues, reasons and actions. Tick off completions or log repetitions—everything stays in your browser.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="plan-highlight" id="plan">
-                <div class="plan-highlight-inner">
-                    <h2>Inside your plan you’ll find</h2>
-                    <div class="plan-highlight-grid">
-                        <article class="plan-highlight-card">
-                            <h3>Daily bilingual self-talk</h3>
-                            <p>Each day comes with English and Chinese scripts, the reason behind it, and a concrete action so you can rehearse anytime.</p>
-                        </article>
-                        <article class="plan-highlight-card">
-                            <h3>Local progress & reminders</h3>
-                            <p>Mark “done for today” or record repetitions; the progress bar updates instantly while preferences stay on your device.</p>
-                        </article>
-                        <article class="plan-highlight-card">
-                            <h3>Phase-based deep dives</h3>
-                            <p>Curated reading and exercises for each phase help you deepen the practice without interrupting your main track.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section class="evidence" id="stories-en">
-                <h2>Proof that self-talk works</h2>
-                <div class="evidence-grid">
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">ME</div>
-                            <div class="story-meta">
-                                <span class="story-name">Founder</span>
-                                <span class="story-detail">21 days free from late-night streaming</span>
-                            </div>
-                        </div>
-                        <p>I rewrote “just one more clip” into “I choose clarity.” Cravings faded without the usual crash.</p>
-                        <details class="story-insight">
-                            <summary>Expand full story</summary>
-                            <ul>
-                                <li>By day 7 I logged every trigger and reset with three rounds of 4-4-6 breathing.</li>
-                                <li>From day 14 onward I could fall asleep without background streams.</li>
-                                <li>Recorded the strongest dialogue on day 21 and replayed it during future habit shifts.</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">See article updates</a>
-                        </details>
-                    </article>
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">LX</div>
-                            <div class="story-meta">
-                                <span class="story-name">Li Xiaolai</span>
-                                <span class="story-detail">Entrepreneur & author</span>
-                            </div>
-                        </div>
-                        <p>He reminds us: your own voice persuades best. The write-speak-listen loop is a low-cost change protocol.</p>
-                        <details class="story-insight">
-                            <summary>Expand full story</summary>
-                            <ul>
-                                <li>Promotes the “write–speak–listen” loop so cognition and emotion align.</li>
-                                <li>Uses SelfTalk scripts as a daily ritual, just like brushing his teeth.</li>
-                                <li>Encourages recording your own voice for consistent reinforcement.</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">See article updates</a>
-                        </details>
-                    </article>
-                    <article class="story-card">
-                        <div class="story-header">
-                            <div class="story-avatar">Q</div>
-                            <div class="story-meta">
-                                <span class="story-name">Qiang</span>
-                                <span class="story-detail">34 · 21 days smoke-free</span>
-                            </div>
-                        </div>
-                        <p>He replaced “I need a cigarette” with “I’m rebuilding my lungs,” walking away from a decade-long habit.</p>
-                        <details class="story-insight">
-                            <summary>Expand full story</summary>
-                            <ul>
-                                <li>Completed 60+ dialogues in 21 days, writing before reacting each time.</li>
-                                <li>Swapped the “one cigarette after meals” loop with a five-minute walk and breathwork.</li>
-                                <li>Used reset-day scripts whenever relapse happened to recover momentum quickly.</li>
-                            </ul>
-                            <a class="primary-link" href="/insights">See article updates</a>
-                        </details>
-                    </article>
-                </div>
-            </section>
-
-            <section class="articles-preview" id="articles-preview-en">
-                <h2>Latest articles in progress</h2>
-                <p class="section-intro">I’m turning real self-talk experiments into long-form notes. They’ll roll out over the coming weeks—join the list to read them first.</p>
-                <div class="articles-grid">
-                    <div class="articles-card">
-                        <h3>Write · Speak · Listen</h3>
-                        <p>A deeper look at predictive coding and why the write-speak-listen loop broke my streaming habit.</p>
-                        <a href="/insights">See status</a>
-                    </div>
-                    <div class="articles-card">
-                        <h3>Qiang’s Smoke-Free Diary</h3>
-                        <p>Daily highlights, reset-day reflections, and the substitution checklist we used to defuse cravings.</p>
-                        <a href="/insights">See status</a>
-                    </div>
-                    <div class="articles-card">
-                        <h3>Template Pack</h3>
-                        <p>Printable cards plus a Notion template so you can carry the 21-day scripts across every device.</p>
-                        <a href="/insights">See status</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="faq-section" id="faq-en">
-                <div class="faq-container">
-                    <details class="faq-item">
-                        <summary><span class="faq-question">📅 Daily rhythm</span></summary>
-                        <div class="faq-answer">
-                            That’s enough. Each script takes roughly 5–8 minutes. Most people layer the practice onto existing routines:
-                            <ul>
-                                <li>Read the dialogue right after brushing your teeth.</li>
-                                <li>Write a one-sentence reminder before your afternoon break.</li>
-                                <li>Do the replacement action while winding down at night.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🔁 Handling relapses</span></summary>
-                        <div class="faq-answer">
-                            Relapses are part of the process. The script includes reset days to help you regroup:
-                            <ul>
-                                <li>Log the trigger and how it felt in your body.</li>
-                                <li>Rewrite the internal response you want next time.</li>
-                                <li>Email <a href="mailto:selftalkernow@outlook.com">selftalkernow@outlook.com</a> and we’ll troubleshoot together.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🛠 Before you begin</span></summary>
-                        <div class="faq-answer">
-                            Keep a notebook or notes app handy for daily writing, and let close friends know you’re running a 21-day experiment—social cues help you stay accountable.
-                        </div>
-                    </details>
-                    <details class="faq-item">
-                        <summary><span class="faq-question">🧰 Tools & medication</span></summary>
-                        <div class="faq-answer">
-                            Not required. SelfTalk focuses on rewiring predictions through deliberate dialogue.
-                            <ul>
-                                <li>If you pair it with exercise, mindfulness, or nicotine patches, the script reinforces those routines.</li>
-                                <li>If you’re in a medical program, share the dialogue with your doctor/therapist as part of the progress check-in.</li>
-                            </ul>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section class="subscription" id="subscribe">
-                <h2>Subscribe to the SelfTalk Habit Lab</h2>
-                <p>Be the first to receive new templates, advanced drills, and habit science explainers. I only email when there’s something genuinely useful.</p>
-                <div class="subscription-cta">
-                    <a class="cta-button" href="mailto:selftalkernow@outlook.com?subject=Subscribe to SelfTalk insights&body=Hi, please add me to your article and script updates.">Email me the updates</a>
-                </div>
-                <p class="muted">Or email me at selftalkernow@outlook.com to plan your 21-day experiment together.</p>
-            </section>
-
-            <section class="final-cta">
-                <h2>Ready to rewrite your habits with self-talk?</h2>
-                <p>Generate your 21-day plan now and wake up tomorrow with a step-by-step script.</p>
-                <a href="/start" class="cta-button">Generate my plan</a>
             </section>
         </div>
 
