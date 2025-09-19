@@ -23,12 +23,31 @@
             tags: '关键词',
             done: '完成今天的练习',
             repetitions: '今天重复了几次？',
+            cardToggle: {
+                expand: '展开',
+                collapse: '收起'
+            },
             learningHeading: '延伸阅读',
             reminderNote: {
                 off: '我们会在本地保存提醒标记，并引导你把练习写进日历或待办。',
                 on: '已为你开启每日提醒，建议立刻在日历或提醒工具中设定时间。'
             },
-            noResources: '我们正在准备更多配套文章，敬请期待。'
+            noResources: '我们正在准备更多配套文章，敬请期待。',
+            recorder: {
+                idle: '准备就绪：点击“开始录音”练习今天的脚本。',
+                recording: '录音中… 完成后按“停止”，尽量保持语速稳定。',
+                processing: '正在处理录音…几秒后即可播放或下载。',
+                ready: '录音完成！播放确认语气，或保存音频以便复习。',
+                permission: '请允许浏览器使用麦克风，我们不会上传音频。',
+                unsupported: '抱歉，你的浏览器暂不支持录音功能，请改用最新版 Chrome、Edge 或 Safari。',
+                error: '录音遇到问题，请重试。',
+                inactive: '选择一个模板并生成计划后，就能在这里练习录音。'
+            },
+            recorderButtons: {
+                start: '开始录音',
+                stop: '停止',
+                download: '下载录音'
+            }
         },
         en: {
             next: ['Next Step', 'See Plan', 'Start Practice'],
@@ -47,12 +66,31 @@
             tags: 'Tags',
             done: 'I completed today’s practice',
             repetitions: 'How many repetitions today?',
+            cardToggle: {
+                expand: 'Expand',
+                collapse: 'Collapse'
+            },
             learningHeading: 'Further reading',
             reminderNote: {
                 off: 'We store this preference locally and prompt you to add calendar or to-do reminders.',
                 on: 'Daily reminder saved locally. Add it to your calendar or to-do app right away.'
             },
-            noResources: 'More resources are on the way. Stay tuned.'
+            noResources: 'More resources are on the way. Stay tuned.',
+            recorder: {
+                idle: 'Ready to go: press “Start recording” to rehearse today’s script.',
+                recording: 'Recording… speak with intention, then hit “Stop” when you’re done.',
+                processing: 'Processing your audio… you can replay or download in a moment.',
+                ready: 'All set! Replay the clip to check your tone or download it for later.',
+                permission: 'Please allow microphone access. Nothing leaves your browser.',
+                unsupported: 'Recording is not supported in this browser. Try the latest Chrome, Edge, or Safari.',
+                error: 'Something went wrong while recording. Give it another try.',
+                inactive: 'Generate your daily plan first, then the recorder will be ready here.'
+            },
+            recorderButtons: {
+                start: 'Start recording',
+                stop: 'Stop',
+                download: 'Download audio'
+            }
         }
     };
 
@@ -77,9 +115,12 @@
     let activeScriptId = null;
     let suppressCategorySync = false;
 
+    const INLINE_SCRIPTS = (typeof window !== 'undefined' && window.SELFTALK_INLINE_SCRIPTS) || {};
+
     const scriptCache = new Map();
     const progressCache = new Map();
     const localeViews = {};
+    const recorderControllers = {};
 
     document.addEventListener('DOMContentLoaded', init);
 
@@ -87,6 +128,8 @@
         ['zh', 'en'].forEach((locale) => {
             localeViews[locale] = collectLocaleView(locale);
         });
+
+        setupRecorders();
 
         attachPathwayListeners();
         attachTemplateListeners();
@@ -114,8 +157,359 @@
             progressText: document.getElementById(`plan-progress-percent-${locale}`),
             progressBar: document.getElementById(`plan-progress-bar-${locale}`),
             reminder: document.getElementById(`plan-reminder-${locale}`),
-            learning: document.getElementById(`plan-learning-${locale}`)
+            learning: document.getElementById(`plan-learning-${locale}`),
+            recorder: collectRecorderView(locale)
         };
+    }
+
+    function collectRecorderView(locale) {
+        const root = document.querySelector(`[data-recorder-locale="${locale}"]`);
+        if (!root) {
+            return null;
+        }
+        return {
+            root,
+            status: root.querySelector('[data-recorder-status]'),
+            start: root.querySelector('[data-recorder-start]'),
+            stop: root.querySelector('[data-recorder-stop]'),
+            download: root.querySelector('[data-recorder-download]'),
+            audio: root.querySelector('[data-recorder-audio]')
+        };
+    }
+
+    function setupRecorders() {
+        Object.entries(localeViews).forEach(([locale, view]) => {
+            if (!view?.recorder) {
+                return;
+            }
+            recorderControllers[locale] = initRecorderController(locale, view.recorder);
+        });
+    }
+
+    function initRecorderController(locale, refs) {
+        const copy = LOCALE_COPY[locale]?.recorder || {};
+        const buttonCopy = LOCALE_COPY[locale]?.recorderButtons || {};
+        const supported = Boolean(navigator.mediaDevices?.getUserMedia) && typeof MediaRecorder !== 'undefined';
+
+        if (refs.start && buttonCopy.start) {
+            refs.start.textContent = buttonCopy.start;
+        }
+        if (refs.stop && buttonCopy.stop) {
+            refs.stop.textContent = buttonCopy.stop;
+        }
+        if (refs.download && buttonCopy.download) {
+            refs.download.textContent = buttonCopy.download;
+        }
+
+        const controller = {
+            locale,
+            refs,
+            copy,
+            supported,
+            available: false,
+            recording: false,
+            mediaRecorder: null,
+            stream: null,
+            chunks: [],
+            audioUrl: null,
+            mimeType: '',
+            extension: 'webm'
+        };
+
+        if (refs.root) {
+            refs.root.classList.add('is-disabled');
+        }
+
+        function setStatus(key) {
+            if (!refs.status) {
+                return;
+            }
+            const text = copy[key] || key || '';
+            refs.status.textContent = text;
+        }
+
+        function revokeAudioUrl() {
+            if (controller.audioUrl) {
+                URL.revokeObjectURL(controller.audioUrl);
+                controller.audioUrl = null;
+            }
+        }
+
+        function clearAudio() {
+            revokeAudioUrl();
+            if (refs.audio) {
+                refs.audio.pause();
+                refs.audio.removeAttribute('src');
+                refs.audio.hidden = true;
+            }
+            if (refs.download) {
+                refs.download.hidden = true;
+                refs.download.removeAttribute('href');
+            }
+        }
+
+        function cleanupStream() {
+            if (controller.stream) {
+                controller.stream.getTracks().forEach((track) => track.stop());
+                controller.stream = null;
+            }
+        }
+
+        function resetButtons(disableStart = true) {
+            if (refs.start) {
+                refs.start.disabled = disableStart;
+            }
+            if (refs.stop) {
+                refs.stop.disabled = true;
+            }
+        }
+
+        function chooseRecorderFormat() {
+            if (typeof MediaRecorder === 'undefined' || typeof MediaRecorder.isTypeSupported !== 'function') {
+                return { mimeType: '', extension: 'webm' };
+            }
+            const formats = [
+                { mimeType: 'audio/webm;codecs=opus', extension: 'webm' },
+                { mimeType: 'audio/webm', extension: 'webm' },
+                { mimeType: 'audio/mp4;codecs=mp4a', extension: 'm4a' },
+                { mimeType: 'audio/ogg;codecs=opus', extension: 'ogg' },
+                { mimeType: 'audio/ogg', extension: 'ogg' }
+            ];
+            for (const format of formats) {
+                try {
+                    if (MediaRecorder.isTypeSupported(format.mimeType)) {
+                        return format;
+                    }
+                } catch (error) {
+                    // Ignore and continue checking other formats.
+                }
+            }
+            return { mimeType: '', extension: 'webm' };
+        }
+
+        async function handleStart() {
+            if (!controller.available || controller.recording || !supported) {
+                return;
+            }
+            if (refs.start) {
+                refs.start.disabled = true;
+            }
+            if (refs.stop) {
+                refs.stop.disabled = true;
+            }
+            clearAudio();
+            controller.chunks = [];
+            setStatus('permission');
+
+            try {
+                controller.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            } catch (error) {
+                console.error('[Recorder] getUserMedia failed', error);
+                const statusKey = error?.name === 'NotAllowedError' || error?.name === 'SecurityError'
+                    ? 'permission'
+                    : 'error';
+                setStatus(statusKey);
+                resetButtons(false);
+                return;
+            }
+
+            const format = chooseRecorderFormat();
+            controller.mimeType = format.mimeType;
+            controller.extension = format.extension;
+            try {
+                controller.mediaRecorder = controller.mimeType
+                    ? new MediaRecorder(controller.stream, { mimeType: controller.mimeType })
+                    : new MediaRecorder(controller.stream);
+            } catch (error) {
+                console.error('[Recorder] MediaRecorder init failed', error);
+                setStatus('error');
+                cleanupStream();
+                resetButtons(false);
+                return;
+            }
+
+            controller.recording = true;
+            if (refs.stop) {
+                refs.stop.disabled = false;
+            }
+            setStatus('recording');
+
+            controller.mediaRecorder.addEventListener('dataavailable', (event) => {
+                if (event?.data && event.data.size > 0) {
+                    controller.chunks.push(event.data);
+                }
+            });
+
+            controller.mediaRecorder.addEventListener('error', (event) => {
+                console.error('[Recorder] error', event?.error || event);
+                controller.recording = false;
+                setStatus('error');
+                cleanupStream();
+                resetButtons(!controller.available);
+            });
+
+            controller.mediaRecorder.addEventListener('stop', () => {
+                finalizeRecording();
+            });
+
+            try {
+                controller.mediaRecorder.start();
+            } catch (error) {
+                console.error('[Recorder] start failed', error);
+                controller.recording = false;
+                setStatus('error');
+                cleanupStream();
+                resetButtons(false);
+            }
+        }
+
+        function handleStop() {
+            if (!controller.recording || !controller.mediaRecorder) {
+                return;
+            }
+            if (refs.stop) {
+                refs.stop.disabled = true;
+            }
+            setStatus('processing');
+            try {
+                controller.mediaRecorder.stop();
+            } catch (error) {
+                console.error('[Recorder] stop failed', error);
+                finalizeRecording();
+            }
+        }
+
+        function finalizeRecording() {
+            const wasRecording = controller.recording;
+            controller.recording = false;
+            const mimeType = controller.mimeType || 'audio/webm';
+            cleanupStream();
+
+            if (refs.stop) {
+                refs.stop.disabled = true;
+            }
+            if (refs.start) {
+                refs.start.disabled = !controller.available;
+            }
+
+            if (!wasRecording || !controller.chunks.length) {
+                setStatus('error');
+                controller.chunks = [];
+                controller.mediaRecorder = null;
+                return;
+            }
+
+            if (!controller.available) {
+                controller.chunks = [];
+                controller.mediaRecorder = null;
+                clearAudio();
+                setStatus('inactive');
+                return;
+            }
+
+            let blob;
+            try {
+                blob = new Blob(controller.chunks, { type: mimeType });
+            } catch (error) {
+                console.warn('[Recorder] Blob creation fallback', error);
+                blob = new Blob(controller.chunks);
+            }
+
+            controller.chunks = [];
+            controller.mediaRecorder = null;
+
+            revokeAudioUrl();
+            const url = URL.createObjectURL(blob);
+            controller.audioUrl = url;
+
+            if (refs.audio) {
+                refs.audio.src = url;
+                refs.audio.hidden = false;
+                refs.audio.load();
+            }
+
+            if (refs.download) {
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                const filename = `selftalk-practice-${locale}-${timestamp}.${controller.extension || 'webm'}`;
+                refs.download.href = url;
+                refs.download.setAttribute('download', filename);
+                refs.download.hidden = false;
+            }
+
+            setStatus('ready');
+        }
+
+        controller.setAvailable = function(available) {
+            controller.available = Boolean(available);
+            if (!supported) {
+                setStatus('unsupported');
+                return;
+            }
+            if (!controller.available) {
+                if (controller.recording && controller.mediaRecorder) {
+                    try {
+                        controller.mediaRecorder.stop();
+                    } catch (error) {
+                        console.warn('[Recorder] stop during deactivate failed', error);
+                    }
+                }
+                controller.recording = false;
+                controller.mediaRecorder = null;
+                cleanupStream();
+                clearAudio();
+                resetButtons(true);
+                if (refs.root) {
+                    refs.root.classList.add('is-disabled');
+                }
+                setStatus('inactive');
+                return;
+            }
+
+            if (refs.root) {
+                refs.root.classList.remove('is-disabled');
+            }
+            if (refs.start) {
+                refs.start.disabled = false;
+            }
+            if (refs.stop) {
+                refs.stop.disabled = true;
+            }
+            if (controller.audioUrl) {
+                setStatus('ready');
+            } else {
+                setStatus('idle');
+            }
+        };
+
+        controller.resetAudio = clearAudio;
+        controller.revoke = revokeAudioUrl;
+
+        if (!supported) {
+            resetButtons(true);
+            clearAudio();
+            setStatus('unsupported');
+            if (refs.root) {
+                refs.root.classList.add('is-unsupported');
+            }
+            return controller;
+        }
+
+        clearAudio();
+        resetButtons(true);
+        setStatus('inactive');
+
+        refs.start?.addEventListener('click', handleStart);
+        refs.stop?.addEventListener('click', handleStop);
+
+        return controller;
+    }
+
+    function updateRecorderAvailability(locale, available) {
+        const controller = recorderControllers[locale];
+        if (!controller || typeof controller.setAvailable !== 'function') {
+            return;
+        }
+        controller.setAvailable(Boolean(available));
     }
 
     function loadHabitMetadata() {
@@ -161,6 +555,12 @@
             })
             .catch((error) => {
                 console.error('[HabitScript] load failed', url, error);
+                const inline = INLINE_SCRIPTS[habitId];
+                if (inline) {
+                    console.info('[HabitScript] fallback to inline data for', habitId);
+                    scriptCache.set(habitId, inline);
+                    return inline;
+                }
                 return null;
             });
     }
@@ -243,6 +643,11 @@
                 }
             }
         });
+
+        const activeReady = document.querySelector('input[type="radio"][data-script]:checked');
+        if (activeReady?.dataset?.script) {
+            selectScript(activeReady.dataset.script);
+        }
     }
 
     function hasReadyTemplateSelected() {
@@ -410,9 +815,11 @@
             view.list.innerHTML = '';
             view.empty.style.display = 'block';
             updateLearning(locale, view, phases);
+            updateRecorderAvailability(locale, false);
             return;
         }
 
+        updateRecorderAvailability(locale, true);
         view.empty.style.display = 'none';
         const fragment = document.createDocumentFragment();
         const copy = LOCALE_COPY[locale];
@@ -430,6 +837,8 @@
 
             const header = document.createElement('div');
             header.className = 'plan-day-header';
+            const headerMain = document.createElement('div');
+            headerMain.className = 'plan-day-header-main';
             const dayNumber = document.createElement('span');
             dayNumber.className = 'plan-day-number';
             dayNumber.textContent = copy?.dayLabel ? copy.dayLabel(dayInfo.day) : `Day ${dayInfo.day}`;
@@ -437,11 +846,21 @@
             const phaseLabel = document.createElement('span');
             phaseLabel.className = 'plan-day-phase';
             phaseLabel.textContent = textForLocale(phase?.title, locale) || '';
-            header.appendChild(dayNumber);
+            headerMain.appendChild(dayNumber);
             if (phaseLabel.textContent) {
-                header.appendChild(phaseLabel);
+                headerMain.appendChild(phaseLabel);
             }
+            const toggle = document.createElement('button');
+            toggle.type = 'button';
+            toggle.className = 'plan-day-toggle';
+            header.appendChild(headerMain);
+            header.appendChild(toggle);
             card.appendChild(header);
+
+            const brief = document.createElement('p');
+            brief.className = 'plan-day-brief';
+            brief.textContent = textForLocale(dayInfo.affirmation, locale) || '';
+            card.appendChild(brief);
 
             const body = document.createElement('div');
             body.className = 'plan-day-body';
@@ -510,6 +929,27 @@
             counterLabel.appendChild(counter);
             trackers.appendChild(counterLabel);
             card.appendChild(trackers);
+
+            const toggleCopy = copy?.cardToggle || {};
+            const setExpanded = (expanded) => {
+                if (expanded) {
+                    card.classList.add('is-expanded');
+                    card.classList.remove('is-collapsed');
+                    toggle.textContent = toggleCopy.collapse || 'Collapse';
+                } else {
+                    card.classList.add('is-collapsed');
+                    card.classList.remove('is-expanded');
+                    toggle.textContent = toggleCopy.expand || 'Expand';
+                }
+            };
+
+            toggle.addEventListener('click', () => {
+                const shouldExpand = card.classList.contains('is-collapsed');
+                setExpanded(shouldExpand);
+            });
+
+            const initialExpanded = dayInfo.day === 1;
+            setExpanded(initialExpanded);
 
             checkbox.addEventListener('change', () => {
                 updateDayProgress(dayInfo.day, { completed: checkbox.checked });
@@ -664,6 +1104,7 @@
             if (view.learning) {
                 updateLearning(locale, view, new Map());
             }
+            updateRecorderAvailability(locale, false);
         });
     }
 
@@ -699,9 +1140,17 @@
     }
 
     function attachTemplateListeners() {
-        document.querySelectorAll('input[type="radio"][name^="habit"]').forEach((input) => {
+        const habitInputs = Array.from(document.querySelectorAll('input[type="radio"][name^="habit"]'));
+        habitInputs.forEach((input) => {
             input.addEventListener('change', handleRadioChange);
         });
+
+        habitInputs
+            .filter((input) => input.checked)
+            .forEach((input) => {
+                handleRadioChange({ target: input });
+            });
+
         updateNextButtonState();
     }
 

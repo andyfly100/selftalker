@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>写·念·听 快速卡｜SelfTalk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            color-scheme: light;
+            --primary: #0EA570;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --accent: #fb923c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f5f5;
+            color: var(--dark);
+            padding: 24px;
+        }
+
+        .page {
+            width: min(210mm, 100%);
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        header h1 {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            margin: 0;
+            color: var(--primary);
+        }
+
+        header p {
+            margin: 8px 0 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid rgba(14, 165, 112, 0.3);
+            border-radius: 16px;
+            padding: clamp(24px, 4vw, 36px);
+            box-shadow: 0 14px 40px rgba(31, 41, 55, 0.08);
+            display: grid;
+            gap: clamp(18px, 3vw, 28px);
+        }
+
+        .card-section {
+            display: grid;
+            gap: 12px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(14, 165, 112, 0.12);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 999px;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .card h2 small {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 0.02em;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .affirmation {
+            border-left: 4px solid var(--accent);
+            padding-left: 14px;
+            font-style: italic;
+            color: var(--dark);
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .footer-note strong {
+            color: var(--primary);
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+
+            .page {
+                width: 210mm;
+                padding: 18mm 20mm;
+            }
+
+            .card {
+                box-shadow: none;
+                border-width: 1.6pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1>写 · 念 · 听 快速卡</h1>
+            <p>打印后折叠即可放入手账｜建议搭配 21 天脚本使用</p>
+        </header>
+        <article class="card">
+            <section class="card-section">
+                <span class="badge">✍️ WRITE</span>
+                <h2>写下 2 句理由 <small>60 秒</small></h2>
+                <ul>
+                    <li>今天我选择：_______________________</li>
+                    <li>我需要的行动：_______________________</li>
+                </ul>
+                <p class="affirmation">提示：描述你想要的状态，而不是你要戒掉的东西。</p>
+            </section>
+
+            <section class="card-section">
+                <span class="badge">🗣️ SPEAK</span>
+                <h2>大声读出来 <small>30 秒</small></h2>
+                <ul>
+                    <li>用手机录音，语气像对好友说话。</li>
+                    <li>遇到诱因时，先播放录音再决定下一步。</li>
+                </ul>
+            </section>
+
+            <section class="card-section">
+                <span class="badge">👂 LISTEN</span>
+                <h2>回放并修正 <small>30 秒</small></h2>
+                <ul>
+                    <li>记录：我的身体感觉是 __________。</li>
+                    <li>如果语句不够有力，改写它，明天再练一次。</li>
+                </ul>
+            </section>
+
+            <section class="card-section">
+                <span class="badge">🌙 当天复盘</span>
+                <h2>晚上补一句 <small>45 秒</small></h2>
+                <ul>
+                    <li>今天我证明了 ______________________。</li>
+                    <li>下一次诱因出现时，我会先 __________。</li>
+                </ul>
+            </section>
+        </article>
+        <p class="footer-note">SelfTalk · <strong>写 - 念 - 听</strong> 循环让大脑更快相信新的自己</p>
+    </div>
+</body>
+</html>

@@ -374,6 +374,128 @@
             margin-bottom: 0;
         }
 
+        .practice-section h2,
+        .practice-section .section-intro {
+            max-width: 760px;
+            margin: 0 auto 1.1rem;
+            text-align: center;
+        }
+
+        .practice-section .section-intro {
+            color: var(--gray);
+        }
+
+        .practice-toolkit {
+            max-width: 1080px;
+            margin: 2.5rem auto 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .practice-toolkit-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .practice-toolkit-header h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .practice-toolkit-header p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .toolkit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .toolkit-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 14px 32px rgba(15, 118, 110, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .toolkit-card h4 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--dark);
+        }
+
+        .toolkit-card p {
+            margin: 0;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .toolkit-meta {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .toolkit-button {
+            margin-top: auto;
+            align-self: flex-start;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 999px;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 10px 20px rgba(15, 118, 110, 0.18);
+        }
+
+        .toolkit-button:hover {
+            transform: translateY(-2px);
+            background: #0EA570;
+        }
+
+        .toolkit-button.is-muted {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .toolkit-button.is-muted:hover {
+            transform: translateY(-2px);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .toolkit-button.is-playing {
+            background: #0EA570;
+            box-shadow: 0 12px 24px rgba(15, 118, 110, 0.24);
+        }
+
+        .toolkit-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .evidence > h2 {
+            max-width: 760px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
         .stats {
             display: inline-flex;
             align-items: center;
@@ -1540,6 +1662,26 @@
                         </ul>
                     </div>
                 </div>
+                <div class="practice-toolkit">
+                    <div class="practice-toolkit-header">
+                        <h3>快速试玩工具</h3>
+                        <p>先花 2 分钟体验写·念·听流程，再决定是否开启完整 21 天脚本。</p>
+                    </div>
+                    <div class="toolkit-grid">
+                        <article class="toolkit-card">
+                            <h4>浏览器语音示例</h4>
+                            <p>点击按钮后，浏览器会朗读 Day 1 的关键语句，体验“念”这一步所带来的情绪变化。</p>
+                            <p class="toolkit-meta">提示：示例使用设备内建语音，请确认音量开启。</p>
+                            <button class="toolkit-button" type="button" data-toolkit-audio="zh">播放语音示例</button>
+                        </article>
+                        <article class="toolkit-card">
+                            <h4>打印随身卡</h4>
+                            <p>打开图卡即可列印或储存为 PDF，把每日要写的两句话与晚间复盘带在身上。</p>
+                            <p class="toolkit-meta">建议：列印后折叠放入手帐，与手机录音互补。</p>
+                            <a class="toolkit-button is-muted" href="/assets/templates/write-speak-listen-card.html" target="_blank" rel="noopener" download="selftalk-write-speak-listen-card.html">打开图卡示例</a>
+                        </article>
+                    </div>
+                </div>
             </section>
 
             <section class="landing-pathways" id="pathways">
@@ -1933,6 +2075,26 @@
                         </ul>
                     </div>
                 </div>
+                <div class="practice-toolkit">
+                    <div class="practice-toolkit-header">
+                        <h3>Try the loop in 2 minutes</h3>
+                        <p>Sample the write–speak–listen flow right now so you know what to expect before committing to 21 days.</p>
+                    </div>
+                    <div class="toolkit-grid">
+                        <article class="toolkit-card">
+                            <h4>Browser voice demo</h4>
+                            <p>Press play and your browser will read the Day 1 highlights. Feel the shift that comes from speaking to yourself with intention.</p>
+                            <p class="toolkit-meta">Heads up: the sample uses your device’s built-in voice. Make sure audio is unmuted.</p>
+                            <button class="toolkit-button" type="button" data-toolkit-audio="en">Play audio sample</button>
+                        </article>
+                        <article class="toolkit-card">
+                            <h4>Printable pocket card</h4>
+                            <p>Open the card to print or save a PDF. Capture your two key lines and the evening reflection wherever you go.</p>
+                            <p class="toolkit-meta">Tip: print, fold, and pair it with your voice memo ritual.</p>
+                            <a class="toolkit-button is-muted" href="/assets/templates/write-speak-listen-card.html" target="_blank" rel="noopener" download="selftalk-write-speak-listen-card.html">Open the card</a>
+                        </article>
+                    </div>
+                </div>
             </section>
 
             <section class="landing-pathways" id="pathways">
@@ -2185,6 +2347,60 @@
         // 语言切换功能
         let currentLang = 'en';
 
+        const toolkitSamples = {
+            zh: '今天我要练习暂停，每个渴望多留三秒，看见真正的需求。我写下一句提醒，念给自己听，再回放感受身体的变化。',
+            en: 'Today I am rehearsing pauses. Every craving gets three seconds so I can notice what I truly need. I write one reminder line, speak it out loud, and listen back to feel the shift.'
+        };
+
+        function initToolkitAudio() {
+            const buttons = document.querySelectorAll('[data-toolkit-audio]');
+            if (!buttons.length) {
+                return;
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lang = button.getAttribute('data-toolkit-audio');
+                    const sample = toolkitSamples[lang] || toolkitSamples.en;
+                    const defaultLabel = button.dataset.defaultLabel || button.textContent.trim();
+                    button.dataset.defaultLabel = defaultLabel;
+
+                    if (!('speechSynthesis' in window) || !window.speechSynthesis) {
+                        button.disabled = true;
+                        button.classList.add('is-muted');
+                        button.textContent = lang === 'zh' ? '浏览器暂不支持朗读' : 'Speech not supported';
+                        return;
+                    }
+
+                    window.speechSynthesis.cancel();
+
+                    const utterance = new SpeechSynthesisUtterance(sample);
+                    utterance.lang = lang === 'zh' ? 'zh-CN' : 'en-US';
+                    utterance.rate = 0.95;
+                    utterance.pitch = lang === 'zh' ? 1 : 1.05;
+
+                    button.classList.add('is-playing');
+                    button.disabled = true;
+                    button.textContent = lang === 'zh' ? '播放中…' : 'Playing…';
+
+                    utterance.onend = () => {
+                        button.classList.remove('is-playing');
+                        button.disabled = false;
+                        button.textContent = button.dataset.defaultLabel || defaultLabel;
+                    };
+
+                    utterance.onerror = () => {
+                        button.classList.remove('is-playing');
+                        button.disabled = false;
+                        button.textContent = lang === 'zh' ? '播放失败，请再试一次' : 'Playback failed, try again';
+                        button.classList.add('is-muted');
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                });
+            });
+        }
+
         function switchLanguage(lang) {
             currentLang = lang;
             
@@ -2386,6 +2602,7 @@
             observeAnimatedElements();
             initSmoothScroll();
             initNavbarScroll();
+            initToolkitAudio();
             
             // 观察统计数字
             const statsElements = document.querySelectorAll('.stats');

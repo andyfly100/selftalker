@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-title-zh="为什么戒烟总失败？真正的敌人是触发器" data-title-en="Why You Keep Relapsing: Triggers, Not Willpower">为什么戒烟总失败？真正的敌人是触发器</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T9ZN9KSK27"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-T9ZN9KSK27');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6928529142816465" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10B981;
+            --accent: #FB923C;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --white: #FFFFFF;
+            --background: #FAFAFA;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--dark);
+            background: var(--background);
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '💬';
+            font-size: 1.7rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links .cta-button {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--white);
+            border-radius: 25px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--gray);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        main {
+            margin-top: 90px;
+        }
+
+        .hero {
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(244,114,182,0.08) 0%, rgba(59,130,246,0.08) 100%);
+        }
+
+        .hero-inner {
+            max-width: 850px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .hero-eyebrow {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(16,185,129,0.25);
+        }
+
+        .article-body {
+            padding: 4rem 1.5rem 5rem;
+        }
+
+        .article-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+        }
+
+        .module {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 45px rgba(15,23,42,0.08);
+            border: 1px solid rgba(15,118,110,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module::before {
+            content: attr(data-badge);
+            position: absolute;
+            top: 1.6rem;
+            right: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: rgba(31,41,55,0.12);
+        }
+
+        .module h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .module h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        .module p + p {
+            margin-top: 1rem;
+        }
+
+        .module ul {
+            margin: 1rem 0 0 1.2rem;
+            color: var(--gray);
+        }
+
+        .module strong {
+            color: var(--dark);
+        }
+
+        .module[data-tone="alert"] h3 {
+            color: #DC2626;
+        }
+
+        .module[data-tone="secondary"] h3 {
+            color: #2563EB;
+        }
+
+        blockquote {
+            margin: 2rem 0 0;
+            padding: 1.5rem 1.8rem;
+            border-left: 4px solid var(--accent);
+            background: rgba(251,146,60,0.08);
+            border-radius: 14px;
+            color: var(--dark);
+            font-size: 1.05rem;
+        }
+
+        .article-footer {
+            text-align: center;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .article-footer h3 {
+            font-size: 1.6rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--light-gray);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p + p {
+            margin-top: 0.5rem;
+        }
+
+        .content[data-lang]:not(.active) {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0.9rem 1.4rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .language-switcher {
+                bottom: 20px;
+                top: auto;
+            }
+
+            .module {
+                padding: 2rem;
+            }
+
+            .module::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo" data-text-zh="自语力" data-text-en="SelfTalk">自语力</a>
+            <div class="nav-links">
+                <a href="/" data-text-zh="首页" data-text-en="Home">首页</a>
+                <a href="/start" data-text-zh="开始" data-text-en="Start">开始</a>
+                <a href="/about" data-text-zh="关于我" data-text-en="About">关于我</a>
+                <a href="/insights" class="active" data-text-zh="文章" data-text-en="Articles">文章</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="content active" data-lang="zh">
+            <section class="hero">
+                <div class="hero-inner">
+                    <span class="hero-eyebrow">戒烟专题</span>
+                    <h1>为什么你总是戒烟失败？答案可能出乎你意料</h1>
+                    <p>几乎每个吸烟的人都“成功”戒过烟——只是后来又复吸了。你可能撕过烟、买过戒烟茶、发过誓，可一到饭后、应酬、压力大，就又点上一根。不是你不行，而是你搞错了真正的敌人。</p>
+                    <a class="cta-button" href="#module-triggers">开始了解真正的原因</a>
+                </div>
+            </section>
+
+            <article class="article-body">
+                <div class="article-inner">
+                    <section class="module" id="module-triggers" data-badge="01" data-tone="alert">
+                        <h2>真正的敌人不是烟，而是“触发器”</h2>
+                        <h3>问题出在那一瞬间，而不是烟本身</h3>
+                        <p>想抽烟的冲动，总有迹可循：</p>
+                        <ul>
+                            <li>上班累了，点一根缓解一下；</li>
+                            <li>饭后一根，不抽就觉得少点啥；</li>
+                            <li>朋友递过来，不好意思拒绝；</li>
+                            <li>天气冷，手里没烟都不知道放哪儿。</li>
+                        </ul>
+                        <p>这些场景，就是触发器。如果你只盯着“不要抽”，却不改变触发器，就像关掉水龙头，但一直有人在拧开开关，能关得住吗？</p>
+                    </section>
+
+                    <section class="module" data-badge="02" data-tone="secondary">
+                        <h2>意志力就像电量，不够用</h2>
+                        <h3>靠“硬扛”为什么总是失败？</h3>
+                        <p>很多人觉得“戒烟靠毅力”。但意志力就像手机电池，早上满格，工作、生活、情绪一耗，到晚上就见红。白天还能忍一忍，熬到夜里，一个人孤独寂寞冷，啪，一根点上去。</p>
+                        <p>所以别怪自己不行，是方法本来就不靠谱。</p>
+                    </section>
+
+                    <section class="module" data-badge="03">
+                        <h2>戒烟失败，不代表白费功夫</h2>
+                        <h3>一次“破戒”，不是全盘皆输</h3>
+                        <p>很多人一旦“破戒”，就觉得前功尽弃：“算了，我没救了。” 这叫“全或无”思维。其实你之前忍过的一天、三天、一周，都不是白费，它们都在帮你训练大脑。</p>
+                        <p>真正能成功的人，都是“失败—重来—再调整”这样循环的。每一次重来，都比上一次更接近成功。</p>
+                    </section>
+
+                    <section class="module" data-badge="04">
+                        <h2>无痛戒烟的三步走</h2>
+                        <h3>不用拼命，也能走出来</h3>
+                        <p><strong>第一步：改口。</strong> 不要再说“我要戒烟”。试着说：“我其实是个不抽烟的人，只是之前走了点弯路。” 这是给自己一个新身份，让抽烟变得越来越别扭。</p>
+                        <p><strong>第二步：打断触发器。</strong> 想抽的时候，先停一下，给自己几秒钟缓冲。比如手已经伸向烟盒，就说一句：“我现在选择不抽。” 这几秒足够打断自动化动作。</p>
+                        <p><strong>第三步：准备替代动作。</strong> 抽烟背后往往是习惯。你手里需要点什么，需要一个节奏。那就给自己找个替代：嚼口香糖、拿茶杯、甚至原地走两步。别硬掐自己，给大脑一个新出口。</p>
+                    </section>
+
+                    <section class="module" data-badge="05">
+                        <h2>最后想说的</h2>
+                        <h3>你不是失败了无数次，你只是离成功更近了</h3>
+                        <p>戒烟不是“一次发狠就彻底成功”，它更像是和自己的一场长期谈判：一点点拆掉触发器，一点点建立新的身份。失败一次没关系，重来就好。只要你还愿意重来，就不算失败。</p>
+                        <blockquote>先试着写下一句话：“我是一个不抽烟的人。” 每天念几十遍，没事就和自己对话。你可能不信，但时间久了，你会发现，自己真的越来越像这句话。</blockquote>
+                        <div class="article-footer">
+                            <h3>下一步就从一句话开始</h3>
+                            <a class="cta-button" href="/start?path=break-bad" target="_blank" rel="noopener">立刻写下你的第一句身份宣言</a>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+
+        <div class="content" data-lang="en">
+            <section class="hero">
+                <div class="hero-inner">
+                    <span class="hero-eyebrow">Quit-Smoking Special</span>
+                    <h1>Why you keep relapsing might surprise you</h1>
+                    <p>Almost every smoker has “quit” before—only to light up again. You tore up packs, bought herbal tea, swore you were done, yet after meals, social nights, or stressful calls you sparked another cigarette. It’s not that you’re weak; you’ve been fighting the wrong enemy.</p>
+                    <a class="cta-button" href="#module-triggers-en">Understand the real reason</a>
+                </div>
+            </section>
+
+            <article class="article-body">
+                <div class="article-inner">
+                    <section class="module" id="module-triggers-en" data-badge="01" data-tone="alert">
+                        <h2>The real enemy isn’t cigarettes—it’s the trigger</h2>
+                        <h3>The problem lives in that split second, not in the cigarette itself</h3>
+                        <p>The urge to smoke always has a pattern:</p>
+                        <ul>
+                            <li>Work is draining, so you grab a smoke for relief;</li>
+                            <li>After meals you feel “something’s missing” without a cigarette;</li>
+                            <li>A friend offers one and it feels rude to refuse;</li>
+                            <li>Cold weather hits and you don’t know what to do with your hands.</li>
+                        </ul>
+                        <p>Those moments are triggers. Focusing on “don’t smoke” while leaving the triggers intact is like turning off the faucet while someone keeps opening the valve—you’ll never stay dry.</p>
+                    </section>
+
+                    <section class="module" data-badge="02" data-tone="secondary">
+                        <h2>Willpower is just a battery—and it drains fast</h2>
+                        <h3>Why muscling through rarely works</h3>
+                        <p>We’re told quitting is about grit. But willpower is a battery: you wake up at 100%, then work, emotions, and chores drain it. By night you’re running on fumes, alone with your cravings, and <em>click</em>—there goes another cigarette.</p>
+                        <p>That doesn’t mean you’re helpless. It means the method was flawed to begin with.</p>
+                    </section>
+
+                    <section class="module" data-badge="03">
+                        <h2>A slip doesn’t wipe out your progress</h2>
+                        <h3>One “failed” night isn’t game over</h3>
+                        <p>After a relapse many people think, “I blew it. I’m hopeless.” That’s all-or-nothing thinking. Every day you held back, every three-day or one-week streak trained your brain.</p>
+                        <p>People who finally succeed cycle through “slip → reset → adjust.” Each reset gets them closer to smoke-free.</p>
+                    </section>
+
+                    <section class="module" data-badge="04">
+                        <h2>The painless three-step exit</h2>
+                        <h3>You don’t have to fight yourself to quit</h3>
+                        <p><strong>Step 1: Change the script.</strong> Stop saying “I’m trying to quit.” Say “I’m a non-smoker re-training myself.” A new identity makes cigarettes feel out of character.</p>
+                        <p><strong>Step 2: Interrupt the trigger.</strong> When the urge hits, pause for a few seconds. If your hand reaches for the pack, tell yourself, “I choose not to light up right now.” That micro-gap interrupts the automatic motion.</p>
+                        <p><strong>Step 3: Prepare a substitute.</strong> Smoking is a routine as much as an addiction. Your hands want an anchor and your mind wants rhythm. Give it alternatives: gum, a warm mug, two minutes of pacing. Swap the outlet instead of punishing yourself.</p>
+                    </section>
+
+                    <section class="module" data-badge="05">
+                        <h2>A final word</h2>
+                        <h3>You haven’t failed countless times—you’re edging closer to success</h3>
+                        <p>Quitting isn’t a single grand gesture. It’s a long negotiation with yourself: dismantling triggers, installing a new identity. If you’re willing to restart, you haven’t failed.</p>
+                        <blockquote>Write one sentence today: “I am a non-smoker.” Repeat it dozens of times. Talk to yourself throughout the day. It sounds simple, but over time you’ll start to live as the person in that sentence.</blockquote>
+                        <div class="article-footer">
+                            <h3>Let your next sentence lead the way</h3>
+                            <a class="cta-button" href="/start?path=break-bad" target="_blank" rel="noopener">Write your first identity line now</a>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <span data-text-zh="自语力" data-text-en="SelfTalk">自语力</span> SelfTalk. All rights reserved.</p>
+        <p data-text-zh="用科学的方法，成就更好的自己" data-text-en="Transform yourself with science-based methods">用科学的方法，成就更好的自己</p>
+    </footer>
+
+    <script>
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const contentBlocks = document.querySelectorAll('.content[data-lang]');
+        const titleNode = document.querySelector('title');
+
+        function switchLanguage(lang) {
+            langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+            contentBlocks.forEach(block => block.classList.toggle('active', block.dataset.lang === lang));
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            if (titleNode) {
+                const zhTitle = titleNode.getAttribute('data-title-zh');
+                const enTitle = titleNode.getAttribute('data-title-en');
+                titleNode.textContent = lang === 'zh' ? zhTitle : enTitle;
+            }
+
+            document.querySelectorAll('[data-text-zh]').forEach(node => {
+                const zh = node.getAttribute('data-text-zh');
+                const en = node.getAttribute('data-text-en');
+                if (lang === 'zh' && zh) {
+                    node.textContent = zh;
+                } else if (en) {
+                    node.textContent = en;
+                }
+            });
+
+            try {
+                localStorage.setItem('insight-lang', lang);
+            } catch (error) {
+                // ignore
+            }
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        const paramLang = params.get('lang');
+        const saved = (() => {
+            try {
+                return localStorage.getItem('insight-lang');
+            } catch (error) {
+                return null;
+            }
+        })();
+
+        if (paramLang === 'en' || paramLang === 'zh') {
+            switchLanguage(paramLang);
+        } else if (saved === 'en' || saved === 'zh') {
+            switchLanguage(saved);
+        }
+    </script>
+</body>
+</html>

@@ -453,6 +453,58 @@
             margin: 0 0 2rem;
         }
 
+        .plan-recorder {
+            margin-bottom: 2.5rem;
+            padding: 1.75rem;
+            border-radius: 18px;
+            border: 1px solid rgba(16, 185, 129, 0.18);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(251, 146, 60, 0.08) 100%);
+            display: grid;
+            gap: 1.2rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .plan-recorder.is-disabled {
+            opacity: 0.55;
+        }
+
+        .plan-recorder.is-unsupported {
+            opacity: 0.7;
+        }
+
+        .plan-recorder-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .plan-recorder-header p {
+            margin: 0.35rem 0 0;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .plan-recorder-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .plan-recorder-controls .cta-button {
+            min-width: 140px;
+        }
+
+        .plan-recorder-status {
+            margin: 0;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .plan-recorder audio {
+            width: 100%;
+        }
+
         .plan-progress {
             margin-bottom: 2rem;
         }
@@ -540,11 +592,53 @@
             box-shadow: 0 10px 24px rgba(16, 185, 129, 0.12);
         }
 
+        .plan-day-card.is-collapsed .plan-day-body,
+        .plan-day-card.is-collapsed .plan-day-prompts,
+        .plan-day-card.is-collapsed .plan-day-tags,
+        .plan-day-card.is-collapsed .plan-day-trackers {
+            display: none;
+        }
+
+        .plan-day-card .plan-day-brief {
+            display: none;
+            color: var(--gray);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .plan-day-card.is-collapsed .plan-day-brief {
+            display: block;
+        }
+
+        .plan-day-toggle {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .plan-day-toggle:hover {
+            text-decoration: underline;
+        }
+
         .plan-day-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             gap: 1rem;
+        }
+
+        .plan-day-header-main {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem;
         }
 
         .plan-day-number {
@@ -1036,7 +1130,7 @@
                             <p class="category-description">戒烟、戒酒、减少刷手机、改掉拖延症等</p>
                             <div class="habit-options">
                                 <div class="habit-option">
-                                    <input type="radio" name="habit" value="quit-smoking" id="quit-smoking" data-script="quit-smoking">
+                                    <input type="radio" name="habit" value="quit-smoking" id="quit-smoking" data-script="quit-smoking" checked>
                                     <label for="quit-smoking">戒烟</label>
                                 </div>
                                 <div class="habit-option">
@@ -1181,6 +1275,20 @@
                         <p class="muted reminder-note">我们会在本地保存提醒标记，并引导你把练习写进日历或待办。</p>
                     </div>
 
+                    <div class="plan-recorder is-disabled" data-recorder-locale="zh">
+                        <div class="plan-recorder-header">
+                            <h3>语音练习区</h3>
+                            <p>生成计划后，立刻练习念出核心语句。所有音频仅保留在你的装置中。</p>
+                        </div>
+                        <div class="plan-recorder-controls">
+                            <button type="button" class="cta-button" data-recorder-start>开始录音</button>
+                            <button type="button" class="cta-button secondary" data-recorder-stop disabled>停止</button>
+                            <a class="cta-button secondary" data-recorder-download hidden download="selftalk-practice-zh.webm">下载录音</a>
+                        </div>
+                        <p class="plan-recorder-status" data-recorder-status>选择一个模板并生成计划后，就能在这里练习录音。</p>
+                        <audio controls data-recorder-audio hidden></audio>
+                    </div>
+
                     <div class="plan-days" id="plan-days-zh">
                         <div class="plan-empty" id="plan-empty-zh">请选择一个模板后查看每日脚本与行动提示。</div>
                         <ol class="plan-day-list" id="plan-day-list-zh"></ol>
@@ -1262,7 +1370,7 @@
                             <p class="category-description">Quit smoking, reduce drinking, limit phone doom scrolling</p>
                             <div class="habit-options">
                                 <div class="habit-option">
-                                    <input type="radio" name="habit-en" value="quit-smoking" id="quit-smoking-en" data-script="quit-smoking">
+                                    <input type="radio" name="habit-en" value="quit-smoking" id="quit-smoking-en" data-script="quit-smoking" checked>
                                     <label for="quit-smoking-en">Quit Smoking</label>
                                 </div>
                                 <div class="habit-option">
@@ -1401,6 +1509,20 @@
                             <span>Remind me each day to replay and take action</span>
                         </label>
                         <p class="muted reminder-note">We'll store this preference locally and prompt you to add calendar or to-do reminders.</p>
+                    </div>
+
+                    <div class="plan-recorder is-disabled" data-recorder-locale="en">
+                        <div class="plan-recorder-header">
+                            <h3>Voice rehearsal zone</h3>
+                            <p>Once your plan loads, rehearse the key sentences out loud. The audio stays on your device only.</p>
+                        </div>
+                        <div class="plan-recorder-controls">
+                            <button type="button" class="cta-button" data-recorder-start>Start recording</button>
+                            <button type="button" class="cta-button secondary" data-recorder-stop disabled>Stop</button>
+                            <a class="cta-button secondary" data-recorder-download hidden download="selftalk-practice-en.webm">Download</a>
+                        </div>
+                        <p class="plan-recorder-status" data-recorder-status>Pick a template and generate the plan to start recording practice here.</p>
+                        <audio controls data-recorder-audio hidden></audio>
                     </div>
 
                     <div class="plan-days" id="plan-days-en">
@@ -1576,6 +1698,7 @@
 })();
 </script>
 
+<script src="../assets/js/inline-scripts.js"></script>
 <script src="../assets/js/start-flow.js"></script>
 
 </body>
