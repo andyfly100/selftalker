@@ -1623,7 +1623,7 @@
         </div>
 
         <!-- 英文内容 -->
-        <div class="content" data-lang="en">
+        <div class="content active" data-lang="en">
             <section class="hero" id="hero-en">
                 <div class="hero-content">
                     <p class="hero-eyebrow">Quit without pain</p>
@@ -1859,10 +1859,10 @@
 
             // 保存语言设置到本地
             try {
-                localStorage.setItem('preferred-language', lang);
+                localStorage.setItem('preferred-language-v2', lang);
             } catch(e) {
                 // 如果localStorage不可用，使用cookie
-                document.cookie = `preferred-language=${lang}; path=/; max-age=31536000`;
+                document.cookie = `preferred-language-v2=${lang}; path=/; max-age=31536000`;
             }
         }
 
@@ -1872,13 +1872,13 @@
             
             // 尝试从localStorage或cookie获取保存的语言
             try {
-                savedLang = localStorage.getItem('preferred-language') || 'en';
+                savedLang = localStorage.getItem('preferred-language-v2') || 'en';
             } catch(e) {
                 // 从cookie获取
                 const cookies = document.cookie.split(';');
                 for(let cookie of cookies) {
                     const [name, value] = cookie.trim().split('=');
-                    if(name === 'preferred-language') {
+                    if(name === 'preferred-language-v2') {
                         savedLang = value;
                         break;
                     }

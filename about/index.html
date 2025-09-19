@@ -903,13 +903,13 @@
             // 从URL参数或localStorage获取语言设置
             const urlParams = new URLSearchParams(window.location.search);
             const urlLang = urlParams.get('lang');
-            const savedLang = localStorage.getItem('preferred-language');
+            const savedLang = localStorage.getItem('preferred-language-v2');
             
             const selectedLang = urlLang || savedLang || defaultLang;
             switchLanguage(selectedLang);
             
             // 保存语言选择
-            localStorage.setItem('preferred-language', selectedLang);
+            localStorage.setItem('preferred-language-v2', selectedLang);
 
             // 添加滚动效果
             window.addEventListener('scroll', function() {
@@ -948,7 +948,7 @@
             btn.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 switchLanguage(lang);
-                localStorage.setItem('preferred-language', lang);
+                localStorage.setItem('preferred-language-v2', lang);
             });
         });
     </script>
